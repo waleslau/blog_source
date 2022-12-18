@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "gen": "joplin-blog blog",
+    "show": "hexo c && hexo g && hexo s",
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
@@ -23,5 +25,8 @@
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^3.0.0",
     "hexo-theme-fluid": "^1.8.14"
+  },
+  "devDependencies": {
+    "joplin-blog": "^0.9.4"
   }
 }
