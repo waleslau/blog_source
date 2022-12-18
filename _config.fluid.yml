@@ -969,9 +969,10 @@ about:
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
   # More icons can be found from https://hexo.fluid-dev.com/docs/en/icon/  `class` is the css class of the icon. If adding `qrcode`, The icon is no longer a link, but a hovering QR code
   icons:
-    - { class: "iconfont icon-github-fill", link: "https://github.com/waleslau", tip: "GitHub" }
-    - { class: "iconfont icon-telegram-fill", link: "https://t.me/s/oopsky_top", tip: "Telegram" }
-    # - { class: "iconfont icon-douban-fill", link: "https://douban.com", tip: "豆瓣" }
+    - { class: "iconfont icon-github-fill", link: "https://github.com/waleslau", tip: "github" }
+    - { class: "iconfont icon-rss", link: "/atom.xml", tip: "rss" }
+    - { class: "iconfont icon-mail", link: "mailto:waleslau@foxmail.com", tip: "email" }
+    - { class: "iconfont icon-telegram-fill", link: "https://t.me/s/oopsky_top", tip: "telegram" }
     # - { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
 
 
@@ -1011,9 +1012,9 @@ links:
   banner_img: /img/banner.webp
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  # 友链的成员项
-  # Member item of page
-  items:
+  subtitle: 朋友们~ # 打字机内容
+  # 成员项
+  items: # intro 与 image 可省略
     - {
       title: "xw_y_am",
       intro: "xw_y_am",
