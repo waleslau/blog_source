@@ -17,7 +17,7 @@ tags:
 
 本来我很少用睡眠这个选项，就没太在意这个问题，但现在时间总乱就不能忍了，有没有办法可以不改其他任何配置还能解决这个问题呢？
 
-研究了一下发现可以使用 sudo chronyc makestep 手动校准，要想在在从睡眠恢复后自动执行它[^1]，则可以在`/usr/lib/systemd/system-sleep`下创建一个文件`chronyc.sleep`，内容如下：
+研究了一下发现可以使用 sudo chronyc makestep 手动校准，要想在在从睡眠恢复后自动执行它[^1]，则可以在 `/usr/lib/systemd/system-sleep` 下创建一个文件 `chronyc.sleep`，内容如下：
 
 ```bash
 #!/bin/sh
@@ -31,7 +31,7 @@ elif [ "${1}" == "post" ]; then
 fi
 ```
 
-睡眠并唤醒后查看`/tmp/systemd_sleep_log`
+睡眠并唤醒后查看 `/tmp/systemd_sleep_log`
 
 ```bash
 idea@wei-laptop:~> cat /tmp/systemd_suspend_test

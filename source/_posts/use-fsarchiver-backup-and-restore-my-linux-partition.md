@@ -36,10 +36,10 @@ sudo fsarchiver restfs /data/partition_backup/sdb1.xfs.fsa /dev/sdb2,uuid=`uuidg
 - `restfs` : 从归档恢复文件系统到设备。
 - `-Z level` : Zstd 压缩级别, 取值范围 1-22 之间
 - `-j threads` : 多线程压缩
-- `-v` : 详细模式（可以多次使用以增加详细程度，例如`-vv`）。这些细节将被打印到控制台。
+- `-v` : 详细模式（可以多次使用以增加详细程度，例如 `-vv`）。这些细节将被打印到控制台。
 - `uuid=$(uuidgen)` : 随机生成一个 uuid
 
-## 其他类似产品
+## 其他类似项目
 
 - [Clonezilla](https://clonezilla.org/)
 - [Partclone](https://partclone.org/)

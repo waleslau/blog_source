@@ -12,7 +12,7 @@ tags:
 
 要创建一个令牌，首先需要打开 [Personal access tokens](https://github.com/settings/tokens) ，点击 **Generate new token** ，接着为此令牌设置备注、过期时间并勾选适当的权限，最后点击 **Generate token** 生成令牌。
 
-然后就可以使用`https://<TOKEN>@github.com/<user_name>/<repo_name>.git`操作仓库了。
+然后就可以使用 `https://<TOKEN>@github.com/<user_name>/<repo_name>.git` 操作仓库了。
 
 例如：
 

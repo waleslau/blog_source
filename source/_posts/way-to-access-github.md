@@ -10,6 +10,10 @@ tags:
   - git
 ---
 
+{% note success %}
+在本文基础上，我增加了一点点内容，又水了一篇新博客[^5]，可以看一下，或许会有收获 😂
+{% endnote %}
+
 众所周知，GitHub 在国内常常因为不可抗力导致访问受限，在此我分享一下我用来提升 GitHub 使用体验的几个姿势
 
 ## HTTP
@@ -85,7 +89,7 @@ ProxyCommand "C:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:10808 %
 ssh -T -p 443 git@ssh.github.com
 ```
 
-如果有回显，说明此方法在你那里可行  
+如果有回显，说明此方法在你那里可行
 编辑文件 `~/.ssh/config`
 
 ```yaml
@@ -96,18 +100,19 @@ User git
 ```
 
 {% note success %}
-我发现在我这里配置后不用挂代理也有良好的连通性。所以就没加`ProxyCommand`，如果在你那里不行的话可以加上它（注意 Linux/Windos 等系统上的配置的区别）
+我发现在我这里配置后不用挂代理也有良好的连通性。所以就没加 `ProxyCommand`，如果在你那里不行的话可以加上它（注意 Linux/Windos 等系统上的配置的区别）
 {% endnote %}
 
-然后测试一下是否可以直接访问`git@github.com`
+然后测试一下是否可以直接访问 `git@github.com`
 
 ```bash
 ssh -T git@github.com
 ```
 
-如果显示`Hi username! You've successfully authenticated, but GitHub does not provide shell access.`，则说明配置有效
+如果显示 `Hi username! You've successfully authenticated, but GitHub does not provide shell access.`，则说明配置有效
 
-[^1]: https://github.com/urllib3/urllib3/issues/1035
-[^2]: https://blog.oopsky.top/2021/08/github-authenticating-by-personal-access-token
-[^3]: https://blog.oopsky.top/2022/03/ssh-over-proxy/
-[^4]: https://docs.github.com/cn/authentication/troubleshooting-ssh/using-ssh-over-the-https-port
+[^1]: [Differentiate socks5h from socks5...](https://github.com/urllib3/urllib3/issues/1035)
+[^2]: [使用令牌访问 GitHub](https://blog.oopsky.top/2021/08/github-authenticating-by-personal-access-token)
+[^3]: [给 SSH 设置代理](https://blog.oopsky.top/2022/03/ssh-over-proxy/)
+[^4]: [在 HTTPS 端口使用 SSH](https://docs.github.com/cn/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)
+[^5]: [再谈 git 与 ssh 配置](https://blog.oopsky.top/2022/12/eca39d14dbf84484939d280766dd6681/)

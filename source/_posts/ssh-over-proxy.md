@@ -20,14 +20,14 @@ tags:
 
 ```yaml
 Host <要访问的主机>
- ProxyCommand nc -x 127.0.0.1:1089 %h %p
+ProxyCommand nc -x 127.0.0.1:1089 %h %p
 ```
 
 **参数解释**
 
-`Host`后面跟需要要代理的主机名（或 ip 地址），多个主机用空格隔开，如果填写`*`则表示该配置作用于所有主机。
+`Host` 后面跟需要要代理的主机名（或 ip 地址），多个主机用空格隔开，如果填写 `*` 则表示该配置作用于所有主机。
 
-使用 `-X proxy_protocol` 指定代理服务器使用的协议。`4`代表 socks4,`5` 代表 socks5，`connect` 代表 http，如果未使用 `-X` 参数，则默认使用 socks5 协议
+使用 `-X proxy_protocol` 指定代理服务器使用的协议。`4` 代表 socks4,`5` 代表 socks5，`connect` 代表 http，如果未使用 `-X` 参数，则默认使用 socks5 协议
 
 使用 `-x proxy_address[:port]` 指定代理服务器和端口
 
@@ -35,7 +35,7 @@ Host <要访问的主机>
 
 ```yaml
 Host github.com gitee.com 111.111.111.111
- ProxyCommand nc -X connect -x 127.0.0.1:8889 %h %p
+ProxyCommand nc -X connect -x 127.0.0.1:8889 %h %p
 ```
 
 ---
@@ -50,13 +50,13 @@ ssh -o ProxyCommand="nc -x 127.0.0.1:1089 %h %p" user@server
 
 首先安装 [Git for Windows](https://git-scm.com/download/win)
 
-ssh 的配置文件的位置是`C:\Users\yourName\.ssh\config`，
+ssh 的配置文件的位置是 `C:\Users\yourName\.ssh\config`，
 
 和 linux 平台的配置不同的是，我们需要把 ProxyCommand 后面的内容改成类似下面这样
 
 ```yaml
 Host github.com gitee.com 111.111.111.111
- ProxyCommand "C:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:10808 %h %p
+ProxyCommand "C:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:10808 %h %p
 ```
 
 **参数解释**

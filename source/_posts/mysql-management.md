@@ -34,17 +34,11 @@ CREATE USER IF NOT EXISTS 'newuser'@'localhost' IDENTIFIED BY 'user_password';
 常用权限：
 
 - `ALL PRIVILEGES` –授予用户帐户所有特权。
-
 - `CREATE`–允许用户帐户创建数据库和表。
-
 - `DROP`-允许用户帐户删除数据库和表。
-
 - `DELETE` -允许用户帐户从特定表中删除行。
-
 - `INSERT` -允许用户帐户在特定表中插入行。
-
 - `SELECT` –允许用户帐户读取数据库。
-
 - `UPDATE` -允许用户帐户更新表行。
 
   [点击查看更多](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html)
@@ -87,7 +81,7 @@ mysql> DROP USER 'user'@'localhost'
 
 ## 创建/删除数据库
 
-> 把下面所有命令的`DROP`改为`CREATE`即为创建之法
+> 把下面所有命令的 `DROP` 改为 `CREATE` 即为创建之法
 
 - 在数据库视图中
 
@@ -98,7 +92,7 @@ mysql> DROP DATABASE database_name;
 mysql> DROP DATABASE IF EXISTS database_name;
 ```
 
-- 使用`mysqladmin`
+- 使用 `mysqladmin`
 
 ```bash
 $ mysqladmin -u root -p[密码] drop database_name
