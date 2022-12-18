@@ -4,8 +4,6 @@ date: 2022-07-17 17:56:43
 updated: 2022-07-17 17:56:43
 mermaid: false
 math: false
-categories:
-  - linux
 tags:
   - fsarchiver
 ---

@@ -4,8 +4,6 @@ date: 2022-04-16 23:19:37
 updated: 2022-04-16 23:19:37
 mermaid: false
 math: false
-categories:
-  - linux
 tags:
   - linux
   - systemd

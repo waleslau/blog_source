@@ -4,8 +4,6 @@ date: 2019-11-06 11:19:27
 updated: 2019-11-06 11:19:27
 mermaid: false
 math: false
-categories:
-  - tech
 tags:
   - mysql
 ---

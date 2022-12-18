@@ -4,8 +4,6 @@ date: 2022-04-17 10:40:16
 updated: 2022-04-17 10:40:16
 mermaid: false
 math: false
-categories:
-  - linux
 tags: [linux, windows]
 ---
 

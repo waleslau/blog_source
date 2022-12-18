@@ -4,8 +4,6 @@ date: 2021-08-14 16:24:31
 updated: 2021-08-14 16:24:31
 mermaid: false
 math: false
-categories:
-  - tech
 tags:
   - github
 ---

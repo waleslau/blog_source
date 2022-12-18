@@ -4,8 +4,6 @@ date: 2022-03-05 20:56:41
 updated: 2022-03-05 20:56:41
 mermaid: false
 math: false
-categories:
-  - tech
 tags:
   - ssh
   - proxy

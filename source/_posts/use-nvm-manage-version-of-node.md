@@ -4,8 +4,6 @@ date: 2022-04-22 20:35:35
 updated: 2022-04-22 20:35:35
 mermaid: false
 math: false
-categories:
-  - linux
 tags:
   - nvm
   - node
