@@ -973,7 +973,7 @@ about:
     - { class: "iconfont icon-rss", link: "/atom.xml", tip: "rss" }
     - { class: "iconfont icon-mail", link: "mailto:waleslau@foxmail.com", tip: "email" }
     - { class: "iconfont icon-telegram-fill", link: "https://t.me/s/oopsky_top", tip: "telegram" }
-    # - { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
+    - { class: "iconfont icon-wechat-fill", qrcode: "/img/wechat.webp" }
 
 
 #---------------------------

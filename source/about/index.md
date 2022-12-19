@@ -7,7 +7,3 @@ layout: about
 ## About Me
 
 - 貌似是个零零后.
-
-## Contact
-
-- Email：d2FsZXNsYXVAZm94bWFpbC5jb20K
