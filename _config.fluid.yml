@@ -1052,26 +1052,27 @@ links:
       avatar: "https://q2.qlogo.cn/g?b=qq&nk=921593279&s=100"
     }
     - {
-      title: "Nibbles Blog - 半字节博客",
-      intro: "专注于学习笔记，技术教程以及推荐和软硬件测评内容分享！",
+      title: "Nibbles Blog",
+      intro: "半字节博客",
       link: "https://nibbles.cool",
       avatar: "https://storage.nibbles.cool/uploads/2022/04/5db8de8f842ec30b7ece7ced6a804ce4.jpg"
     }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
-  onerror_avatar: /img/favicon.webp
+  onerror_avatar: /img/links/noicon.webp
+  # https://icons8.com/icon/80933/question-mark
 
   # 友链下方自定义区域，支持 HTML，可插入例如申请友链的文字
   # Custom content at the bottom of the links
   custom:
-    enable: false
-    content: '<hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Fluid</li><li>简介：Fluid 主题官方博客</li><li>链接：https://hexo.fluid-dev.com</li><li>图片：https://hexo.fluid-dev.com/img/favicon.png</li></ul>'
+    enable: ture
+    content: '<hr><p>需要友链？请在评论区按下面格式提供您的信息：</p><ul><li>名称：热心市民 L 先生</li><li>简介：我在互联网上的自留地.</li><li>地址：https://blog.oopsky.top</li><li>头像：https://s.gravatar.com/avatar/c9bd371e658a4bfb4710cadf0c6af465?s=180</li></ul><p>目前只接受纯粹的个人博客哦，欢迎交换友链~</p><p>很抱歉，之前丢失过一次数据，有些小伙伴的友链可能没加回来，如若看到请务必提醒我🌹</p>'
 
   # 评论插件
   # Comment plugin
   comments:
-    enable: false
+    enable: ture
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus
