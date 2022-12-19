@@ -1,11 +1,13 @@
 ---
 title: GIT 常用命令
-date: 2022-02-22 12:57:58
-updated: 2022-02-22 12:57:58
 mermaid: false
 math: false
 tags:
   - git
+abbrlink: 1a7cb740
+date: 2022-02-22 12:57:58
+updated: 2022-02-22 12:57:58
+permalink:
 ---
 
 ```bash

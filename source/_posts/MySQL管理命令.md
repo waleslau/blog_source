@@ -1,11 +1,13 @@
 ---
 title: MySQL 管理
-date: 2020-01-22 22:56:22
-updated: 2020-01-22 22:56:22
 mermaid: false
 math: false
 tags:
   - mysql
+abbrlink: 3e4584c0
+date: 2020-01-22 22:56:22
+updated: 2020-01-22 22:56:22
+permalink:
 ---
 
 登陆数据库系统：

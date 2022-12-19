@@ -14,11 +14,19 @@ timezone: "Asia/Shanghai"
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://blog.oopsky.top
-permalink: :year/:month/:title/
+root: /
+# permalink: :year/:month/:title/
+permalink: p/:abbrlink/
+# permalink: p/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# abbrlink config
+abbrlink:
+  alg: crc32 #support crc16(default) and crc32
+  rep: hex #support dec(default) and hex
 
 # Directory
 source_dir: source
@@ -28,6 +36,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
+# skip_render:
 skip_render: README.md
 
 # Writing
@@ -46,7 +55,8 @@ future: true # 禁止超前发布，如果是未来的日期，则不会显示�
 
 highlight:
   enable: true
-  line_number: true
+  # line_number: true
+  line_number: false
   auto_detect: false
   tab_replace: "  "
   wrap: true
@@ -83,7 +93,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: "mtime"
+updated_option: "mtime" # 如果没有 updated 字段就将更新时间设为文件的更新时间
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -104,9 +114,10 @@ theme: fluid
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repository: https://github.com/waleslau/blog.git
-  branch: gh-pages
+  type: ""
+  # type: git
+  # repository: https://github.com/waleslau/blog.git
+  # branch: gh-pages
 
 # 启用 rss
 feed:

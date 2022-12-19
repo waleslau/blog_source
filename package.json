@@ -14,12 +14,8 @@
     "version": "6.3.0"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "hexo": "^6.1.0",
-=======
     "hexo": "^6.3.0",
     "hexo-abbrlink": "^2.2.1",
->>>>>>> f438a4a (npm update)
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-feed": "^3.0.0",

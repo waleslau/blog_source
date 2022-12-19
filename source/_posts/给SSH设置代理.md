@@ -1,13 +1,15 @@
 ---
 title: 给 SSH 设置代理
-date: 2022-03-05 20:56:41
-updated: 2022-03-05 20:56:41
 mermaid: false
 math: false
 tags:
   - ssh
   - proxy
   - git
+abbrlink: 537127c9
+date: 2022-03-05 20:56:41
+updated: 2022-03-05 20:56:41
+permalink:
 ---
 
 ## 前言

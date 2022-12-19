@@ -1,13 +1,15 @@
 ---
 title: 突破网络限制访问 GitHub
-date: 2022-03-29 22:10:42
-updated: 2022-03-29 22:10:42
+permalink:
 mermaid: false
 math: false
 tags:
   - ssh
   - proxy
   - git
+abbrlink: d9b06e75
+date: 2022-03-29 22:10:42
+updated: 2022-12-18 22:10:42
 ---
 
 {% note success %}

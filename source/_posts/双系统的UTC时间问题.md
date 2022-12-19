@@ -1,10 +1,14 @@
 ---
 title: Windows/Linux 双系统的时间问题
-date: 2022-04-17 10:40:16
-updated: 2022-04-17 10:40:16
 mermaid: false
 math: false
-tags: [linux, windows]
+tags:
+  - linux
+  - windows
+abbrlink: 3a3b0b78
+date: 2022-04-17 10:40:16
+updated: 2022-04-17 10:40:16
+permalink:
 ---
 
 上一篇文章里我提到了一种自动在唤醒后同步时间的方法[^1]（不修改硬件时钟）
