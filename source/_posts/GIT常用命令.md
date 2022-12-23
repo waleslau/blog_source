@@ -9,7 +9,6 @@ date: 2022-02-22 12:57:58
 updated: 2022-02-22 12:57:58
 permalink:
 ---
-
 ```bash
 # 切换分支
 git switch <branch>

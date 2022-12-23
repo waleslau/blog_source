@@ -10,7 +10,6 @@ date: 2022-04-17 10:40:16
 updated: 2022-04-17 10:40:16
 permalink:
 ---
-
 上一篇文章里我提到了一种自动在唤醒后同步时间的方法[^1]（不修改硬件时钟）
 
 But，如果仅仅是这样的话，当我在命令行中敲下 `timedatectl` 时，它会给我一个警告：
@@ -48,4 +47,6 @@ Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsU
 或者打开「注册表编辑器」，定位到 `计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation` 目录，在该目录下新建一个 `DWORD` 类型，名称为 `RealTimeIsUniversal` 的键，并修改键值为 `1` 即可。
 
 [^1]: [在 Linux 系统睡眠/从睡眠唤醒时自动运行脚本](https://blog.oopsky.top/2022/04/running-scripts-before-and-after-suspend-with-systemd/)
+
+
 [^2]: [Linux Windows 双系统时间不一致](https://sspai.com/post/55983)

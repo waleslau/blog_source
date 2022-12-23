@@ -11,7 +11,6 @@ abbrlink: d9b06e75
 date: 2022-03-29 22:10:42
 updated: 2022-12-18 22:10:42
 ---
-
 {% note success %}
 在本文基础上，我增加了一点点内容，又水了一篇新博客[^5]，可以看一下，或许会有收获 😂
 {% endnote %}
@@ -114,7 +113,15 @@ ssh -T git@github.com
 如果显示 `Hi username! You've successfully authenticated, but GitHub does not provide shell access.`，则说明配置有效
 
 [^1]: [Differentiate socks5h from socks5...](https://github.com/urllib3/urllib3/issues/1035)
+
+
 [^2]: [使用令牌访问 GitHub](https://blog.oopsky.top/2021/08/github-authenticating-by-personal-access-token)
+
+
 [^3]: [给 SSH 设置代理](https://blog.oopsky.top/2022/03/ssh-over-proxy/)
+
+
 [^4]: [在 HTTPS 端口使用 SSH](https://docs.github.com/cn/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)
+
+
 [^5]: [再谈 git 与 ssh 配置](https://blog.oopsky.top/2022/12/eca39d14dbf84484939d280766dd6681/)
