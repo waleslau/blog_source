@@ -18,7 +18,7 @@ npm install pnpm
 pnpm install
 export TZ='Asia/Shanghai'
 echo 'IF9fX19fX19fX19fX19fX19fX19fX19fX19fXyAKPCBleHBvcnQgVFo9J0FzaWEvU2hhbmdoYWknID4KIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAKICAgICAgICBcICAgXl9fXgogICAgICAgICBcICAob28pXF9fX19fX18KICAgICAgICAgICAgKF9fKVwgICAgICAgKVwvXAogICAgICAgICAgICAgICAgfHwtLS0tdyB8CiAgICAgICAgICAgICAgICB8fCAgICAgfHwK' | base64 -d
-pnpm gg
+pnpm hexo generate
 
 # 如果是在 github actions、cloudflare pages、vercel等平台部署，
 # 把构建命令改成 /build.sh 即可

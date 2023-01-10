@@ -2,8 +2,8 @@
   "name": "blog",
   "scripts": {
     "gen": "pnpm mami",
-    "cc": "pnpm hexo clean",
-    "gg": "pnpm hexo generate",
+    "cg": "pnpm hexo clean && pnpm hexo generate",
+    "cgs": "pnpm hexo clean && pnpm hexo generate && pnpm hexo server",
     "gs": "pnpm hexo generate && pnpm hexo server",
     "ss": "pnpm hexo server",
     "new": "pnpm hexo new"
