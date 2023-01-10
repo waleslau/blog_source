@@ -16,7 +16,7 @@ timezone: "Asia/Shanghai"
 url: https://blog.oopsky.top
 root: /
 # permalink: :year/:month/:title/
-permalink: p/:abbrlink/
+permalink: post/:abbrlink/
 # permalink: p/:title/
 permalink_defaults:
 pretty_urls:
@@ -61,7 +61,7 @@ highlight:
   tab_replace: "  "
   wrap: true
   hljs: false
-  
+
 prismjs:
   enable: false
   preprocess: true
