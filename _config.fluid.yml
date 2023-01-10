@@ -890,7 +890,7 @@ archive:
 # Category Page
 #---------------------------
 category:
-  enable: false
+  enable: true
   banner_img: /img/banner.webp
   banner_img_height: 60
   banner_mask_alpha: 0.3
