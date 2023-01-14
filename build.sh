@@ -4,7 +4,7 @@
 if test -s /etc/passwd && test -s /etc/os-release; then
     echo "You are use Linux now."
     # install pandoc
-    if $(test -s $(pwd)/pandoc-2.19.2/bin/pandoc) || $(command -v pandoc >/dev/null 2>&1); then
+    if $(test -s $(pwd)/pandoc-2.19.2/bin/pandoc) || hash pandoc 2>/dev/null; then
         echo 'already have pandoc here.'
     else
         echo -e "\e[36m install pandoc \e[0m"
@@ -14,7 +14,7 @@ if test -s /etc/passwd && test -s /etc/os-release; then
     fi
     
     # install mdfmt
-    if $(test -s $(pwd)/pandoc-2.19.2/bin/mdfmt) || $(command -v mdfmt >/dev/null 2>&1); then
+    if $(test -s $(pwd)/pandoc-2.19.2/bin/mdfmt) || hash mdfmt 2>/dev/null; then
         echo 'already have mdfmt here.'
     else
         echo -e "\e[36m install mdfmt \e[0m"
@@ -40,7 +40,7 @@ else
     echo "already have nvm here, or you are use Widows now."
 fi
 
-if $(command -v pnpm >/dev/null 2>&1); then
+if hash pnpm 2>/dev/null; then
     echo 'already have pnpm here.'
 else
     npm install -g pnpm
