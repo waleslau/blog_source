@@ -65,6 +65,7 @@ fi
 # build blog
 echo -e "\e[36m build blog \e[0m"
 export TZ='Asia/Shanghai'
+pnpm hexo clean
 pnpm hexo generate
 
 # 如果是在 github actions、cloudflare pages、vercel等平台部署，
