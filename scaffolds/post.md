@@ -6,5 +6,5 @@ mermaid: false
 math: false
 permalink:
 categories:
-tags: [,]
+tags:
 ---
