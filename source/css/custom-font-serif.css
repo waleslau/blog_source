@@ -1,0 +1,17 @@
+@import url("https://npm.elemecdn.com/@wc1font/source-han-serif-sc-vf/font.css");
+/* @import url("https://npm.elemecdn.com/@fontsource/fira-code/400.css"); */
+@import url("https://npm.elemecdn.com/@fontsource/fira-mono/400.css");
+
+html,
+body,
+.markdown-body {
+  /* 此处覆盖了主题配置里的 font_family 字段*/
+  font-family: "Source Han Serif SC VF", sans-serif;
+  font-weight: 400;
+}
+
+.markdown-body code {
+  /* font-family: "Fira Code", "Source Han Serif SC VF", monospace; */
+  font-family: "Fira Mono", "Source Han Serif SC VF", monospace;
+  font-weight: 400;
+}

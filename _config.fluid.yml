@@ -203,19 +203,21 @@ color:
 # Font
 font:
   font_size: 16px
-  font_family: '"LXGW WenKai",sans-serif'
+  font_family:
   # letter_spacing: 0.02em
   code_font_size: 85%
 
 # 指定自定义 .js 文件路径，支持列表；路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js
 # Specify the path of your custom js file, support list. The path is relative to the source directory, such as `/js/custom.js` corresponding to the directory `source/js/custom.js`
 custom_js: 
-# custom_js: https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js
+  # - https://xxx.xx/xxx.js
+  # - /pah/to/xxx.js
+
 
 # 指定自定义 .css 文件路径，用法和 custom_js 相同
 # The usage is the same as custom_js
-custom_css: https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/style.css
-
+custom_css: 
+  # - /css/custom-font-lxgw.css
 # 网页访问统计
 # Analysis of website visitors
 web_analytics:  # 网页访问统计
@@ -422,7 +424,11 @@ footer:
     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+    <link rel="stylesheet" href="/css/custom-font-lxgw.css">
+    <script  src="/js/custom.js" ></script>
   '
+# <link rel="stylesheet" href="/css/custom-font-serif.css">
+# <script  src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js" ></script>
 
   # 展示网站的 PV、UV 统计数
   # Display website PV and UV statistics
