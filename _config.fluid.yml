@@ -1045,8 +1045,20 @@ links:
   # Custom content at the bottom of the links
   custom:
     enable: ture
-    content: '<hr><p>需要友链？请在评论区按下面格式提供您的信息：</p><ul><li>名称：热心市民 L 先生</li><li>简介：我在互联网上的自留地.</li><li>地址：https://blog.oopsky.top</li><li>头像：https://s.gravatar.com/avatar/c9bd371e658a4bfb4710cadf0c6af465?s=180</li></ul><p>目前只接受纯粹的个人博客哦，欢迎交换友链~</p><p>很抱歉，之前丢失过一次数据，有些小伙伴的友链可能没加回来，如若看到请务必提醒我🌹</p>'
-
+    content: '<hr><p>需要友链？请在评论区按下面格式提供您的信息：</p><ul><li>名称：热心市民 L 先生</li>
+                 <li>简介：我在互联网上的自留地.</li>
+                 <li>地址：https://blog.oopsky.top</li>
+                 <li>头像：https://sdn.geekzu.org/avatar/c9bd371e658a4bfb4710cadf0c6af465?s=180</li>
+                 </ul><p>目前只接受纯粹的个人博客哦，欢迎交换友链~</p>
+                 <p>很抱歉，之前丢失过一次数据，有些小伙伴的友链可能没加回来，如若看到请务必提醒我🌹</p>'
+    # https://cn.gravatar.com/avatar/c9bd371e658a4bfb4710cadf0c6af465?s=180
+    # https://s.gravatar.com/avatar/c9bd371e658a4bfb4710cadf0c6af465?s=180
+    # 一些国内 gravatar 镜像
+    # https://sdn.geekzu.org/avatar/c9bd371e658a4bfb4710cadf0c6af465?s=180
+    # https://cdn.sep.cc/avatar/c9bd371e658a4bfb4710cadf0c6af465?s=180
+    # https://gravatar.kuibu.net/avatar/c9bd371e658a4bfb4710cadf0c6af465?s=180
+    # https://gravatar.loli.net/avatar/c9bd371e658a4bfb4710cadf0c6af465?s=180
+  
   # 评论插件
   # Comment plugin
   comments:
