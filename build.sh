@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # init pandoc and mdfmt
-if test -s /etc/passwd && test -s /etc/os-release; then
+if [ "$(uname -s)" = "Linux" ]; then
     echo "You are use Linux now."
     # install pandoc
     if $(test -s $(pwd)/pandoc-2.19.2/bin/pandoc) || hash pandoc 2>/dev/null; then
@@ -27,7 +27,7 @@ else
 fi
 
 # init nodejs-lts
-if test -s /etc/passwd && test -s /etc/os-release && test ! -d $HOME/.nvm; then
+if [ "$(uname -s)" = "Linux" ] && test ! -d $HOME/.nvm; then
     echo -e "\e[36m init nodejs-lts \e[0m"
     curl -o- https://cdn.jsdelivr.net/gh/nvm-sh/nvm/install.sh | bash
     export NVM_DIR="$HOME/.nvm"
@@ -55,7 +55,7 @@ curl http://127.0.0.1:41184 >/dev/null 2>&1 && echo -e "\e[36m pnpm mami ... \e[
 echo -e "\e[36m do mdfmt ... \e[0m"
 for i in $(ls source/_posts); do mdfmt -w source/_posts/$i; done
 
-if test -s /etc/passwd && test -s /etc/os-release; then
+if [ "$(uname -s)" = "Linux" ]; then
     echo "You are use Linux now."
 else
     echo -e "\e[36m Widows: LF --> CRLF \e[0m"

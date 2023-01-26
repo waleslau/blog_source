@@ -2,7 +2,7 @@
 echo -e "\e[36m do mdfmt -w posts.md ... \e[0m"
 for i in $(ls source/_posts); do mdfmt -w source/_posts/$i; done
 
-if test -s /etc/passwd && test -s /etc/os-release; then
+if [ "$(uname -s)" = "Linux" ]; then
     echo "You are use Linux now."
 else
     echo -e "\e[36m Widows: LF --> CRLF \e[0m"
