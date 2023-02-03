@@ -328,7 +328,7 @@ navbar:
   menu:
     - { key: "home", link: "/", icon: "iconfont icon-home-fill" }
     - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
-    # - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
+    - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
     # - { key: "碎碎念", link: "/talk/", icon: "iconfont icon-speakernotes" }
