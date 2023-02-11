@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        @font-face {
+            font-family: Fusion-Pixel;
+            src: url("fusion-pixel.OnlyRequire.woff2");
+        }
+
+        @font-face {
+            font-family: JingNanJunJunTi;
+            src: url("./JingNanJunJunTi.OnlyRequire.woff2");
+        }
+
+        @font-face {
+            font-family: LXGWMarkerGothic;
+            src: url("./LXGWMarkerGothic.OnlyRequire.woff2");
+        }
+
+        .f1,
+        .f1 code {
+            font-family: Fusion-Pixel, sans-serif;
+        }
+
+        .f2,
+        .f2 code {
+            font-family: JingNanJunJunTi, sans-serif;
+        }
+
+        .f3,
+        .f3 code {
+            font-family: LXGWMarkerGothic, sans-serif;
+        }
+
+        .title {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            width: 32%;
+            margin: auto;
+            margin-top: 0;
+            border-radius: 10px;
+        }
+
+        p {
+            word-wrap: break-word;
+            text-align: left;
+        }
+
+        body {
+            background-color: #d6ecf0;
+        }
+
+        code {
+            background-color: #f2fdff;
+        }
+    </style>
+    <script>
+        function readTextFile(file) {
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, false);
+            rawFile.onreadystatechange = function () {
+                if (rawFile.readyState === 4) {
+                    if (rawFile.status === 200 || rawFile.status == 0) {
+                        var allText = rawFile.responseText;
+                        document.getElementById("text1").innerHTML = allText;
+                        document.getElementById("text2").innerHTML = allText;
+                        document.getElementById("text3").innerHTML = allText;
+                    }
+                }
+            };
+            rawFile.send(null);
+        }
+    </script>
+</head>
+
+<body onload="readTextFile('characters_count.txt')">
+    <div class="container">
+        <div class="column">
+            <p class="title">Fusion-Pixel</p>
+            <p class="subtitle">缝合怪像素字体</p>
+            <div class="f1">
+                <h1>H1</h1>
+                <h2>H2</h2>
+                <h3>H3</h3>
+                <h4>H4</h4>
+                <h5>H5</h5>
+                <h6>H6</h6>
+                <p>段落</p>
+                <p>我能吞下玻璃而不伤身体</p>
+                <p>The quick brown fox jumps over the lazy dog</p>
+                <code>代码块 <--> This is code <--< </code>
+                <p id="text1"></p>
+                <code></code>
+                </p>
+            </div>
+        </div>
+        <div class="column">
+            <p class="title">JingNanJunJunTi</p>
+            <p class="subtitle">荆南俊俊体</p>
+            <div class="f2">
+                <h1>H1</h1>
+                <h2>H2</h2>
+                <h3>H3</h3>
+                <h4>H4</h4>
+                <h5>H5</h5>
+                <h6>H6</h6>
+                <p>段落</p>
+                <p>我能吞下玻璃而不伤身体</p>
+                <p>The quick brown fox jumps over the lazy dog</p>
+                <code>代码块 <--> This is code <--< </code>
+                <p id="text2"></p>
+                <code></code>
+                </p>
+            </div>
+        </div>
+        <div class="column">
+            <p class="title">LXGWMarkerGothic</p>
+            <p class="subtitle">霞鹜漫黑</p>
+            <div class="f3">
+                <h1>H1</h1>
+                <h2>H2</h2>
+                <h3>H3</h3>
+                <h4>H4</h4>
+                <h5>H5</h5>
+                <h6>H6</h6>
+                <p>段落</p>
+                <p>我能吞下玻璃而不伤身体</p>
+                <p>The quick brown fox jumps over the lazy dog</p>
+                <code>代码块 <--> This is code <--< </code>
+                <p id="text3"></p>
+                <code></code>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
