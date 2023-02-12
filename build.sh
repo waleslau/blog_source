@@ -27,7 +27,7 @@ else
 fi
 
 # init nodejs-lts
-if [ "$(uname -s)" = "Linux" ] && test ! -d $HOME/.nvm; then
+if [ "$(uname -s)" = "Linux" ] && test ! -d $HOME/.nvm && test ! -d $HOME/.local/share/nvs; then
     echo -e "\e[36m init nodejs-lts \e[0m"
     curl -o- https://cdn.jsdelivr.net/gh/nvm-sh/nvm/install.sh | bash
     export NVM_DIR="$HOME/.nvm"
@@ -36,8 +36,8 @@ if [ "$(uname -s)" = "Linux" ] && test ! -d $HOME/.nvm; then
     nvm install --lts
     nvm use --lts
     nvm alias default lts/*
-else
-    echo "already have nvm here, or you are use Widows now."
+    elif hash node 2>/dev/null; then
+    echo "already have nodejs here."
 fi
 
 if hash pnpm 2>/dev/null; then
