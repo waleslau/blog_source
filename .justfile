@@ -1,5 +1,3 @@
-lf_to_crlf := if os() == 'windows' { 'fd . -e md source/_posts/ -X sd "\n" "\r\n"' } else { '' }
-
 @_default:
     just --fmt --unstable
     git add .justfile
@@ -8,8 +6,12 @@ lf_to_crlf := if os() == 'windows' { 'fd . -e md source/_posts/ -X sd "\n" "\r\n
 gen:
     pnpm mami
     fd . -e md source/_posts/ -X mdfmt -w
-    {{ lf_to_crlf }}
-    git status
+    @[ {{ os() }} = 'windows' ] && fd . -e md source/_posts/ -X sd "\n" "\r\n"
+    git status -s
+
+# generate html
+g:
+    pnpm hexo generate
 
 # clean then generate html
 cg:
@@ -17,7 +19,7 @@ cg:
     pnpm hexo generate
 
 # server
-s: cg
+s: g
     miniserve -v --index=index.html public
     # cd public && python3 -m http.server 8080
     # pnpm hexo server
