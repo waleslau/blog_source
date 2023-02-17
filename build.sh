@@ -27,16 +27,14 @@ else
 fi
 
 # init nodejs-lts
-if [ "$(uname -s)" = "Linux" ] && test ! -d $HOME/.nvm && test ! -d $HOME/.local/share/nvs; then
+if [ "$(uname -s)" = "Linux" ] && test ! -d $HOME/.n; then
     echo -e "\e[36m init nodejs-lts \e[0m"
-    curl -o- https://cdn.jsdelivr.net/gh/nvm-sh/nvm/install.sh | bash
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-    nvm install --lts
-    nvm use --lts
-    nvm alias default lts/*
-    elif hash node 2>/dev/null; then
+    export N_PREFIX=$HOME/.n
+    export PATH="$HOME/.n/bin:$PATH"
+    bash <(curl -L https://raw.gitmirror.com/tj/n/master/bin/n) lts
+fi
+
+if hash node &>/dev/null; then
     echo "already have nodejs here."
 fi
 
@@ -44,8 +42,9 @@ if hash pnpm 2>/dev/null; then
     echo 'already have pnpm here.'
 else
     npm install -g pnpm
-    pnpm install
 fi
+
+pnpm install
 
 # gen
 
