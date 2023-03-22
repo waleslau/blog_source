@@ -1,13 +1,18 @@
-@_default:
+crlf_format := if os_family() == "windows" { 'fd . -e md source/_posts/ -X sd "\n" "\r\n"' } else { "uname -sm" }
+
+_fmt:
     just --fmt --unstable
     git add .justfile
+    just --choose
 
 # gen contents from joplin
 gen:
+    curl http://127.0.0.1:41184 >/dev/null 2>&1
     pnpm mami
     fd . -e md source/_posts/ -X mdfmt -w
-    @[ {{ os() }} = 'windows' ] && fd . -e md source/_posts/ -X sd "\n" "\r\n"
-    git status -s
+    git add source/_posts/*
+    # {{ crlf_format }} # emmm, do not need this, git will deal with it automatically
+    # git status -s
 
 # generate html
 g:
@@ -19,7 +24,7 @@ cg:
     pnpm hexo generate
 
 # server
-s: g
+s:
     miniserve -v --index=index.html public
     # cd public && python3 -m http.server 8080
     # pnpm hexo server
