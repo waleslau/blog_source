@@ -82,7 +82,7 @@ packages:
       mdast-util-gfm: 2.0.2
       mdast-util-to-hast: 12.3.0
       mdast-util-to-markdown: 1.5.0
-      micromark-extension-frontmatter: 1.0.1
+      micromark-extension-frontmatter: 1.1.0
       micromark-extension-gfm: 2.0.1
       micromark-util-types: 1.0.2
       unist-builder: 3.0.1
@@ -117,8 +117,8 @@ packages:
       form-data: 4.0.0
       lodash-es: 4.17.21
       node-fetch: 3.3.1
-      ora: 6.2.0
-      type-fest: 3.6.1
+      ora: 6.3.0
+      type-fest: 3.7.2
     dev: true
 
   /@mami/plugin-hexo/0.5.6:
@@ -207,7 +207,7 @@ packages:
   /@types/fs-extra/9.0.13:
     resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
     dependencies:
-      '@types/node': 18.15.5
+      '@types/node': 18.15.11
     dev: true
 
   /@types/hast/2.3.4:
@@ -226,8 +226,8 @@ packages:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: true
 
-  /@types/node/18.15.5:
-    resolution: {integrity: sha512-Ark2WDjjZO7GmvsyFFf81MXuGTA/d6oP38anyxWOL6EREyBKAxKoFHwBhaZxCfLRLpO8JgVXwqOwSwa7jRcjew==}
+  /@types/node/18.15.11:
+    resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
     dev: true
 
   /@types/parse5/6.0.3:
@@ -1349,7 +1349,7 @@ packages:
       micromatch: 4.0.5
       moize: 6.1.5
       moment: 2.29.4
-      moment-timezone: 0.5.41
+      moment-timezone: 0.5.43
       nunjucks: 3.2.3
       picocolors: 1.0.0
       pretty-hrtime: 1.0.3
@@ -1603,7 +1603,7 @@ packages:
     dependencies:
       '@types/mdast': 3.0.11
       mdast-util-to-markdown: 1.5.0
-      micromark-extension-frontmatter: 1.0.1
+      micromark-extension-frontmatter: 1.1.0
     dev: true
 
   /mdast-util-gfm-autolink-literal/1.0.3:
@@ -1731,8 +1731,8 @@ packages:
       uvu: 0.5.6
     dev: true
 
-  /micromark-extension-frontmatter/1.0.1:
-    resolution: {integrity: sha512-9OJhCXkrpj8qIXW5AAgRZGvS8Q4GTMdH5+Ljt98kV4XQVflRGeEhNRYp6O/zCvf8c8lZ+wc4uwmbly27pS/s4Q==}
+  /micromark-extension-frontmatter/1.1.0:
+    resolution: {integrity: sha512-0nLelmvXR5aZ+F2IL6/Ed4cDnHLpL/VD/EELKuclsTWHrLI8UgxGHEmeoumeX2FXiM6z2WrBIOEcbKUZR8RYNg==}
     dependencies:
       fault: 2.0.1
       micromark-util-character: 1.1.0
@@ -2034,8 +2034,8 @@ packages:
       micro-memoize: 4.0.14
     dev: true
 
-  /moment-timezone/0.5.41:
-    resolution: {integrity: sha512-e0jGNZDOHfBXJGz8vR/sIMXvBIGJJcqFjmlg9lmE+5KX1U7/RZNMswfD8nKnNCnQdKTIj50IaRKwl1fvMLyyRg==}
+  /moment-timezone/0.5.43:
+    resolution: {integrity: sha512-72j3aNyuIsDxdF1i7CEgV2FfxM1r6aaqJyLB2vwb33mXYyoyLly+F1zbWqhA3/bVIoJ4szlUoMbUnVdid32NUQ==}
     dependencies:
       moment: 2.29.4
     dev: true
@@ -2175,8 +2175,8 @@ packages:
       is-wsl: 2.2.0
     dev: true
 
-  /ora/6.2.0:
-    resolution: {integrity: sha512-c1qb/1rdE+EFDYiLXh10VY459uMh7DN9zlgd8mZJLoeiPpYllN8eAOiih2Rkah5ywxRm5tHN5C9zPheDq8d1MA==}
+  /ora/6.3.0:
+    resolution: {integrity: sha512-1/D8uRFY0ay2kgBpmAwmSA404w4OoPVhHMqRqtjvrcK/dnzcEZxMJ+V4DUbyICu8IIVRclHcOf5wlD1tMY4GUQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       chalk: 5.2.0
@@ -2559,8 +2559,8 @@ packages:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
     dev: true
 
-  /type-fest/3.6.1:
-    resolution: {integrity: sha512-htXWckxlT6U4+ilVgweNliPqlsVSSucbxVexRYllyMVJDtf5rTjv6kF/s+qAd4QSL1BZcnJPEJavYBPQiWuZDA==}
+  /type-fest/3.7.2:
+    resolution: {integrity: sha512-f9BHrLjRJ4MYkfOsnC/53PNDzZJcVo14MqLp2+hXE39p5bgwqohxR5hDZztwxlbxmIVuvC2EFAKrAkokq23PLA==}
     engines: {node: '>=14.16'}
     dev: true
 
