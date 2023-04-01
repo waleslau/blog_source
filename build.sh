@@ -44,7 +44,7 @@ else
     npm install -g pnpm
 fi
 
-pnpm install
+pnpm install --no-frozen-lockfile
 
 # gen
 
