@@ -14,16 +14,21 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: lts/*
 
-      - name: "install pnpm"
-        run: npm install -g pnpm
+      - name: "npm install"
+        run: |
+          npm install -g pnpm
+          pnpm install --no-frozen-lockfile
 
-      - name: "pnpm install"
-        run: pnpm install
+      - name: "setup pandoc"
+        run: |
+          curl -s -L https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-linux-amd64.tar.gz | tar xvzf - -C ./
+          mkdir -p ~/.local/bin
+          mv $(pwd)/pandoc-2.19.2/bin/pandoc ~/.local/bin/
 
       - name: gen blog
-        run: export TZ='Asia/Shanghai' && pnpm hexo generate
+        run: env TZ='Asia/Shanghai' pnpm hexo g
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
