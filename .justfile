@@ -15,17 +15,13 @@ gen:
     pnpm mami
     just fmt
 
-# generate html
-g:
-    pnpm hexo generate
-
 # clean then generate html
 cg:
     pnpm hexo clean
     pnpm hexo generate
 
 # server
-s: g
+s: cg
     miniserve -v --index=index.html public
     # cd public && python3 -m http.server 8080
     # pnpm hexo server
