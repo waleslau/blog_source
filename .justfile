@@ -22,9 +22,9 @@ cg:
 
 # server
 s: cg
-    miniserve -v --index=index.html public
-    # cd public && python3 -m http.server 8080
-    # pnpm hexo server
+    @# miniserve -v --index=index.html public
+    @# cd public && python3 -m http.server --bind 127.0.0.1 4000
+    pnpm hexo server -l
 
 done:
     just fmt
