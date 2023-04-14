@@ -28,7 +28,7 @@
     "hexo-renderer-stylus": "^2.1.0",
     "hexo-server": "^3.0.0",
     "hexo-theme-fluid": "^1.9.4",
-    "nunjucks": "^3.2.3",
+    "nunjucks": "^3.2.4",
     "typescript": "^4.9.5"
   }
 }
