@@ -12,6 +12,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: szenius/set-timezone@v1.2
+        with:
+          timezoneLinux: "Asia/Shanghai"
       - uses: actions/setup-node@v3
         with:
           node-version: lts/*
@@ -28,7 +31,7 @@ jobs:
           mv $(pwd)/pandoc-2.19.2/bin/pandoc ~/.local/bin/
 
       - name: gen blog
-        run: env TZ='Asia/Shanghai' pnpm hexo g
+        run: pnpm hexo g
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
