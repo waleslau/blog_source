@@ -5,7 +5,7 @@ abbrlink: ea4a485d8fdb49bb81c920afbab0ebe0
 tags:
   - aliyundrive
 categories:
-  - 技术杂谈
+  - 杂谈
 date: 1673421167564
 updated: 1673422769620
 ---
