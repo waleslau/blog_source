@@ -30,6 +30,4 @@ done:
     just fmt
     git add .
     git commit -m "update"
-
-push:
     git remote | xargs -I _ git push _
