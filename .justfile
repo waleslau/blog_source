@@ -21,7 +21,8 @@ cg:
     pnpm hexo generate
 
 # server
-s: cg
+s:
+    pnpm hexo g
     @# miniserve -v --index=index.html public
     @# cd public && python3 -m http.server --bind 127.0.0.1 4000
     pnpm hexo server -l
