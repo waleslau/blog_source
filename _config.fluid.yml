@@ -331,20 +331,17 @@ navbar:
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
-    # - { key: "碎碎念", link: "/talk/", icon: "iconfont icon-speakernotes" }
     - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
-    # - { key: "links", link: "#", icon: "iconfont icon-link-fill" ,
-    #     submenu: [
-    #       { key: '我的友链', link: '/links/' },
-    #       { key: '友链申请', link: '/add-link/' }
-    #     ]
-    #   }
+    # - { key: "BiBi", link: "/memos/", icon: "iconfont icon-speakernotes" }
+    # - { key: "BiBi", link: "https://memos.oopsky.top/", icon: "iconfont icon-speakernotes" }
     - {
     key: '其他',
       icon: 'iconfont icon-books',
       link: '#',
       submenu: [
       { key: 'HOME', link: 'https://www.oopsky.top/' },
+      { key: 'Gitea', link: 'https://git.oopsky.top/' },
+      { key: "Memos", link: "https://memos.oopsky.top/"},
       { key: 'Linux 常用软件列表', link: 'https://waleslau.github.io/software-list-on-linux/' }
       ]
     }

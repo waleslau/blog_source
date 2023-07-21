@@ -8,7 +8,7 @@ date: 2023-04-14 16:00:00
 
 <script>
   var bbMemos = {
-    memos : 'http://8.130.76.218:22330/',
+    memos : 'https://memos.oopsky.top/',
     limit : '10',
     creatorId:'1' ,
     domId: '#my-memos'
