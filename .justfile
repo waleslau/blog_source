@@ -20,6 +20,7 @@ cgs:
     pnpm hexo clean
     pnpm hexo generate
     just s
+
 # server
 s:
     pnpm hexo g
