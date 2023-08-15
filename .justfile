@@ -21,6 +21,11 @@ cgs:
     pnpm hexo generate
     just s
 
+gs:
+    just gen
+    pnpm hexo generate
+    just s
+
 # server
 s:
     pnpm hexo g
