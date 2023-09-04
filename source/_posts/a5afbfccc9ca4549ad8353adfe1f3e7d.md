@@ -8,19 +8,19 @@ tags:
 categories:
   - 今天学到了什么
 date: 1693388520000
-updated: 1693802556502
+updated: 1693803240037
 ---
 ### 关闭 VM，并给 VM 添加一个 serial port
 
 在 PVE Host 中用 qm 命令建立 serial port，假设我的 VM ID 是 100
 
-```
+```bash
 qm set 100 -serial0 socket
 ```
 
 接着重开 VM，用 dmesg 确认是否有 ttyS 出現
 
-```
+```bash
 dmesg | grep ttyS
 ```
 
@@ -30,7 +30,7 @@ dmesg | grep ttyS
 
 deb/rpm 系发行版有不同的更新 grub 配置文件的方式
 
-```
+```bash
 # deb
 update-grub
 # rpm
