@@ -1,0 +1,44 @@
+---
+layout: post
+title: PVE：为 VM 启用 xterm.js 控制台
+abbrlink: a5afbfccc9ca4549ad8353adfe1f3e7d
+tags:
+  - pve
+  - linux
+categories:
+  - 今天学到了什么
+date: 1693388520000
+updated: 1693802556502
+---
+### 关闭 VM，并给 VM 添加一个 serial port
+
+在 PVE Host 中用 qm 命令建立 serial port，假设我的 VM ID 是 100
+
+```
+qm set 100 -serial0 socket
+```
+
+接着重开 VM，用 dmesg 确认是否有 ttyS 出現
+
+```
+dmesg | grep ttyS
+```
+
+### VM 内修改 grub 配置
+
+依照官方说明，修改 /etc/default/grub 的 GRUB\_CMDLINE\_LINUX 参数，在，添加 `console=tty0 console=ttyS0,115200`
+
+deb/rpm 系发行版有不同的更新 grub 配置文件的方式
+
+```
+# deb
+update-grub
+# rpm
+grub2-mkconfig --output=/boot/grub2/grub.cfg
+```
+
+最后重启 VM
+
+然后可以在浏览器内打开 PVE 界面测试 xterm.js 是否可用
+
+也可以在 PVE Host 的终端内执行 `qm terminal 100` 来连接到 VM
