@@ -341,7 +341,7 @@ navbar:
       submenu: [
       { key: 'HOME', link: 'https://www.oopsky.top/' },
       { key: 'Gitea', link: 'https://git.oopsky.top/' },
-      { key: "Memos", link: "https://memos.oopsky.top/"},
+      { key: "Memos", link: "https://memos.oopsky.top/u/waleslau"},
       { key: 'Linux 常用软件列表', link: 'https://waleslau.github.io/software-list-on-linux/' }
       ]
     }
