@@ -1,14 +1,12 @@
 ---
-layout: post
 title: 使用 WinSW 把可执行文件安装为服务
-abbrlink: 712d9b0199ee4284a98f523f6142a1a6
 tags:
   - windows
-categories:
-  - 笔记
-date: 1672905960000
-updated: 1672905960000
+abbrlink: 376ebc48
+updated: 2023-01-05 08:06:00
+date: 2023-01-05 08:06:00
 ---
+
 > [https://github.com/winsw/winsw](https://github.com/winsw/winsw)
 
 ## 参数列表
@@ -31,13 +29,14 @@ updated: 1672905960000
 
 先说结论
 
-* 若 `WinSW.exe` 和 `myapp.xml` 不在同一目录
+- 若 `WinSW.exe` 和 `myapp.xml` 不在同一目录
 
-  * 使用 `WinSW.exe install .\myapp.xml` 操作服务
-* 若 `WinSW.exe` 和 `myapp.xml` 在同一目录
+  - 使用 `WinSW.exe install .\myapp.xml` 操作服务
 
-  * 可以使用 `WinSW.exe install .\myapp.xml` 操作服务
-  * 也可以把 `WinSW.exe` 重命名为 `myapp.exe`，然后使用 `myapp install` 操作服务
+- 若 `WinSW.exe` 和 `myapp.xml` 在同一目录
+
+  - 可以使用 `WinSW.exe install .\myapp.xml` 操作服务
+  - 也可以把 `WinSW.exe` 重命名为 `myapp.exe`，然后使用 `myapp install` 操作服务
 
 服务示例：
 `chfs-service.xml`：
@@ -68,7 +67,7 @@ WinSW.exe install .\myapp1.xml
 WinSW.exe install .\myapp2.xml
 ```
 
-> 也可以随便找个其他地方，把 `WinSW.exe` 放入其中，并加入 `PATH`，总之能访问到 WinSW\.exe 就行
+> 也可以随便找个其他地方，把 `WinSW.exe` 放入其中，并加入 `PATH`，总之能访问到 WinSW.exe 就行
 
 ### 捆绑方式
 

@@ -1,14 +1,12 @@
 ---
-layout: post
 title: 使用 frp 把内网服务暴露到公网
-abbrlink: ed4ba89c834c4949949a3997e44344c0
 tags:
   - frp
-categories:
-  - 笔记
-date: 1671542019779
-updated: 1671544781184
+abbrlink: 16f5231f
+updated: 2022-12-20 13:59:41
+date: 2022-12-20 13:13:39
 ---
+
 ## frp 介绍
 
 frp 是一个专注于内网穿透的反向代理工具，支持 TCP、UDP、HTTP、HTTPS 等多种协议。可以将内网服务通过具有公网 IP 节点的中转暴露到公网。

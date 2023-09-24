@@ -1,15 +1,13 @@
 ---
-layout: post
 title: 使用 nvm 快速安装和使用不同版本的 node
-abbrlink: 510ae53b6f6e4379a6ee784c0bbe3231
 tags:
   - node
   - npm
-categories:
-  - 笔记
-date: 1650631560000
-updated: 1675692000000
+abbrlink: 77399d91
+updated: 2023-02-06 14:00:00
+date: 2022-04-22 12:46:00
 ---
+
 > 2023 年 2 月 6 日更新：
 
 总感觉 nvm 载入有点慢，目前切换到了 [n](https://github.com/tj/n),使用方式：

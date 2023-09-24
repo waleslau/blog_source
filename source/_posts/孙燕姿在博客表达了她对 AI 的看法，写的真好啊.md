@@ -1,15 +1,13 @@
 ---
-layout: post
 title: 孙燕姿在博客表达了她对 AI 的看法，写的真好啊
-abbrlink: 6b403f673d474c8bb749aa3fbc4b5d7a
 tags:
-  - chatgpt
   - ai
-categories:
-  - 随想
-date: 1684853416934
-updated: 1684854625601
+  - chatgpt
+abbrlink: bf4fb9f
+updated: 2023-05-23 15:10:25
+date: 2023-05-23 14:50:16
 ---
+
 先借此话题发散一下思绪。
 
 得益于 AI 的迅猛发展，现在伪造图片以及视频的门槛越来越低。
@@ -26,9 +24,9 @@ updated: 1684854625601
 
 ---
 
-中文版：[http://www.makemusic.sg/new-blog/wodeai](http://www.makemusic.sg/new-blog/wodeai)
+中文版：http://www.makemusic.sg/new-blog/wodeai
 
-英文版：[http://www.makemusic.sg/blog/wodeai](http://www.makemusic.sg/blog/wodeai)
+英文版：http://www.makemusic.sg/blog/wodeai
 
 下面转载一下中文版本：
 

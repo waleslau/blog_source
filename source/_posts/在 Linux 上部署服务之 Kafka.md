@@ -1,15 +1,13 @@
 ---
-layout: post
 title: 在 Linux 上部署服务之 Kafka
-abbrlink: 221439c1d1d94feb96cbbc90e73530c8
 tags:
   - kafka
   - linux
-categories:
-  - 今天学到了什么
-date: 1694140378224
-updated: 1694191816087
+abbrlink: 85d5b333
+updated: 2023-09-08 16:50:16
+date: 2023-09-08 02:32:58
 ---
+
 ## 1. 下载、解压
 
 ```bash

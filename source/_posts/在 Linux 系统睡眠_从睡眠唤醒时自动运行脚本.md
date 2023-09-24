@@ -1,16 +1,14 @@
 ---
-layout: post
 title: 在 Linux 系统睡眠/从睡眠唤醒时自动运行脚本
-abbrlink: 0c5706c741684e7388d0615ce28cb4c6
 tags:
-  - suspend
   - linux
+  - suspend
   - systemd
-categories:
-  - 笔记
-date: 1650122340000
-updated: 1650122340000
+abbrlink: c406a86d
+updated: 2022-04-16 15:19:00
+date: 2022-04-16 15:19:00
 ---
+
 我笔记本上装的 openSUSE Tumbleweed 在从睡眠状态恢复后，总是出现时间显示不正常的情况，初步推测可能与硬件时钟有关。
 
 本子上目前是 Linux/Windows 双系统，当初装系统时我为了不对 Windows 系统产生影响就没有设置硬件时钟为 UTC ~~其实是懒得去 windows 改~~，以前也曾用过 Manjaro、Deepin 等其他发行版，也时常会出现这种情况。

@@ -1,14 +1,12 @@
 ---
-layout: post
 title: linux 上几种睡眠模式比较
-abbrlink: ce1c7e8fd2f349fa8516d01e2af4fc00
 tags:
   - linux
-categories:
-  - 笔记
-date: 1670672789090
-updated: 1671350378831
+abbrlink: af1f09e9
+updated: 2022-12-18 07:59:38
+date: 2022-12-10 11:46:29
 ---
+
 ```shell
 systemctl suspend                 -- Suspend the system
 systemctl hibernate     -- Hibernate the system
@@ -22,7 +20,7 @@ systemctl hybrid-sleep  -- Hibernate and suspend the system
 
 ## hibernate
 
-普通的休眠，约等于完全关机，但会保留上次的内存状态到硬盘内，唤醒后再恢复。速度稍慢，好处是不用担心睡死（毕竟已经“完全关机”了:joy\_cat:）。
+普通的休眠，约等于完全关机，但会保留上次的内存状态到硬盘内，唤醒后再恢复。速度稍慢，好处是不用担心睡死（毕竟已经“完全关机”了:joy_cat:）。
 
 ## suspend-then-hibernate
 

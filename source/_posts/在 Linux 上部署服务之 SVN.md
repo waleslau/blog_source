@@ -1,15 +1,13 @@
 ---
-layout: post
 title: 在 Linux 上部署服务之 SVN
-abbrlink: 03a5231e6c494b87bf1bb5a2a96101a1
 tags:
-  - svn
   - linux
-categories:
-  - 今天学到了什么
-date: 1689813964064
-updated: 1694191715997
+  - svn
+abbrlink: '81178978'
+updated: 2023-09-08 16:48:35
+date: 2023-07-20 00:46:04
 ---
+
 ## 0. 准备工作
 
 ```bash
@@ -33,7 +31,7 @@ svnadmin create test2
 
 ## 2. 修改仓库配置
 
-* svnserve.conf
+- svnserve.conf
 
 ```ini
 # cat test1/conf/svnserve.conf
@@ -59,7 +57,7 @@ realm = test2
 
 ## 3. 创建仓库间公用的认证文件
 
-* passwd
+- passwd
 
 ```ini
 # cat /home/svn/svn_users.conf/passwd
@@ -69,7 +67,7 @@ user1 = user1
 user2 = user2
 ```
 
-* authz
+- authz
 
 ```ini
 # cat /home/svn/svn_users.conf/authz

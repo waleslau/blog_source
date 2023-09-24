@@ -1,13 +1,11 @@
 ---
-layout: post
 title: 几个基于 SSH 的内网穿透服务
-abbrlink: 14b214c044ad46dabd769ac72397daba
-tags: []
-categories:
-  - 笔记
-date: 1683252250008
-updated: 1683271198653
+abbrlink: 9821b2d1
+updated: 2023-05-05 07:19:58
+date: 2023-05-05 02:04:10
+tags:
 ---
+
 ## 1. serveo.net
 
 直接在命令行执行下面命令即可：

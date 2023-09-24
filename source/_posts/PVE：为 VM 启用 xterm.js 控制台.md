@@ -1,15 +1,14 @@
 ---
-layout: post
 title: PVE：为 VM 启用 xterm.js 控制台
-abbrlink: a5afbfccc9ca4549ad8353adfe1f3e7d
+source: 'https://www.pigo.idv.tw/archives/3261'
 tags:
-  - pve
   - linux
-categories:
-  - 今天学到了什么
-date: 1693388520000
-updated: 1693803240037
+  - pve
+abbrlink: e393644d
+updated: 2023-09-04 04:54:00
+date: 2023-08-30 09:42:00
 ---
+
 ### 关闭 VM，并给 VM 添加一个 serial port
 
 在 PVE Host 中用 qm 命令建立 serial port，假设我的 VM ID 是 100
@@ -26,7 +25,7 @@ dmesg | grep ttyS
 
 ### VM 内修改 grub 配置
 
-依照官方说明，修改 /etc/default/grub 的 GRUB\_CMDLINE\_LINUX 参数，在，添加 `console=tty0 console=ttyS0,115200`
+依照官方说明，修改 /etc/default/grub 的 GRUB_CMDLINE_LINUX 参数，在，添加 `console=tty0 console=ttyS0,115200`
 
 deb/rpm 系发行版有不同的更新 grub 配置文件的方式
 

@@ -1,27 +1,25 @@
 ---
-layout: post
 title: 使用 davfs2 挂载 webdav
-abbrlink: a7b61f3fa1934555a3a519c34a61cd75
 tags:
   - linux
   - webdav
-categories:
-  - 笔记
-date: 1659787200000
-updated: 1671453600000
+abbrlink: 624431f7
+updated: 2022-12-19 12:40:00
+date: 2022-08-06 12:00:00
 ---
+
 首先安装好 davfs2 软件包
 
 ## 配置 davfs2
 
-* 编辑 /etc/davfs2/davfs2.conf 取消以下项的注释并更改值
+- 编辑 /etc/davfs2/davfs2.conf 取消以下项的注释并更改值
 
 ```shell
 ignore_dav_header 1
 use_locks 0
 ```
 
-* 配置用户名/密码
+- 配置用户名/密码
 
 编辑 /etc/davfs2/secrets 末尾添加
 
