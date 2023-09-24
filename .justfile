@@ -11,6 +11,7 @@ sync:
     rm -f ./source/_posts/*.md
     cp -vf ../notes-obsidian/BLOG/*.md ./source/_posts/
     fd -e md -x sd 'created:' 'date:'
+    pnpm hexo clean
     pnpm hexo generate
 
 push:

@@ -1,9 +1,10 @@
 ---
 title: Redis：初探
-updated: 2023-09-06T09:21:46
-date: 2023-08-31T03:26:32
 tags:
   - redis
+abbrlink: 8e5de943
+updated: 2023-09-06 09:21:46
+date: 2023-08-31 03:26:32
 ---
 
 ## 简介

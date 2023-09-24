@@ -1,9 +1,10 @@
 ---
 title: linux 上几种睡眠模式比较
-updated: 2022-12-18T07:59:38
-date: 2022-12-10T11:46:29
 tags:
   - linux
+abbrlink: af1f09e9
+updated: 2022-12-18 07:59:38
+date: 2022-12-10 11:46:29
 ---
 
 ```shell

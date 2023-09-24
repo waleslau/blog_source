@@ -1,10 +1,11 @@
 ---
 title: OVF 导入报错
-updated: 2022-08-07T11:58:00
-date: 2022-08-07T11:58:00
 tags:
   - virtualbox
   - vmware
+abbrlink: c9eac9bf
+updated: 2022-08-07 11:58:00
+date: 2022-08-07 11:58:00
 ---
 
 在 VirtualBox 内导入由 VMware 生成的 OVF 文件时提示如下错误，无法导入：
