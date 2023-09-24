@@ -1,6 +1,7 @@
 fmt:
     just --fmt --unstable
     git add .justfile
+    fd . -e md ./source/_posts -x prettier.cmd -w
 
 cgs:
     pnpm hexo clean
@@ -10,9 +11,11 @@ cgs:
 sync:
     rm -f ./source/_posts/*.md
     cp -vf ../notes-obsidian/BLOG/*.md ./source/_posts/
-    fd -e md -x sd 'created:' 'date:'
+    fd . -e md ./source/_posts -x sd 'created:' 'date:'
     pnpm hexo clean
     pnpm hexo generate
+    # insert abbrlink to obsidian
+    python3 insert_abbrlink_to_obsidian.py
 
 push:
     git remote | xargs -I _ git push _

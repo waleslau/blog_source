@@ -1,12 +1,11 @@
 ---
 title: PVE：为 VM 启用 xterm.js 控制台
-source: 'https://www.pigo.idv.tw/archives/3261'
+abbrlink: e393644d
+updated: 2023-09-04T04:54:00
+date: 2023-08-30T09:42:00
 tags:
   - linux
   - pve
-abbrlink: e393644d
-updated: 2023-09-04 04:54:00
-date: 2023-08-30 09:42:00
 ---
 
 ### 关闭 VM，并给 VM 添加一个 serial port

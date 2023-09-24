@@ -1,10 +1,10 @@
 ---
 title: 使用 frp 把内网服务暴露到公网
+abbrlink: 16f5231f
+updated: 2022-12-20T13:59:41
+date: 2022-12-20T13:13:39
 tags:
   - frp
-abbrlink: 16f5231f
-updated: 2022-12-20 13:59:41
-date: 2022-12-20 13:13:39
 ---
 
 ## frp 介绍

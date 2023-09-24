@@ -1,11 +1,11 @@
 ---
 title: 使用 nvm 快速安装和使用不同版本的 node
+abbrlink: 77399d91
+updated: 2023-02-06T14:00:00
+date: 2022-04-22T12:46:00
 tags:
   - node
   - npm
-abbrlink: 77399d91
-updated: 2023-02-06 14:00:00
-date: 2022-04-22 12:46:00
 ---
 
 > 2023 年 2 月 6 日更新：
