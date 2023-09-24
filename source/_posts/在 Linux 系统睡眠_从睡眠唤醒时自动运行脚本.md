@@ -1,12 +1,11 @@
 ---
 title: 在 Linux 系统睡眠/从睡眠唤醒时自动运行脚本
+updated: 2022-04-16T15:19:00
+date: 2022-04-16T15:19:00
 tags:
   - linux
   - suspend
   - systemd
-abbrlink: c406a86d
-updated: 2022-04-16 15:19:00
-date: 2022-04-16 15:19:00
 ---
 
 我笔记本上装的 openSUSE Tumbleweed 在从睡眠状态恢复后，总是出现时间显示不正常的情况，初步推测可能与硬件时钟有关。

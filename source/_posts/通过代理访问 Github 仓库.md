@@ -1,12 +1,11 @@
 ---
 title: 通过代理访问 Github 仓库
+updated: 2023-01-17T10:02:04
+date: 2022-03-29T14:10:00
 tags:
   - git
   - proxy
   - ssh
-abbrlink: 6cedfc7a
-updated: 2023-01-17 10:02:04
-date: 2022-03-29 14:10:00
 ---
 
 众所周知，GitHub 在国内常常因为不可抗力导致访问受限，在此我分享一下我用来提升 GitHub 使用体验的几个姿势

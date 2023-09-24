@@ -2,21 +2,22 @@ fmt:
     just --fmt --unstable
     git add .justfile
 
-gs:
+cgs:
+    pnpm hexo clean
     pnpm hexo generate
     pnpm hexo server -l
 
-cgs:
+sync:
     rm -f ./source/_posts/*.md
     cp -vf ../notes-obsidian/BLOG/*.md ./source/_posts/
     fd -e md -x sd 'created:' 'date:'
-    pnpm hexo clean
-    just gs
+    pnpm hexo generate
 
 push:
     git remote | xargs -I _ git push _
 
 done:
+    just sync
     git add .
     git commit -m "update"
     just push

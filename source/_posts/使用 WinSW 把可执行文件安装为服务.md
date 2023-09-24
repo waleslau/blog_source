@@ -1,10 +1,9 @@
 ---
 title: 使用 WinSW 把可执行文件安装为服务
+updated: 2023-01-05T08:06:00
+date: 2023-01-05T08:06:00
 tags:
   - windows
-abbrlink: 376ebc48
-updated: 2023-01-05 08:06:00
-date: 2023-01-05 08:06:00
 ---
 
 > [https://github.com/winsw/winsw](https://github.com/winsw/winsw)

@@ -1,11 +1,10 @@
 ---
 title: ChatGPT 相关资源收集整理
+updated: 2023-09-14T04:14:47
+date: 2023-04-10T11:22:00
 tags:
-  - AI
   - chatgpt
-abbrlink: 21e870c9
-updated: 2023-09-14 04:14:47
-date: 2023-04-10 11:22:00
+  - ai
 ---
 
 ## 教程
