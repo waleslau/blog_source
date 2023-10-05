@@ -4,6 +4,7 @@ abbrlink: 9821b2d1
 updated: 2023-05-05T07:19:58
 date: 2023-05-05T02:04:10
 tags:
+  - ssh
 ---
 
 ## 1. serveo.net

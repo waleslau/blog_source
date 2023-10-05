@@ -1,7 +1,7 @@
 ---
 title: 对 Word 文件进行「纯文本式」版本控制
 abbrlink: ff9138ea
-updated: 2023-05-03T09:12:26
+updated: 2023-09-27T15:09:53
 date: 2023-04-24T11:25:00
 tags:
   - git
@@ -79,4 +79,4 @@ git commit -a -m "update"
 如果你和我有同样的顾虑，欢迎来看我的另一篇文章[^2]。
 
 [^1]: [如何对 Word 文件进行「纯文本式」版本控制？](https://sspai.com/post/58507)
-[^2]: [我是如何折腾我的毕业论文的](/post/a95c408eb04f4dfc88634660622a6d2e/)
+[^2]: [我是如何折腾我的毕业论文的 - 热心市民L先生のBLOG](https://blog.oopsky.top/post/67e81ff3/)
