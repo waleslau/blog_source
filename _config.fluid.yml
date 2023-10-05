@@ -421,12 +421,9 @@ footer:
     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
-    <link rel="stylesheet" href="/css/navbar.css">
-    <link rel="stylesheet" href="/css/custom-font-lxgw.css">
+    <link rel="stylesheet" href="/css/custom.css">
     <script  src="/js/custom.js" ></script>
   '
-# <link rel="stylesheet" href="/css/custom-font-lxgw.css">
-# <link rel="stylesheet" href="/css/custom-font-serif.css">
 # <script  src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js" ></script>
 
   # 展示网站的 PV、UV 统计数

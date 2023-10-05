@@ -1,0 +1,30 @@
+@import url("https://registry.npmmirror.com/cn-fontsource-source-han-serif-sc-vf/latest/files/font.css");
+@import url("https://registry.npmmirror.com/cn-fontsource-source-han-sans-sc-vf/latest/files/font.css");
+@import url("https://raw.gitmirror.com/adobe-fonts/source-code-pro/release/source-code-pro.css");
+@import url("https://registry.npmmirror.com/@fontsource/fira-mono/latest/files/400.css");
+/* @import url("https://registry.npmmirror.com/@fontsource/fira-mono/latest/files?meta"); */
+
+html,
+body,
+.markdown-body {
+  /* 此处覆盖了主题配置里的 font_family 字段*/
+  font-family: "Source Han Sans SC VF", sans-serif;
+  font-weight: 400;
+}
+
+.markdown-body code {
+  /* font-family: "Fira Code", "Source Han Serif SC VF", monospace; */
+  font-family: "Source Code Pro", "Fira Mono", "Source Han Sans SC VF",
+    monospace;
+  font-weight: 400;
+}
+
+#subtitle {
+  font-family: "Source Han Serif SC VF", sans-serif;
+  font-weight: 888;
+}
+
+.license-box {
+  font-family: "Source Han Serif SC VF", sans-serif;
+  font-weight: 555;
+}
