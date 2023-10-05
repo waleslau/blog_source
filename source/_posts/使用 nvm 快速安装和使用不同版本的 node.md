@@ -27,7 +27,9 @@ export PATH="$HOME/.n/bin:$PATH"
 
 ---
 
-`nvm` 的全名是 Node Version Manager[^1]，是一个 node.js 的版本管理器，可以帮助用户通过命令行快速安装和使用不同版本的 node。nvm 可以在任何兼容 POSIX 的 shell（sh、dash、ksh、zsh、bash）上工作，尤其是在 unix、macOS 和 windows WSL。
+> 下面是之前的内容
+
+nvm 的全名是 [Node Version Manager](https://github.com/nvm-sh/nvm)，是一个 node.js 的版本管理器，可以帮助用户通过命令行快速安装和使用不同版本的 node。nvm 可以在任何兼容 POSIX 的 shell（sh、dash、ksh、zsh、bash）上工作，尤其是在 unix、macOS 和 windows WSL。
 
 ## 安装
 
@@ -64,5 +66,3 @@ npm config set registry https://registry.npmmirror.com
 ```
 
 更多使用姿势请自行搜索
-
-[^1]: [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)

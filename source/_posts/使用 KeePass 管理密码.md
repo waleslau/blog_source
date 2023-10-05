@@ -13,7 +13,7 @@ tags:
 
 ## 什么是 KeePass
 
-KeePass 是一款免费的开源密码管理器，可帮助您以安全的方式管理您的密码。您可以将所有密码存储在一个数据库中，并使用主密钥锁定该数据库。因此，您只需记住一把主密钥即可解锁整个数据库。数据库文件使用目前已知的最好、最安全的加密算法（AES-256、ChaCha20 和 Twofish）进行加密。[^1]
+KeePass 是一款免费的开源密码管理器，可帮助您以安全的方式管理您的密码。您可以将所有密码存储在一个数据库中，并使用主密钥锁定该数据库。因此，您只需记住一把主密钥即可解锁整个数据库。数据库文件使用目前已知的最好、最安全的加密算法（AES-256、ChaCha20 和 Twofish）进行加密。
 
 下面是 KeePass 打动我的一些特点：
 
@@ -27,7 +27,9 @@ KeePass 是一款免费的开源密码管理器，可帮助您以安全的方式
 
 下面列出我正在使用的客户端：
 
-### KeePassXC[^3]
+### KeePassXC
+
+官网：[https://keepassxc.org](https://keepassxc.org)
 
 支持平台：Windows, macOS, and Linux
 
@@ -35,7 +37,9 @@ KeePass 是一款免费的开源密码管理器，可帮助您以安全的方式
 
 缺点：访问 WebDAV（但可以使用坚果云客户端弥补这一点）
 
-### AuthPass[^4]
+### AuthPass
+
+官网：[https://authpass.app/](https://authpass.app/)
 
 支持平台：Windows, macOS, Linux and Android
 
@@ -45,7 +49,7 @@ KeePass 是一款免费的开源密码管理器，可帮助您以安全的方式
 
 ---
 
-如果上面没提到你现在使用的平台，可以去官网[^2]搜寻
+如果上面没提到你现在使用的平台，可以去[官网](https://keepass.info/download.html)搜寻
 
 ## 如何使用？
 
@@ -56,8 +60,3 @@ KeePass 是一款免费的开源密码管理器，可帮助您以安全的方式
 3. 在电脑上安装坚果云的客户端，并把上一步创建的 KeePass 目录同步到本地某处。
 4. 新建一个密码数据库，并把它保存到坚果云同步的目录内
 5. 现在可以在其他设备访问你的密码库文件
-
-[^1]: [https://keepass.info/](https://keepass.info/)
-[^2]: [https://keepass.info/download.html](https://keepass.info/download.html)
-[^3]: [https://keepassxc.org](https://keepassxc.org)
-[^4]: [https://authpass.app/](https://authpass.app/)

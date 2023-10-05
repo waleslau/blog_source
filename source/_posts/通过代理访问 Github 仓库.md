@@ -41,9 +41,7 @@ git config --global http.https://gitlab.com.proxy socks5h://127.0.0.1:7890
 
 ## SSH
 
-给 SSH 协议加上代理相关配置[^3]
-
-只需要在 `~/.ssh/config` 添加如下内容:
+若想要让 SSH 协议也通过代理，只需在 `~/.ssh/config` 添加如下内容:
 
 ### Linux / macOS
 
@@ -59,7 +57,7 @@ Host github.com
     ProxyCommand "C:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:7890 %h %p
 ```
 
-### 拓展，在 443 端口使用 SSH (仅限 Github[^4])
+### 拓展，在 443 端口使用 SSH (仅限 Github[^3])
 
 有时，防火墙会阻断内网客户端对 22 端口的连接，有些机场也会阻断 22 端口，这时可以尝试使用通过 443 端口建立的 SSH 连接
 
@@ -78,6 +76,5 @@ Host github.com
  <!-- ~~如果不想改配置，也可以直接使用形似`ssh://git@ssh.github.com:443/user/repo.git`的克隆链接，两种方式是等价的~~ 更正：也需要在`Host`字段添加`ssh.github.com`才能无痛使用。。。总之可以忽略删除线到现在的内容 😂 -->
 
 [^1]: [Differentiate socks5h from socks5...](https://github.com/urllib3/urllib3/issues/1035)
-[^2]: [使用令牌访问 GitHub](https://blog.oopsky.top/post/e66ddf8f6ebe4035b2678fc38ab0754e/)
-[^3]: [给 SSH 设置代理](https://blog.oopsky.top/post/b64f14f7f69248e098248ef4bd081230/)
-[^4]: [在 HTTPS 端口使用 SSH](https://docs.github.com/cn/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)
+[^2]: [使用令牌访问 GitHub](https://blog.oopsky.top/post/545a5fc3/)
+[^3]: [在 HTTPS 端口使用 SSH](https://docs.github.com/cn/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)

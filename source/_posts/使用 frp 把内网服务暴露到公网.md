@@ -55,4 +55,4 @@ subdomain = test
 
 然后可以使用 `http://test.your.domain` 访问你内网部署的网站
 
-更多示例：[示例 | frp](https://gofrp.org/docs/examples/)
+更多示例详见：[示例 | frp](https://gofrp.org/docs/examples/)
