@@ -27,5 +27,5 @@ push:
 done:
     just sync
     git add .
-    git commit -m "update"
+    git commit -a -m "update"
     just push
