@@ -32,13 +32,13 @@ ifconfig eth0:0 10.100.100.235 netmask 255.255.255.0 up
 auto ens33
 iface ens33 inet static
        address 10.17.34.231
-       prefix 24
+       netmask 255.255.255.0
        gateway 10.17.34.1
 
 auto ens33:0
 iface ens33:0 inet static
        address 10.100.100.231
-       prefix 24
+       netmask 255.255.255.0
 ```
 
 ### rpm 系发行版：
