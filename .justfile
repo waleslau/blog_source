@@ -19,13 +19,12 @@ sync: pnpm
     pnpm hexo generate
     # insert abbrlink to obsidian
     python3 insert_abbrlink_to_obsidian.py
-    git add .
+    just done
 
 push:
     git remote | xargs -I _ git push _
 
 done:
-    just sync
     git add .
     git commit -a -m "update"
     just push
