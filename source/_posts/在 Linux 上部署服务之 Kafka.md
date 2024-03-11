@@ -43,7 +43,7 @@ su - kafka
 KAFKA_CLUSTER_ID=`/opt/kafka/bin/kafka-storage.sh random-uuid`
 
 # 在启动节点之前需要用格式化一下日志目录
-/opt/kafka/bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c  /opt/kafka/config/kraft/server.properties
+/opt/kafka/bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c /opt/kafka/config/kraft/server.properties
 
 # 启动服务测试一下
 /opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/kraft/server.properties
