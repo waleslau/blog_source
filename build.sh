@@ -2,32 +2,36 @@
 
 # init pandoc and mdfmt
 if [ "$(uname -s)" = "Linux" ]; then
+
+    mkdir -p $HOME/.local/bin
+    export PATH="$HOME/.local/bin:$PATH"
+    tmp_dir=`mktemp -d`
+
     echo "You are use Linux now."
     # install pandoc
-    if $(test -s $(pwd)/pandoc-2.19.2/bin/pandoc) || hash pandoc 2>/dev/null; then
+    if $(test -s $HOME/.local/bin/pandoc) || hash pandoc 2>/dev/null; then
         echo 'already have pandoc here.'
     else
         echo -e "\e[36m install pandoc \e[0m"
-        curl -s -L https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-linux-amd64.tar.gz | tar xvzf - -C ./
-        # set $PATH
-        export PATH="$(pwd)/pandoc-2.19.2/bin:$PATH"
+        curl -s -L https://hub.gitmirror.com/github.com//jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-linux-amd64.tar.gz | tar xvzf - -C $tmp_dir
+	mv $tmp_dir/pandoc-2.19.2/bin/pandoc  $HOME/.local/bin/ 
     fi
     
     # install mdfmt
-    if $(test -s $(pwd)/pandoc-2.19.2/bin/mdfmt) || hash mdfmt 2>/dev/null; then
+    if $(test -s  $HOME/.local/bin/mdfmt) || hash mdfmt 2>/dev/null; then
         echo 'already have mdfmt here.'
     else
         echo -e "\e[36m install mdfmt \e[0m"
-        mkdir $(pwd)/mdfmt && curl -s -L https://github.com/elliotxx/mdfmt/releases/download/v0.4.2/mdfmt_0.4.2_Linux_x86_64.tar.gz | tar xvzf - -C ./mdfmt/ && mv ./mdfmt/mdfmt ./pandoc-2.19.2/bin/ && rm -rf ./mdfmt
-        # set $PATH
-        export PATH="$(pwd)/pandoc-2.19.2/bin:$PATH"
+        mkdir $tmp_dir/mdfmt && curl -s -L https://hub.gitmirror.com/github.com/elliotxx/mdfmt/releases/download/v1.0.0/mdfmt_Linux_x86_64.tar.gz | tar xvzf - -C $tmp_dir/mdfmt/ && mv $tmp_dir/mdfmt/mdfmt $HOME/.local/bin/
     fi
+    rm -rf $tmp_dir
 else
     echo "You are use Windows now."
 fi
 
 # init nodejs-lts
-if [ "$(uname -s)" = "Linux" ] && test ! -d $HOME/.n; then
+#if [ "$(uname -s)" = "Linux" ] && test ! -d $HOME/.n; then
+if [ "$(uname -s)" = "Linux" ]; then
     echo -e "\e[36m init nodejs-lts \e[0m"
     export N_PREFIX=$HOME/.n
     export PATH="$HOME/.n/bin:$PATH"
