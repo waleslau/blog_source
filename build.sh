@@ -54,7 +54,7 @@ pnpm install --no-frozen-lockfile
 
 curl http://127.0.0.1:41184 >/dev/null 2>&1 && echo -e "\e[36m pnpm mami ... \e[0m" && pnpm mami
 
-# mdfmt
+mdfmt(){
 echo -e "\e[36m do mdfmt ... \e[0m"
 for i in $(ls source/_posts); do mdfmt -w source/_posts/$i; done
 
@@ -64,6 +64,7 @@ else
     echo -e "\e[36m Widows: LF --> CRLF \e[0m"
     for i in $(ls source/_posts); do sed -i 's/$/\r/g' source/_posts/$i; done
 fi
+}
 
 # build blog
 echo -e "\e[36m build blog \e[0m"
