@@ -28,4 +28,4 @@ push:
 done:
     git add .
     git commit -a -m "update"
-    just push
+    git push
