@@ -13,6 +13,7 @@ cgs: pnpm
 
 sync: pnpm
     rm -f ./source/_posts/*.md
+    cd ../notes-obsidian && git pull
     cp -vf ../notes-obsidian/BLOG/*.md ./source/_posts/
     #fd . -e md ./source/_posts -x sd 'created:' 'date:'
     sed -i 's/created:/date:/' ./source/_posts/*.md
