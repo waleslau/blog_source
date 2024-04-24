@@ -30,7 +30,7 @@ sync: pnpm
     python3 insert_abbrlink_to_obsidian.py
     just done
 
-sync_api: pnpm
+sync_api:
     rm -f ./source/_posts/*.md
     cd ../notes-obsidian && git pull
     cp -vf ../notes-obsidian/BLOG/*.md ./source/_posts/
