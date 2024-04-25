@@ -16,6 +16,7 @@ push:
 
 done:
     git add .
+    #git commit -a -m "update: $(git diff --name-only)"
     git commit -a -m "update"
     git push
 
@@ -24,7 +25,7 @@ sync: pnpm
     cp -f ../notes-obsidian/BLOG/*.md ./source/_posts/
     #fd . -e md ./source/_posts -x sd 'created:' 'date:'
     sed -i 's/created:/date:/' ./source/_posts/*.md
-    git status | grep 'modified:'
+    git status | grep 'modified:' # 若无变动, 则退出执行
     pnpm hexo clean
     pnpm hexo generate
     python3 insert_abbrlink_to_obsidian.py
