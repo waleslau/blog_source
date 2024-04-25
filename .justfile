@@ -24,6 +24,7 @@ sync: pnpm
     cp -f ../notes-obsidian/BLOG/*.md ./source/_posts/
     #fd . -e md ./source/_posts -x sd 'created:' 'date:'
     sed -i 's/created:/date:/' ./source/_posts/*.md
+    git status | grep 'modified:'
     pnpm hexo clean
     pnpm hexo generate
     python3 insert_abbrlink_to_obsidian.py
