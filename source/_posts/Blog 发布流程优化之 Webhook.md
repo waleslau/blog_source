@@ -1,10 +1,10 @@
 ---
 title: Blog 发布流程优化之 Webhook
-tags:
-  - code
 abbrlink: a4327827
 date: 2024-04-24 21:40:05
 updated: 2024-04-24 21:50:05
+tags:
+  - code
 ---
 ## /etc/systemd/system/note_to_blog_api.service
 
