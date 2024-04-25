@@ -20,7 +20,6 @@ done:
     git push
 
 sync: pnpm
-    cd ../notes-obsidian && git pull
     rm -f ./source/_posts/*.md
     cp -f ../notes-obsidian/BLOG/*.md ./source/_posts/
     #fd . -e md ./source/_posts -x sd 'created:' 'date:'
