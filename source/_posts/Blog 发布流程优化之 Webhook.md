@@ -57,3 +57,7 @@ curl -X POST http://192.168.252.166:29001/note_to_blog -H 'Authorization: note_t
 ```
 
 然后在 Git 仓库设置里给 push 事件添加一个 webhook 即可实现提交代码后自动执行脚本更新 blog 文章，script.sh 就不再放出来了，里面就是 `hexo c`、`hexo g` 啥的。
+
+---
+
+用 Actions/Jenkins 之类的 CI/CD 工具或许更方便
