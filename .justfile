@@ -26,7 +26,7 @@ sync: pnpm
     #fd . -e md ./source/_posts -x sd 'created:' 'date:'
     sed -i 's/created:/date:/' ./source/_posts/*.md
     pnpm hexo clean
-    pnpm hexo generate
+    pnpm hexo generate &> /dev/null
     # insert abbrlink to obsidian
     python3 insert_abbrlink_to_obsidian.py
     just done
