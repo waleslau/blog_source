@@ -2,7 +2,7 @@
 title: Blog 发布流程优化之 Webhook
 abbrlink: a4327827
 date: 2024-04-24 21:40:05
-updated: 2024-04-24 21:40:05
+updated: 2024-04-26 13:12:32
 tags:
   - code
 ---
@@ -48,7 +48,7 @@ if __name__ == '__main__':
   app.run(host='192.168.252.166', port=29001)
 ```
 
-## How To
+## 如何使用
 
 启动守护进程后，给监听的端口发 POST 即可调用该 API
 
