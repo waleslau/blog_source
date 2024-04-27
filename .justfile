@@ -30,4 +30,5 @@ sync: pnpm
     pnpm hexo generate
     python3 insert_abbrlink_to_obsidian.py
     just done
+    cd ../notes-obsidian && git commit -a -m 'sync to blog' | grep 'nothing to commit' || git push
 
