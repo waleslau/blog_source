@@ -1,8 +1,8 @@
 ---
 title: PVE：为 VM 启用 xterm.js 控制台
 abbrlink: e393644d
-updated: 2023-09-04T04:54:00
-date: 2023-08-30T09:42:00
+updated: 2023-09-04 04:54:00
+date: 2023-08-30 09:42:00
 tags:
   - linux
   - pve

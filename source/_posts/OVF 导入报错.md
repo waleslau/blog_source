@@ -1,8 +1,8 @@
 ---
 title: OVF 导入报错
 abbrlink: c9eac9bf
-updated: 2022-08-07T11:58:00
-date: 2022-08-07T11:58:00
+updated: 2022-08-07 11:58:00
+date: 2022-08-07 11:58:00
 tags:
   - virtualbox
   - vmware

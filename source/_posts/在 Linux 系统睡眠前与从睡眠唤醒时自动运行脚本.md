@@ -1,8 +1,8 @@
 ---
 title: 在 Linux 系统睡眠/从睡眠唤醒时自动运行脚本
 abbrlink: c406a86d
-updated: 2022-04-16T15:19:00
-date: 2022-04-16T15:19:00
+updated: 2022-04-16 15:19:00
+date: 2022-04-16 15:19:00
 tags:
   - linux
   - suspend

@@ -1,8 +1,8 @@
 ---
 title: 使用命令重启到BIOS
 abbrlink: c93c285c
-date: 2023-10-11T10:18:02
-updated: 2024-04-23T12:59:00
+date: 2023-10-11 10:18:02
+updated: 2024-04-23 12:59:00
 tags:
   - windows
   - linux
