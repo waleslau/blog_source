@@ -1,8 +1,8 @@
 ---
 title: 在 Linux 上部署服务之 Kafka
 abbrlink: 85d5b333
-updated: 2023-09-08 16:50:16
 date: 2023-09-08 02:32:58
+updated: 2023-09-08 16:50:16
 tags:
   - kafka
   - linux

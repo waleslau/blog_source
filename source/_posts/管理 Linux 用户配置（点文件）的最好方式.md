@@ -1,8 +1,8 @@
 ---
 title: 管理 Linux 用户配置（点文件）的最好方式
 abbrlink: 5fa4b291
-updated: 2023-09-24 10:44:37
 date: 2023-02-06 14:22:00
+updated: 2023-09-24 10:44:37
 tags:
   - dotfiles
   - linux

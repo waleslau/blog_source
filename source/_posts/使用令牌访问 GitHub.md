@@ -1,8 +1,8 @@
 ---
 title: 使用令牌访问 GitHub
 abbrlink: 545a5fc3
-updated: 2021-08-14 08:24:00
 date: 2021-08-14 08:24:00
+updated: 2021-08-14 08:24:00
 tags:
   - github
 ---

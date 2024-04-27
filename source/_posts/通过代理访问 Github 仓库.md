@@ -1,8 +1,8 @@
 ---
 title: 通过代理访问 Github 仓库
 abbrlink: 6cedfc7a
-updated: 2023-01-17 10:02:04
 date: 2022-03-29 14:10:00
+updated: 2023-01-17 10:02:04
 tags:
   - git
   - proxy

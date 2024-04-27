@@ -1,8 +1,8 @@
 ---
 title: 给 SSH 设置代理
 abbrlink: 537127c9
-updated: 2022-12-20 20:50:00
 date: 2022-03-05 19:42:00
+updated: 2022-12-20 20:50:00
 tags:
   - git
   - proxy

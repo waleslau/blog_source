@@ -1,8 +1,8 @@
 ---
 title: 对 Word 文件进行「纯文本式」版本控制
 abbrlink: ff9138ea
-updated: 2023-09-27 15:09:53
 date: 2023-04-24 11:25:00
+updated: 2023-09-27 15:09:53
 tags:
   - git
   - pandoc
