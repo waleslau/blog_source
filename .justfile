@@ -32,6 +32,6 @@ sync: pnpm
     pnpm hexo generate
     python3 insert_abbrlink_to_obsidian.py
     git add source/_posts/*.md
-    git commit -m "update from note `cat /tmp/note_latest_hash`"
-    cd ../notes-obsidian && git commit -a -m 'sync to blog' | grep 'nothing to commit' || git push
+    git commit -m "update from note `cat /tmp/note_latest_hash`" && git push
+    cd ../notes-obsidian && git add BLOG/*.md && git commit -m 'sync to blog' | grep 'nothing to commit' || git push
 
