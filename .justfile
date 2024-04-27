@@ -26,9 +26,12 @@ sync: pnpm
     #fd . -e md ./source/_posts -x sd 'created:' 'date:'
     sed -i 's/created:/date:/' ./source/_posts/*.md
     git status | grep 'modified:' # 若无变动, 则退出执行
+    cd ../notes-obsidian && git log --pretty=format:"%h" -n 1 > /tmp/note_latest_hash
+    echo "https://git.oopsky.top/waleslau/notes-obsidian/commit/`cat /tmp/note_latest_hash`" > /tmp/note_latest_url 
     pnpm hexo clean
     pnpm hexo generate
     python3 insert_abbrlink_to_obsidian.py
-    just done
+    git add source/_posts/*.md
+    git commit -m "update from note `cat /tmp/note_latest_hash`"
     cd ../notes-obsidian && git commit -a -m 'sync to blog' | grep 'nothing to commit' || git push
 
