@@ -25,12 +25,12 @@ sync: pnpm
     cp -f ../notes-obsidian/BLOG/*.md ./source/_posts/
     #fd . -e md ./source/_posts -x sd 'created:' 'date:'
     sed -i 's/created:/date:/' ./source/_posts/*.md
-    git status | grep 'modified:' # 若无变动, 则退出执行
+    git status | grep 'add' # 若无变动, 则退出执行
     pnpm hexo clean
     pnpm hexo generate
     python3 insert_abbrlink_to_obsidian.py
     git add source/_posts/*.md
     bash ./gen_commit_message.sh
-    git commit -m "`cat /tmp/blog_message_file`" && git push
+    git commit -a -m "`cat /tmp/blog_message_file`" && git push
     cd ../notes-obsidian && git add BLOG/*.md && git commit -m 'sync to blog' | grep 'nothing to commit' || git push
 
