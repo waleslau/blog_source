@@ -2,7 +2,7 @@
 title: Blog 发布流程优化之 Webhook
 abbrlink: a4327827
 date: 2024-04-24 21:40:05
-updated: 2024-04-26 20:12:32
+updated: 2024-04-30 22:19:52
 tags:
   - code
 ---
@@ -60,4 +60,4 @@ curl -X POST http://192.168.252.166:29001/note_to_blog -H 'Authorization: note_t
 
 ---
 
-用 Actions/Jenkins 之类的 CI/CD 工具或许更方便
+用 Actions/Jenkins 之类的 CI/CD 工具或许更方便，但现在也够用了，小服务器资源有限，先用脚本处理吧😂
