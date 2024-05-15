@@ -1,10 +1,10 @@
 ---
 title: 在 Windows CMD 中为某命令设置别名
-tags:
-  - windows
 abbrlink: 59f07d80
 date: 2024-05-15 18:47:49
 updated: 2024-05-15 19:00:59
+tags:
+  - windows
 ---
 
 ## 在终端中临时设定
