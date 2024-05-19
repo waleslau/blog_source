@@ -2,9 +2,10 @@
 title: fstab 延迟挂载网络共享磁盘
 abbrlink: e145ca24
 date: 2024-05-19 23:20:33
-updated: 2024-05-19 23:30:24
+updated: 2024-05-19 23:20:33
 tags:
   - fstab
+  - linux
 ---
 
 通过编辑 `/etc/fstab` 文件挂载网络磁盘时，由于操作系统读取 `/etc/fstab` 文件挂载文件系统时操作系统的网络还没起来，无法成功建立连接，一直阻塞后面的启动流程，进而导致启动超时。  
@@ -12,5 +13,5 @@ tags:
 example：
 
 ```bash
-/dev/xxx /xxx/xxx ext4 defaults,_netdev 0 0
+/dev/xxx /xxx/xxx auto defaults,_netdev 0 0
 ```
