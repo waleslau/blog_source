@@ -1,0 +1,23 @@
+---
+title: Virtual Box 和 VMware Workstation 中常用网卡类型的区别
+tags:
+  - vmware
+  - virtualbox
+abbrlink: 98ac915d
+date: 2024-05-18 20:37:36
+updated: 2024-05-19 23:50:31
+---
+
+- VMware Workstation
+	- NAT：可上网，虚拟机/宿主机可互访
+	- 桥接：可上网，虚拟机内外可互访，和宿主机同网络的其他设备也可以访问需该虚拟机
+	- 仅主机（Host-Only）：不可上网，虚拟机/宿主机可互访
+
+- Virtual Box
+	- NAT：可上网，虚拟机可访问宿主机，反之不行。
+	- 桥接：可上网，虚拟机/宿主机可互访，和宿主机同网络的其他设备也可以访问需该虚拟机
+	- 仅主机（Host-Only）：不可上网，虚拟机/宿主机可互访。
+
+- 如果需要虚拟机/宿主机互相访问对方提供的网络服务，同时虚拟机也能上网：
+	- VMware Workstation 可使用 NAT 模式 网卡或桥接模式网卡。
+	- Virtual Box 需要使用桥接模式网卡；或者给虚拟机添加两个网卡，一个 NAT，一个仅主机。
