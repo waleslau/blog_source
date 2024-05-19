@@ -1,11 +1,11 @@
 ---
 title: Virtual Box 和 VMware Workstation 中常用网卡类型的区别
-tags:
-  - vmware
-  - virtualbox
 abbrlink: 98ac915d
 date: 2024-05-18 20:37:36
 updated: 2024-05-19 23:50:31
+tags:
+  - vmware
+  - virtualbox
 ---
 
 - VMware Workstation
