@@ -6,9 +6,11 @@ fmt:
 pnpm:
     pnpm i
 
-cgs: pnpm
+cg: pnpm
     pnpm hexo clean
     pnpm hexo generate
+
+cgs: cg
     pnpm hexo server -l
 
 push:

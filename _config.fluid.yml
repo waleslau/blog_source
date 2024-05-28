@@ -1032,12 +1032,6 @@ links:
       link: "https://www.pyduck.com/",
       avatar: "https://q2.qlogo.cn/g?b=qq&nk=921593279&s=100"
     }
-    - {
-      title: "Nibbles Blog",
-      intro: "半字节博客",
-      link: "https://nibbles.cool",
-      avatar: "https://storage.nibbles.cool/uploads/2022/04/5db8de8f842ec30b7ece7ced6a804ce4.jpg"
-    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
