@@ -1,7 +1,7 @@
 ---
 title: ChatGPT 相关资源收集整理
 abbrlink: 21e870c9
-updated: 2024-06-05 00:24:50
+updated: 2024-06-05 00:45:02
 date: 2023-04-10 11:22:00
 tags:
   - chatgpt
@@ -10,9 +10,9 @@ tags:
 
 ## 网址
 
-墙裂推荐 [poe.com](https://poe.com) 💥 ！网络通畅的话收藏这一个就够了  
-2024/04/10 update：发现一个国内公司做的大模型，体验还不错💕<https://kimi.moonshot.cn/>  
-2024/06/04 update：DuckDuckGo 也提供了类似 poe 的服务，无需登录，挺好用。有一点需要注意 - 这个网站不会保存使用记录。[DuckDuckGo AI Chat](https://duckduckgo.com/?q=DuckDuckGo&ia=chat)
+- 墙裂推荐 [poe.com](https://poe.com) 💥 ！网络通畅的话收藏这一个就够了  
+- 2024/04/10 update：发现一个国内公司做的大模型，体验还不错💕<https://kimi.moonshot.cn/>  
+- 2024/06/04 update：DuckDuckGo 也提供了类似 poe 的服务，无需登录，挺好用。有一点需要注意——这个网站不会保存使用记录。[DuckDuckGo AI Chat](https://duckduckgo.com/?q=DuckDuckGo&ia=chat)
 
 ## 提示词指南
 - [你用 ChatGPT 生成过哪些有趣的回答](https://www.zhihu.com/question/570430650)：知乎网友各显神通。
