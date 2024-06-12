@@ -2,7 +2,7 @@
 title: 将评论系统迁移到 Twikoo 了
 abbrlink: e33ba8b8
 date: 2024-06-12 22:39:29
-updated: 2024-06-13 00:58:19
+updated: 2024-06-12 22:39:29
 tags:
   - twikoo
 ---
