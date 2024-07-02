@@ -1084,4 +1084,6 @@ static_prefix:
   internal_js: /js
   internal_css: /css
   internal_img: /img
-  twikoo: https://cdn.staticfile.net/twikoo/1.6.36/
+  #twikoo: https://cdn.staticfile.net/twikoo/1.6.36/
+  #twikoo: https://lib.baomitu.com/twikoo/latest/
+  twikoo: https://cdn.oopsky.top/twikoo/
