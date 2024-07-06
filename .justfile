@@ -36,4 +36,3 @@ sync: pnpm
     bash ./gen_commit_message.sh
     git commit -a -m "`cat /tmp/blog_message_file`" && git push
     cd ../notes-obsidian && git add BLOG/*.md && git commit -m 'sync to blog' | grep 'nothing to commit' || git push
-
