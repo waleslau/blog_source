@@ -1,11 +1,11 @@
 ---
 title: 在 Linux 上安装配置 Ansible
-tags:
-  - linux
-  - ansible
 abbrlink: 7574f282
 date: 2024-07-11 21:21:21
 updated: 2024-07-11 21:21:21
+tags:
+  - linux
+  - ansible
 ---
 ## 安装 Ansible
 
