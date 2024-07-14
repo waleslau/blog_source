@@ -19,8 +19,8 @@ mkdir -p ~/ansible_playground
 
 ```bash
 cd ~/ansible_playground
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv venv # 创建 venv 环境（可选）
+source venv/bin/activate # 生效该环境（可选）
 pip install ansible
 ```
 
