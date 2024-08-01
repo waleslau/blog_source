@@ -342,7 +342,7 @@ navbar:
       { key: 'HOME', link: 'https://oopsky.top/' },
       { key: 'Gitea', link: 'https://git.oopsky.top/' },
       { key: "Memos", link: "https://memos.oopsky.top/explore"},
-      { key: "WAF", link: "https://waf.oopsky.top/"},
+      #{ key: "WAF", link: "https://waf.oopsky.top/"},
       #{ key: 'Linux 常用软件列表', link: 'https://waleslau.github.io/software-list-on-linux/' }
       ]
     }
