@@ -2,7 +2,7 @@
 title: 使用 WinSW 把可执行文件安装为服务
 abbrlink: 376ebc48
 date: 2023-01-05 08:06:00
-updated: 2023-01-05 08:06:00
+updated: 2024-10-13 20:57:30
 tags:
   - windows
 ---
@@ -38,17 +38,15 @@ tags:
   - 可以使用 `WinSW.exe install .\myapp.xml` 操作服务
   - 也可以把 `WinSW.exe` 重命名为 `myapp.exe`，然后使用 `myapp install` 操作服务
 
-服务示例：
+服务示例：  
 `chfs-service.xml`：
 
 ```xml
 <service>
   <id>chfs-service</id>
-  <!-- name 和 description 字段可以省略 -->
   <name>CUTE HTTP FILE SERVER</name>
   <description> http://iscute.cn/chfs </description>
-  <!-- 下面的可执行文件可以放到当前目录也可以放到其他目录，放到其他目录就要用绝对地址 -->
-  <executable>D:\WIN-WORKSPACE\scoop\apps\chfs\current\chfs.exe</executable>
+  <executable> chfs.exe </executable>
   <arguments> --rule="::r|root:123456:rwd" --path="D:\\" </arguments>
   <!-- 把日志文件都放到xml所在位置的子目录 -->
   <logpath>%BASE%\logs</logpath>
@@ -58,8 +56,8 @@ tags:
 
 ### 全局方式
 
-1. 从[发布页面](https://github.com/winsw/winsw/releases)下载 `WinSW.exe`
-2. 创建一个专门用来放 xml 文件的目录，把 `WinSW.exe` 放入其中，创建 `myapp1.xml`、`myapp2.xml` ...
+1. 从 [发布页面](https://github.com/winsw/winsw/releases) 下载 `WinSW.exe`
+2. 创建一个专门用来放 xml 文件的目录，把 `WinSW.exe` 放入其中，创建 `myapp1.xml`、`myapp2.xml` …
 3. 然后可以使用形似下面的命令操作每个服务
 
 ```shell
