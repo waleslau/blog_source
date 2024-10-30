@@ -3,6 +3,9 @@ title: 终于找到IDM的完美平替了
 abbrlink: cb5432d2
 date: 2024-10-12 19:13:42
 updated: 2024-10-12 19:43:53
+tags:
+  - windows
+  - tools
 ---
 
 推荐一个下载工具：[NeatDownloadManager](https://neatdownloadmanager.com)。除了界面有点简陋，整体用着跟 idm 差不多，而且是免费的！  
