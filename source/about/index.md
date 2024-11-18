@@ -6,4 +6,4 @@ layout: about
 
 ## About Me
 
-- 貌似是个零零后.
+- ..
