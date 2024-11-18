@@ -21,7 +21,7 @@
     "hexo-renderer-pandoc": "^0.3.1",
     "hexo-renderer-stylus": "^2.1.0",
     "hexo-server": "^3.0.0",
-    "hexo-theme-fluid": "^1.9.7",
+    "hexo-theme-fluid": "^1.9.8",
     "nunjucks": "^3.2.4",
     "typescript": "^4.9.5"
   }
