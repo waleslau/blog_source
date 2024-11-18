@@ -21,8 +21,7 @@ tags:
 - 讯飞星火 <https://xinghuo.xfyun.cn/>
 - 月之暗面 kimi <https://kimi.moonshot.cn/>
 - 腾讯元宝 <https://yuanbao.tencent.com/chat/>
-- …
-- …
+- … …
 
 ## 提示词指南
 
@@ -34,7 +33,7 @@ tags:
 
 ## 其他
 
-- - [国内可用的 ChatGPT 在线体验免费网站列表导航](https://lzw.me/x/chatgpt-sites/)
+- [国内可用的 ChatGPT 在线体验免费网站列表导航](https://lzw.me/x/chatgpt-sites/)
 - [Claude in Slack](https://www.anthropic.com/index/claude-now-in-slack)
 - [phind](https://www.phind.com/)
 - [editGPT](https://www.editgpt.app/)
