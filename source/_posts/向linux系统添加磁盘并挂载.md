@@ -2,7 +2,7 @@
 title: 向linux系统添加磁盘并挂载
 abbrlink: 894ec163
 date: 2024-11-23 21:33:02
-updated: 2024-11-23 22:20:57
+updated: 2024-11-23 22:24:51
 tags:
   - linux
   - fdisk
@@ -18,6 +18,8 @@ tags:
 
 ## 2. 确认哪些目录需要更大空间
 
+使用 `du --max-depth=1 -h /` 可查出哪些目录占占空间较多。  
+最终查出来就是这些了：
 - /home
 - /var  
   …  
