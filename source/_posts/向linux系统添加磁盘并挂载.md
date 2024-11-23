@@ -1,11 +1,11 @@
 ---
 title: 向linux系统添加磁盘并挂载
-tags:
-  - linux
-  - fdisk
 abbrlink: 894ec163
 date: 2024-11-23 21:33:02
 updated: 2024-11-23 22:15:20
+tags:
+  - linux
+  - fdisk
 ---
 
 前情提要：
