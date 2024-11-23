@@ -2,7 +2,7 @@
 title: 向linux系统添加磁盘并挂载
 abbrlink: 894ec163
 date: 2024-11-23 21:33:02
-updated: 2024-11-23 22:24:51
+updated: 2024-11-23 22:28:26
 tags:
   - linux
   - fdisk
@@ -92,7 +92,7 @@ root@host45:~# sync
 root@host45:~# find /home -type f -delete
 ```
 
-~~用 `rm -rf /home/*` 也行~~
+~~用 `rm -rf /home/*` 也行~~，这俩命令都很危险，执行前看清楚敲对了没，别把 `/` 给清了。
 
 ## 7. 持久化挂载
 
