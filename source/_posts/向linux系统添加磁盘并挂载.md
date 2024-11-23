@@ -2,7 +2,7 @@
 title: 向linux系统添加磁盘并挂载
 abbrlink: 894ec163
 date: 2024-11-23 21:33:02
-updated: 2024-11-23 22:19:54
+updated: 2024-11-23 22:20:57
 tags:
   - linux
   - fdisk
@@ -93,7 +93,7 @@ root@host45:~# find /home -type f -delete
 
 ## 7. 持久化挂载
 
-编辑 /etc/fstab，在末尾添加
+编辑 /etc/fstab，在末尾新建一行添加：
 
 ```bash
 /dev/sdb1 /home auto auto 0 0
