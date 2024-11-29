@@ -244,8 +244,8 @@ packages:
       - supports-color
     dev: true
 
-  /cross-spawn@7.0.5:
-    resolution: {integrity: sha512-ZVJrKKYunU38/76t0RMOulHOnUcbU9GbpWKAOZ0mhjr7CX6FVrH+4FrAapSOekrgFQ3f/8gwMEuIft0aKq6Hug==}
+  /cross-spawn@7.0.6:
+    resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
     dependencies:
       path-key: 3.1.1
@@ -678,7 +678,7 @@ packages:
     dependencies:
       bluebird: 3.7.2
       camel-case: 4.1.2
-      cross-spawn: 7.0.5
+      cross-spawn: 7.0.6
       deepmerge: 4.3.1
       highlight.js: 11.10.0
       htmlparser2: 7.2.0
@@ -692,7 +692,7 @@ packages:
     requiresBuild: true
     dependencies:
       camel-case: 4.1.2
-      cross-spawn: 7.0.5
+      cross-spawn: 7.0.6
       deepmerge: 4.3.1
       highlight.js: 11.10.0
       htmlparser2: 9.1.0
