@@ -2,7 +2,7 @@
 title: 终于找到IDM的完美平替了
 abbrlink: cb5432d2
 date: 2024-10-12 19:13:42
-updated: 2024-10-12 19:43:53
+updated: 2025-02-04 14:26:17
 tags:
   - windows
   - tools
@@ -17,7 +17,7 @@ tags:
 	- 支持浏览器插件自动唤起下载
 	- 支持 HTTP、BitTorrent、Magnet 等协议
 	- 支持 Windows、MacOS、Linux、Android、iOS 等
-	- **目前版本 (1.6.0) 对某些中文文件名识别有问题，下载下来后文件名是 urlencode 过的**
+	- 目前版本 (1.6.x) 对某些中文文件名识别有问题，下载下来后文件名是 urlencode 过的，需要手动重命名
 - [AB Download Manager](https://abdownloadmanager.com/)
 	- 支持浏览器插件自动唤起下载
 	- 支持按照文件后缀分类并下载到不同子目录
