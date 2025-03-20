@@ -45,3 +45,4 @@ tags:
 - [AI 驱动的正则表达式求解器](https://regex.ai/)
 - [ChatBox](https://github.com/Bin-Huang/chatbox/releases)
 - [ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web/blob/main/README_CN.md)
+- [AI 驱动的 Python 代码修复器](https://pythonium.net/fixer)
