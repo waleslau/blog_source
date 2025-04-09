@@ -1,0 +1,30 @@
+/* https://github.com/TakWolf/fusion-pixel-font/releases */
+@font-face {
+  font-family: Fusion-Pixel;
+  src: url("./woff2/fusion-pixel.OnlyRequire.woff2");
+}
+
+html,
+body,
+.markdown-body {
+  /* 此处覆盖了主题配置里的 font_family 字段*/
+  font-family: Fusion-Pixel, sans-serif;
+}
+
+code,
+.markdown-body code {
+  font-family: Fusion-Pixel, monospace;
+}
+
+.markdown-body strong {
+  /* color: #1bd1a5; */
+  /* color: #3de1ad; */
+  color: #30a9de;
+  /* color: #29d; */
+}
+.markdown-body em {
+  /* color: #75878a; */
+  /* color: #7096b7; */
+  /* color: #688aa3; */
+  color: #8b969f;
+}
