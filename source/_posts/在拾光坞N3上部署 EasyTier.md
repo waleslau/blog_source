@@ -2,7 +2,7 @@
 title: 在拾光坞N3上部署 EasyTier
 abbrlink: ba8cb8ea
 date: 2025-04-12 21:37:28
-updated: 2025-04-13 00:58:35
+updated: 2025-04-13 01:01:02
 tags:
   - nas
   - easytier
@@ -20,7 +20,7 @@ tags:
 
 参数说明：
 
-- `-i <IPV4>`: 手动制定 ip
+- `-i <IPV4>`: 手动指定 ip
 - `-d`: 自动设定 ip，与 `-i` 二选一
 - `--no-tun`: 配置该参数后将不会尝试创建 TUN 设备，该节点将无法主动启动对其他节点的访问
 
