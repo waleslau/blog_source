@@ -2,13 +2,13 @@
 title: 在拾光坞N3上部署 EasyTier
 abbrlink: ba8cb8ea
 date: 2025-04-12 21:37:28
-updated: 2025-04-13 01:02:54
+updated: 2025-04-13 01:04:20
 tags:
   - nas
   - easytier
 ---
 
-需要注意两点：
+在创建容器时需要注意两点：
 
 一是网络要设置为 host 模式，
 
