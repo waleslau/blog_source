@@ -1,11 +1,11 @@
 ---
 title: 在拾光坞N3上部署 EasyTier
-tags:
-  - nas
-  - easytier
 abbrlink: ba8cb8ea
 date: 2025-04-12 21:37:28
 updated: 2025-04-13 00:58:35
+tags:
+  - nas
+  - easytier
 ---
 
 需要注意两点：
