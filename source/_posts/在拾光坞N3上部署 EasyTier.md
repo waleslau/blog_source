@@ -2,7 +2,7 @@
 title: 在拾光坞N3上部署 EasyTier
 abbrlink: ba8cb8ea
 date: 2025-04-12 21:37:28
-updated: 2025-04-13 01:04:20
+updated: 2025-04-13 01:06:03
 tags:
   - nas
   - easytier
@@ -14,7 +14,7 @@ tags:
 
 二是「命令设置 --> cmd 命令」改成自定义，并填入如下内容：
 
-```
+```yml
 '--no-tun' '-d' '--network-name' 'foo' '--network-secret' 'bar' '-p' 'tcp://public.easytier.cn:11010'
 ```
 
