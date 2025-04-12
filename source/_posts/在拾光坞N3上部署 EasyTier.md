@@ -4,8 +4,8 @@ abbrlink: ba8cb8ea
 date: 2025-04-12 21:37:28
 updated: 2025-04-13 01:06:03
 tags:
-  - nas
-  - easytier
+  - 内网穿透
+  - 异地组网
 ---
 
 在创建容器时需要注意两点：
