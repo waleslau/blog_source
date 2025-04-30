@@ -1,0 +1,45 @@
+on: [push]
+jobs:
+  build:
+    runs-on: docker
+    container:
+      image: node:lts-alpine
+    steps:
+      - name: 'setup build environment'
+        run: |
+          sed -i 's#https\?://dl-cdn.alpinelinux.org/alpine#https://mirror.nju.edu.cn/alpine#g' /etc/apk/repositories
+          echo 'registry=https://mirrors.huaweicloud.com/repository/npm/' > ~/.npmrc
+          apk add pandoc
+          npm i -g pnpm
+
+      - name: 'set timezone'
+        run: |
+          apk add tzdata
+          cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+          
+      - name: 'setup git and openssh'
+        run: |
+          apk add git openssh
+          mkdir -p ~/.ssh/
+          echo 'StrictHostKeyChecking no' >> ~/.ssh/config
+          echo ${{ secrets.REPO_PRIVATE_KEY_BASE64 }} | base64 -d > ~/.ssh/id_ed25519
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/*
+
+      - name: 'clone repo'
+        run: |
+          echo '172.19.173.174 git.oopsky.top' >> /etc/hosts
+          git clone ssh://git@git.oopsky.top:22222/${{ github.repository }}.git /workspace/${{ github.repository }}
+          
+      - name: 'build blog'
+        run: |
+          pnpm i
+          pnpm hexo g
+
+      - name: 'upload'
+        run: |
+          apk add rclone
+          rclone config create blog-public webdav url http://172.19.173.174:3060 vendor other user 'blog_public' pass 'sAmYbV3f'
+          rclone sync public blog-public:
+          
+
