@@ -10,7 +10,7 @@ message_file=/tmp/blog_message_file
 files=$(git diff --cached --name-status)
 
 # 获取 note 仓库最新提交的 id
-note_latest_commit=`cd /opt/sites/notes-obsidian && git pull &> /dev/null && git log --pretty=format:"%h" -n 1`
+note_latest_commit=`cd ../notes-obsidian && git pull &> /dev/null && git log --pretty=format:"%h" -n 1`
 
 echo -e "from $note_latest_commit \n" > "$message_file"
 git status --porcelain >> "$message_file" 
