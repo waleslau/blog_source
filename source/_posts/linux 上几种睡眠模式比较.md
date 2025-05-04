@@ -1,17 +1,17 @@
 ---
 title: linux 上几种睡眠模式比较
 abbrlink: af1f09e9
-updated: 2025-05-05 00:58:48
+updated: 2025-05-05 01:00:49
 date: 2022-12-10 11:46:29
 tags:
   - linux
 ---
 
-```shell
-suspend                    # Suspend the system
-hibernate                  # Hibernate the system
-hybrid-sleep               # Hibernate and suspend the system
-suspend-then-hibernate     # Suspend the system, wake after a period of time, and hibernate
+```bash
+systemctl suspend                    # Suspend the system
+systemctl hibernate                  # Hibernate the system
+systemctl hybrid-sleep               # Hibernate and suspend the system
+systemctl suspend-then-hibernate     # Suspend the system, wake after a period of time, and hibernate
 ```
 
 ## suspend
