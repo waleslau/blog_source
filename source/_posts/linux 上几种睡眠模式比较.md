@@ -1,22 +1,22 @@
 ---
 title: linux 上几种睡眠模式比较
 abbrlink: af1f09e9
-updated: 2022-12-18 07:59:38
+updated: 2025-05-05 00:58:48
 date: 2022-12-10 11:46:29
 tags:
   - linux
 ---
 
 ```shell
-systemctl suspend                 -- Suspend the system
-systemctl hibernate     -- Hibernate the system
-systemctl suspend-then-hibernate  -- Suspend the system for a period of time, and then hibernate it
-systemctl hybrid-sleep  -- Hibernate and suspend the system
+suspend                    # Suspend the system
+hibernate                  # Hibernate the system
+hybrid-sleep               # Hibernate and suspend the system
+suspend-then-hibernate     # Suspend the system, wake after a period of time, and hibernate
 ```
 
 ## suspend
 
-普通的挂起（或者说睡眠），机器能以最快的速度被唤醒。不建议在笔记本不插电时使用，容易睡死(电池耗尽后丢失工作状态)。
+普通的挂起（或者说睡眠），机器能以最快的速度被唤醒。不建议在笔记本不插电时使用，容易睡死 (电池耗尽后丢失工作状态)。
 
 ## hibernate
 
@@ -34,8 +34,8 @@ systemctl hybrid-sleep  -- Hibernate and suspend the system
 
 我起初以为它的效果只是 suspend 的同时也把内存状态备份到硬盘以避免睡死，但在实际使用时发现我的笔记本在 suspend 时仍会发热（而且发热量很可观，几乎比省电模式下空载还热了，耗电估计也小不了），但 hybrid-sleep 时几乎没有发热，我觉得它应该做了更多的处理。不排除 suspend 在我的本子上没有正常工作这个可能
 
-> 我发现我的笔记本在 suspend 时仍会发热（而且发热量很可观，几乎比省电模式下空载还热了，耗电估计也小不了），但 hybrid-sleep 时几乎没有发热（和在 Windows 11 下睡眠的表现差不多）。
-> suspend 是普通的挂起，hybrid-sleep 是混合睡眠，从文档里的的介绍来看混合睡眠只是比普通的挂起多了个保存内存状态到硬盘的操作，按理说它俩的功耗表现应该是一样的啊，是 hybrid-sleep 在控制功耗方面做了更多的处理，还是 suspend 在我的本子上没有正常工作呢？
+> 我发现我的笔记本在 suspend 时仍会发热（而且发热量很可观，几乎比省电模式下空载还热了，耗电估计也小不了），但 hybrid-sleep 时几乎没有发热（和在 Windows 11 下睡眠的表现差不多）。  
+> suspend 是普通的挂起，hybrid-sleep 是混合睡眠，从文档里的的介绍来看混合睡眠只是比普通的挂起多了个保存内存状态到硬盘的操作，按理说它俩的功耗表现应该是一样的啊，是 hybrid-sleep 在控制功耗方面做了更多的处理，还是 suspend 在我的本子上没有正常工作呢？  
 > [https://forum.suse.org.cn/t/topic/15224](https://forum.suse.org.cn/t/topic/15224)
 
 ## 解决
