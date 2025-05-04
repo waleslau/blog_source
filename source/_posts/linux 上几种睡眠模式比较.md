@@ -1,7 +1,7 @@
 ---
 title: linux 上几种睡眠模式比较
 abbrlink: af1f09e9
-date: 2022-12-10 11:46:29
+updated: 2022-12-10 11:46:29
 date: 2022-12-10 11:46:29
 tags:
   - linux
