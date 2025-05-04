@@ -26,7 +26,7 @@ tags:
 
 第三步，新建一个文件夹，在这个文件夹里初始化 Git 仓库（工作区）。
 
-```shell
+```bash
 mkdir git-word-demo
 cd git-word-demo
 git init
@@ -40,7 +40,7 @@ git init
 
 然后把该文件加入版本版本管理，并 commit 一下：
 
-```shell
+```bash
 git add .gitattributes
 git commit -m "init"
 ```
@@ -53,7 +53,7 @@ git commit -m "init"
 
 然后把该文件加入版本管理，并 commit 一下提交当前状态：
 
-```shell
+```bash
 git add example.docx
 git commit -m "add example.docx"
 ```
@@ -66,7 +66,7 @@ git commit -m "add example.docx"
 
 然后记录变化并 commit 之，参数 `-a` 的作用是自动记录所有已 `git add` 过的文件的变化
 
-```shell
+```bash
 git commit -a -m "update"
 ```
 

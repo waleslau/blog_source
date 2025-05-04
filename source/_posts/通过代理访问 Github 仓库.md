@@ -19,13 +19,13 @@ tags:
 
 我们可以对所有域名都启用代理（全局）
 
-```shell
+```bash
 git config --global http.proxy socks5h://127.0.0.1:7890
 ```
 
 也可以分别对某些域名启用代理
 
-```shell
+```bash
 git config --global http.https://github.com.proxy socks5h://127.0.0.1:7890
 
 git config --global http.https://gitlab.com.proxy socks5h://127.0.0.1:7890

@@ -1,7 +1,7 @@
 ---
 title: linux 上几种睡眠模式比较
 abbrlink: af1f09e9
-updated: 2025-05-05 01:00:49
+date: 2022-12-10 11:46:29
 date: 2022-12-10 11:46:29
 tags:
   - linux
@@ -40,7 +40,7 @@ systemctl suspend-then-hibernate     # Suspend the system, wake after a period o
 
 ## 解决
 
-```shell
+```bash
 # /etc/systemd/sleep.conf
 [Sleep]
 #AllowSuspend=yes

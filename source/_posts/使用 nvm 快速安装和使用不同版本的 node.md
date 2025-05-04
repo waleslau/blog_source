@@ -14,13 +14,13 @@ tags:
 
 直接执行下面命令即可
 
-```shell
+```bash
 sudo bash <(curl -L https://raw.gitmirror.com/tj/n/master/bin/n) lts
 ```
 
 默认情况下会把程序下载到 `/usr/local/n/`，所以需要 `sudo`，如果想安装到其他位置，需要先处理一下环境变量才能正常工作，比如：
 
-```shell
+```bash
 export N_PREFIX=$HOME/.n
 export PATH="$HOME/.n/bin:$PATH"
 ```
@@ -33,26 +33,26 @@ nvm 的全名是 [Node Version Manager](https://github.com/nvm-sh/nvm)，是一�
 
 ## 安装
 
-```shell
+```bash
 curl -o- https://cdn.jsdelivr.net/gh/nvm-sh/nvm/install.sh | bash
 ```
 
 请在安装后执行一下 `nvm` 检查是否成功，该安装脚本会尝试自动处理 `~/.bashrc`，如果没有找到 `nvm` 命令，可以手动在 shell 的用户配置文件添加如下内容（`zsh` 对应的是 `~/.zshrc`，其他 shell 请自行查询用户配置位置）
 
-```shell
+```bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 ```
 
 ## 首次使用
 
-```shell
+```bash
 nvm install --lts # 下载最新的LTS版本
 ```
 
 然后检查一下配置是否生效
 
-```shell
+```bash
 $ which npm
 /home/idea/.nvm/versions/node/v16.14.2/bin/npm
 $ which node
@@ -61,7 +61,7 @@ $ which node
 
 ## 更改 npmmirror 中国镜像站
 
-```shell
+```bash
 npm config set registry https://registry.npmmirror.com
 ```
 

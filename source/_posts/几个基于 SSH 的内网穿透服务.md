@@ -21,13 +21,13 @@ ssh serveo.net -R 80:localhost:4000
 
 创建单个隧道
 
-```shell
+```bash
 ssh srv.us -R 1:localhost:4000
 ```
 
 同时创建多个隧道
 
-```shell
+```bash
 ssh srv.us -R 1:localhost:4000 -R 2:192.168.0.1:80
 ```
 
@@ -35,7 +35,7 @@ ssh srv.us -R 1:localhost:4000 -R 2:192.168.0.1:80
 
 临时使用：
 
-```shell
+```bash
 ssh -R 80:localhost:4000 nokey@localhost.run
 ```
 

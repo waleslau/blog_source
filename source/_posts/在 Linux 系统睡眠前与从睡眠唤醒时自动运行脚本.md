@@ -17,7 +17,7 @@ tags:
 
 研究了一下发现可以使用 sudo chronyc makestep 手动校准，要想在在从睡眠恢复后自动执行它[^1]，则可以在 `/usr/lib/systemd/system-sleep` 下创建一个文件 `chronyc.sleep`，内容如下：
 
-```shell
+```bash
 #!/bin/sh
 if [ "${1}" == "pre" ]; then
     # Do the thing you want before suspend here, e.g.:
@@ -31,7 +31,7 @@ fi
 
 睡眠并唤醒后查看 `/tmp/systemd_sleep_log`
 
-```shell
+```bash
 idea@wei-laptop:~> cat /tmp/systemd_suspend_test
 we are suspending at 2022年 04月 16日 星期六 23:03:53 CST...
 ...and we are back from 2022年 04月 16日 星期六 23:03:58 CST

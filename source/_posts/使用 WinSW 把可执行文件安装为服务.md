@@ -60,7 +60,7 @@ tags:
 2. 创建一个专门用来放 xml 文件的目录，把 `WinSW.exe` 放入其中，创建 `myapp1.xml`、`myapp2.xml` …
 3. 然后可以使用形似下面的命令操作每个服务
 
-```shell
+```bash
 WinSW.exe install .\myapp1.xml
 WinSW.exe install .\myapp2.xml
 ```
@@ -74,7 +74,7 @@ WinSW.exe install .\myapp2.xml
 3. 在相同文件夹内创建 `myapp.xml`
 4. 然后可以使用形似下面的命令操作服务
 
-```shell
+```bash
 myapp install
 myapp start
 myapp stop

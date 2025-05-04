@@ -14,7 +14,7 @@ tags:
 
 - 编辑 /etc/davfs2/davfs2.conf 取消以下项的注释并更改值
 
-```shell
+```bash
 ignore_dav_header 1
 use_locks 0
 ```
@@ -23,7 +23,7 @@ use_locks 0
 
 编辑 /etc/davfs2/secrets 末尾添加
 
-```shell
+```bash
 https://seto.teracloud.jp/dav/ <username> <secret>
 # 也可以有子目录
 https://seto.teracloud.jp/dav/dir1/ <username> <secret>
@@ -32,7 +32,7 @@ https://seto.teracloud.jp/dav/dir2/ <username> <secret>
 
 ## 手动挂载
 
-```shell
+```bash
 #创建挂载路径
 mkdir /webdav
 #手动挂载
@@ -47,13 +47,13 @@ umount /webdav/dir1/
 
 编辑 /etc/fstab 末尾添加
 
-```shell
+```bash
 https://seto.teracloud.jp/dav/dir1/ /path/to/dir1/ davfs rw,user,sync,noauto,uid=1000,_netdev 0 0
 ```
 
 编辑 `etc/systemd/system/mount-webdav.service`
 
-```shell
+```bash
 [Unit]
 # 服务名称，可自定义Description=Mount WebDAV Service (KeePass)
 After = network.target syslog.target
@@ -71,6 +71,6 @@ WantedBy = multi-user.target
 
 然后执行下面命令
 
-```shell
+```bash
 systemctl enable --now keepass-webdav.service
 ```
