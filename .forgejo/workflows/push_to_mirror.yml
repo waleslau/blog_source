@@ -31,4 +31,4 @@ jobs:
       - name: 'push to github'
         run: |
          git remote add github git@github.com:waleslau/blog_source.git
-         git push 
+         git push github 
