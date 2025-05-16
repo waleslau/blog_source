@@ -1,0 +1,28 @@
+@import url("https://npm.elemecdn.com/lxgw-wenkai-webfont/lxgwwenkai-bold.css");
+@import url("https://npm.elemecdn.com/lxgw-wenkai-webfont/lxgwwenkaimono-bold.css");
+/* @import url("https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkaiscreen.css"); */
+
+html,
+body,
+.markdown-body {
+  /* 此处覆盖了主题配置里的 font_family 字段*/
+  font-family: "LXGW WenKai", sans-serif;
+}
+
+code,
+.markdown-body code {
+  font-family: "LXGW WenKai Mono", monospace;
+}
+
+.markdown-body strong {
+  /* color: #1bd1a5; */
+  /* color: #3de1ad; */
+  color: #30a9de;
+  /* color: #29d; */
+}
+.markdown-body em {
+  /* color: #75878a; */
+  /* color: #7096b7; */
+  /* color: #688aa3; */
+  color: #8b969f;
+}
