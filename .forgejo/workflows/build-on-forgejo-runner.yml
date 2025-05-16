@@ -3,7 +3,7 @@ jobs:
   build:
     runs-on: docker
     container:
-      image: node:lts-alpine
+      image: m.daocloud.io/docker.io/node:lts-alpine
     steps:
       - name: 'setup build environment'
         run: |
