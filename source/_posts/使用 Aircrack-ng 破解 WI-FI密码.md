@@ -5,7 +5,6 @@ updated: 2025-11-02 19:27:09
 tags:
   - kali
   - linux
-abbrlink: 6e155fd
 ---
 ## 说在前面
 
