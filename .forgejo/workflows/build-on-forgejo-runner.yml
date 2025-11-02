@@ -42,4 +42,8 @@ jobs:
           rclone config create blog-public webdav url http://172.19.173.174:3060 vendor other user 'blog_public' pass 'sAmYbV3f'
           rclone sync public blog-public:
           
-
+      - name: 'sync abbrlink'
+        run: |
+          git clone ssh://git@git.oopsky.top:22222/waleslau/notes-obsidian.git ../notes-obsidian
+          python3 insert_abbrlink_to_obsidian.py
+          cd ../notes-obsidian && git add BLOG/*.md && git commit -m 'sync abbrlink' | grep 'nothing to commit' || git push
