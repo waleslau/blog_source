@@ -1,4 +1,5 @@
-on: [push]
+on:
+  workflow_dispatch: {}
 jobs:
   build:
     runs-on: docker
@@ -43,7 +44,3 @@ jobs:
           apk add rclone
           rclone config create blog-public webdav url http://172.19.173.174:3060 vendor other user 'blog_public' pass 'sAmYbV3f'
           rclone sync public blog-public:
-          
-      - name: 'sync abbrlink'
-        run: |
-          git commit -a -m 'sync abbrlink' | grep 'nothing to commit' || git push
