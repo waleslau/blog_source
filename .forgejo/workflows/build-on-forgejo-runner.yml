@@ -46,4 +46,4 @@ jobs:
           
       - name: 'sync abbrlink'
         run: |
-          git commit -m 'sync abbrlink' | grep 'nothing to commit' || git push
+          git commit -a -m 'sync abbrlink' | grep 'nothing to commit' || git push
