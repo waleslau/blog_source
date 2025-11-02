@@ -25,7 +25,9 @@ jobs:
           echo ${{ secrets.REPO_PRIVATE_KEY_BASE64 }} | base64 -d > ~/.ssh/id_ed25519
           chmod 700 ~/.ssh
           chmod 600 ~/.ssh/*
-
+          git config --global user.name "bot"
+          git config --global user.email "bot@oopsky.top"
+          
       - name: 'clone repo'
         run: |
           echo '172.19.173.174 git.oopsky.top' >> /etc/hosts
@@ -44,7 +46,4 @@ jobs:
           
       - name: 'sync abbrlink'
         run: |
-          git clone ssh://git@git.oopsky.top:22222/waleslau/notes-obsidian.git ../notes-obsidian
-          python3 insert_abbrlink_to_obsidian.py
           git commit -m 'sync abbrlink' | grep 'nothing to commit' || git push
-          cd ../notes-obsidian && git add BLOG/*.md && git commit -m 'sync abbrlink' | grep 'nothing to commit' || git push
