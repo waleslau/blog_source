@@ -1,21 +1,17 @@
-#@import url("https://npm.elemecdn.com/lxgw-wenkai-webfont/lxgwwenkai-bold.css");
-#@import url("https://npm.elemecdn.com/lxgw-wenkai-webfont/lxgwwenkaimono-bold.css");
+@import url("https://npm.elemecdn.com/lxgw-wenkai-webfont/lxgwwenkai-bold.css");
+@import url("https://npm.elemecdn.com/lxgw-wenkai-webfont/lxgwwenkaimono-bold.css");
 /* @import url("https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkaiscreen.css"); */
-@import url("https://fontsapi.zeoseven.com/292/main/result.css");
-@import url("https://fontsapi.zeoseven.com/293/main/result.css");
 
 html,
 body,
 .markdown-body {
   /* 此处覆盖了主题配置里的 font_family 字段*/
   font-family: "LXGW WenKai", sans-serif;
-  font-weight: normal;
 }
 
 code,
 .markdown-body code {
   font-family: "LXGW WenKai Mono", monospace;
-  font-weight: normal;
 }
 
 .markdown-body strong {
