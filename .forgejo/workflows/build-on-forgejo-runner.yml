@@ -9,7 +9,7 @@ jobs:
         run: |
           sed -i 's#https\?://dl-cdn.alpinelinux.org/alpine#https://mirror.nju.edu.cn/alpine#g' /etc/apk/repositories
           echo 'registry=https://mirrors.huaweicloud.com/repository/npm/' > ~/.npmrc
-          apk add pandoc
+          apk add pandoc python3
           npm i -g pnpm
 
       - name: 'set timezone'
