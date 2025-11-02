@@ -1,5 +1,5 @@
 ---
-title: 使用 Aircrack-ng 破解 WI-FI 密码
+title: 使用 Aircrack-ng 破解 Wi-Fi 密码
 abbrlink: 6e155fd
 date: 2025-11-02 21:30:02
 updated: 2025-11-03 01:09:28
