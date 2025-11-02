@@ -1,10 +1,11 @@
 ---
 title: 使用 Aircrack-ng 破解 WI-FI密码
-date: 2025-11-02 12:54:50
-updated: 2025-11-02 19:27:09
 tags:
   - kali
   - linux
+abbrlink: 6e155fd
+date: 2025-11-02 12:54:50
+updated: 2025-11-02 19:27:09
 ---
 ## 说在前面
 
