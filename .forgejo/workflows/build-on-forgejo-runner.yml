@@ -46,4 +46,5 @@ jobs:
         run: |
           git clone ssh://git@git.oopsky.top:22222/waleslau/notes-obsidian.git ../notes-obsidian
           python3 insert_abbrlink_to_obsidian.py
+          git commit -m 'sync abbrlink' | grep 'nothing to commit' || git push
           cd ../notes-obsidian && git add BLOG/*.md && git commit -m 'sync abbrlink' | grep 'nothing to commit' || git push
