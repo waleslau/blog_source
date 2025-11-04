@@ -2,7 +2,7 @@
 title: 使用 Aircrack-ng 破解 Wi-Fi 密码
 abbrlink: 6e155fd
 date: 2025-11-02 21:30:02
-updated: 2025-11-02 21:30:02
+updated: 2025-11-04 09:17:00
 tags:
   - kali
   - linux
@@ -59,7 +59,11 @@ airmon-ng check kill
 ### 3. 列出附近的 Wi-Fi 网络，记下目标 Wi-Fi 的 BSSID 和 CH（信道）
 
 ```bash
+# 扫描2.4GHz 频段
 airodump-ng wlan0mon
+
+# 扫描 5GHz 频段
+airodump-ng wlan0mon -C 5180-5885
 ```
 
 注意这里的无线网卡名称是  `wlan0mon`, 而不是  `wlan0`。因为刚刚开启了监听 (monitor) 模式。
