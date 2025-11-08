@@ -2,7 +2,7 @@
 title: 使用 Aircrack-ng 破解 Wi-Fi 密码
 abbrlink: 6e155fd
 date: 2025-11-02 21:30:02
-updated: 2025-11-04 09:17:00
+updated: 2025-11-08 21:24:41
 tags:
   - kali
   - linux
@@ -101,7 +101,7 @@ aircrack-ng -w /usr/share/wordlists/rockyou.txt Wi-Fi_capture-01.cap
 ### 例 1. 制作包含所有本地手机号的密码本
 
 ```python
-# 下面的两个前缀只是例子，请自行查找当地的号段，参考网站：https://telphone.cn/prefix/
+# 下面的两个前缀只是例子，请自行查找当地的号段。
 prefixes = ['1850006', '1301101']
 
 def generate_phone_numbers(file_name):
