@@ -2,7 +2,7 @@
 title: 使用 Aircrack-ng 破解 Wi-Fi 密码
 abbrlink: 6e155fd
 date: 2025-11-02 21:30:02
-updated: 2025-11-08 21:24:41
+updated: 2025-11-09 02:18:41
 tags:
   - kali
   - linux
@@ -38,7 +38,7 @@ iw list
 
 ### 2. 准备测试环境
 
-在你的 Linux 系统中安装 [Aircrack-ng](https://github.com/aircrack-ng/aircrack-ng) 工具包，或者直接去 [镜像站](https://mirrors.cernet.edu.cn/kali-images/current/) 下载 Live 版的 Kali Linux 系统镜像（比如 `kali-linux-2025.3-live-amd64.iso`），自行制作系统盘，然后引导进入 Live 环境进行后面的操作，如果你是用的 USB 无线网卡，也可以用虚拟机测试，USB 无线网卡可以很方便的直接连接到虚拟机。
+在你的 Linux 系统中安装 Aircrack-ng[^1] 工具包，或者直接去 镜像站 [^2] 下载 Live 版的 Kali Linux 系统镜像（比如 `kali-linux-2025.3-live-amd64.iso`），自行制作系统盘，然后引导进入 Live 环境进行后面的操作，如果你是用的 USB 无线网卡，也可以用虚拟机测试，USB 无线网卡可以很方便的直接连接到虚拟机。
 
 如果你用的是 Windows，只建议使用虚拟机 + 无线网卡的方案，不建议尝试直接在 Windows 运行 Aircrack-ng，兼容性不好。
 
@@ -121,3 +121,6 @@ def generate_phone_numbers(file_name):
 # 调用函数生成并写入文件
 generate_phone_numbers('phone_numbers.txt')
 ```
+
+[^1]: <https://github.com/aircrack-ng/aircrack-ng>
+[^2]: <https://mirrors.cernet.edu.cn/kali-images/current/>
