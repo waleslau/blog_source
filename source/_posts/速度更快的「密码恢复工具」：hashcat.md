@@ -1,11 +1,11 @@
 ---
 title: 速度更快的「密码恢复工具」：hashcat
-tags:
-  - kali
-  - linux
 abbrlink: 8870bccb
 date: 2025-11-08 21:21:21
 updated: 2025-11-08 21:21:21
+tags:
+  - kali
+  - linux
 ---
 
 书接上文 [^1]，最近又发现了一个新的软件：hashcat[^2]，和 Aircrack-ng 里的 WPA 密码破解器相比，它的速度更快，功能更多，且支持 GPU 加速。这个项目的 Github 仓库 [^3] 里写的对它自己的介绍也很自信： _hashcat is the world's fastest and most advanced password recovery utility_ ，哈哈。
@@ -26,10 +26,10 @@ hashcat -m 22000 -a 0 Wi-Fi_capture-01.hc22000 ~/phone_numbers_dict.txt
 hashcat -m 22000 -a 3 Wi-Fi_capture-01.hc22000 ?l?l?l?d?d?d?d?d
 
 # 两个字典，手机号+中国常见姓氏拼音
-hashcat -m 22000 -a 1 Wi-Fi_capture-01.hc22000 ~/phone_numbers_dict.txt ~/BaiJjiaXing_pinyin.txt
-hashcat -m 22000 -a 1 Wi-Fi_capture-01.hc22000 ~/BaiJjiaXing_pinyin.txt ~/phone_numbers_dict.txt
+hashcat -m 22000 -a 1 Wi-Fi_capture-01.hc22000 ~/phone_numbers_dict.txt ~/BaiJiaXing_pinyin.txt
+hashcat -m 22000 -a 1 Wi-Fi_capture-01.hc22000 ~/BaiJiaXing_pinyin.txt ~/phone_numbers_dict.txt
 
-# 字母+字典
+# 掩码/字典混合模式，字母+手机号
 hashcat -m 22000 -a 6 Wi-Fi_capture-01.hc22000 ~/phone_numbers_dict.txt ?l?l
 hashcat -m 22000 -a 6 Wi-Fi_capture-01.hc22000 ~/phone_numbers_dict.txt ?u?u
 hashcat -m 22000 -a 7 Wi-Fi_capture-01.hc22000 ?l?l ~/phone_numbers_dict.txt
