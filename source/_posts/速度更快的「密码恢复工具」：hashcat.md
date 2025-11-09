@@ -2,7 +2,7 @@
 title: 速度更快的「密码恢复工具」：hashcat
 abbrlink: 8870bccb
 date: 2025-11-08 21:21:21
-updated: 2025-11-08 21:21:21
+updated: 2025-11-09 22:06:01
 tags:
   - kali
   - linux
@@ -34,6 +34,9 @@ hashcat -m 22000 -a 6 Wi-Fi_capture-01.hc22000 ~/phone_numbers_dict.txt ?l?l
 hashcat -m 22000 -a 6 Wi-Fi_capture-01.hc22000 ~/phone_numbers_dict.txt ?u?u
 hashcat -m 22000 -a 7 Wi-Fi_capture-01.hc22000 ?l?l ~/phone_numbers_dict.txt
 hashcat -m 22000 -a 7 Wi-Fi_capture-01.hc22000 ?u?u ~/phone_numbers_dict.txt
+
+# 全部手机号都做到字典里文件就有点太大了，只把前7位放字典里，后四位使用掩码
+hashcat -m 22000 -a 6 Wi-Fi_capture-01.hc22000 ~/phone_prefix_dict.txt ?d?d?d?d
 ```
 
 常用参数释义：
