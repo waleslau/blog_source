@@ -2,7 +2,7 @@
 title: 使用 Aircrack-ng 破解 Wi-Fi 密码
 abbrlink: 6e155fd
 date: 2025-11-02 21:30:02
-updated: 2025-11-09 02:18:41
+updated: 2025-11-21 23:25:14
 tags:
   - kali
   - linux
@@ -77,6 +77,8 @@ airodump-ng --bssid 2C:B2:1A:22:51:86 -c 3 -w ~/Wi-Fi_capture wlan0mon
 ### 5. 发送 Deauthentication 攻击
 
 为了加速握手包的捕捉，可以发送 Deauthentication 攻击，让目标设备断线并重新连接
+
+新开一个终端。
 
 ```bash
 # 攻击无线AP
