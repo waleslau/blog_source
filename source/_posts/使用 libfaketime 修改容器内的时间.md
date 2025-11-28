@@ -2,7 +2,7 @@
 title: 使用 libfaketime 修改容器内的时间
 abbrlink: 5bbfeefd
 date: 2025-11-28 12:15:03
-updated: 2025-11-28 21:13:52
+updated: 2025-11-28 21:16:49
 tags:
   - linux
   - docker
@@ -36,7 +36,7 @@ RUN git clone https://hk.gh-proxy.org/https://github.com/wolfcw/libfaketime && \
 ENV LD_PRELOAD=/usr/local/lib/faketime/libfaketime.so FAKETIME="@2012-01-22 8:22:22"
 ```
 
-## 2. 构建容器
+## 2. 构建镜像
 
 ```bash
 docker build -t faketime:v1 ./
