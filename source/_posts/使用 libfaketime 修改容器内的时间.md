@@ -2,7 +2,7 @@
 title: 使用 libfaketime 修改容器内的时间
 abbrlink: 5bbfeefd
 date: 2025-11-28 12:15:03
-updated: 2025-11-28 17:15:18
+updated: 2025-11-28 21:13:52
 tags:
   - linux
   - docker
@@ -13,9 +13,15 @@ tags:
 
 先是找到了 libfaketime[^1] 这个工具，但这个库只对当时运行的二进制有关，影响不到正在运行的文件系统，或许有某种办法可以在挂载文件系统时或更早的阶段让 libfaketime 介入，但我感觉有点风险，为了数据安全就先放下了这个想法。
 
-后来在查资料的过程中发现还可以在容器里面利用 libfaketime  修改容器内部时间 [^2]，妥了，容器里边就可以随便造了哈哈，只需要把文件所在目录挂载到容器内，然后在容器内把要处理的文件 copy 到挂载目录之外的其他位置 [^3] 再覆盖回来,就可以把创建时间变成过去的时间了，下面是步骤：
+后来在查资料的过程中发现还可以在容器里面利用 libfaketime 修改容器内部时间 [^2]，妥了，容器里边就可以随便造了哈哈，只需要把文件所在目录挂载到容器内，然后在容器内把要处理的文件 copy 到挂载目录之外的其他位置 [^3] 再覆盖回来,就可以把创建时间变成过去的时间了，下面是步骤：
 
-1. 创建 Dockerfile 文件：`mkdir faketime && cd faketime && vim Dockerfile`
+## 1. 创建 Dockerfile 文件
+
+```bash
+mkdir faketime
+cd faketime
+vim Dockerfile
+```
 
 ```Dockerfile
 FROM m.daocloud.io/docker.io/alpine:latest
@@ -30,13 +36,13 @@ RUN git clone https://hk.gh-proxy.org/https://github.com/wolfcw/libfaketime && \
 ENV LD_PRELOAD=/usr/local/lib/faketime/libfaketime.so FAKETIME="@2012-01-22 8:22:22"
 ```
 
-2. 构建容器：
+## 2. 构建容器
 
 ```bash
 docker build -t faketime:v1 ./
 ```
 
-2. 启动容器：
+## 3. 启动容器
 
 ```bash
 # 直接启动容器
@@ -45,7 +51,9 @@ docker run -it --rm --volume /data/Camera:/data time:v1 bash
 docker run -it --rm --volume /data/Camera:/data -e FAKETIME="2015-01-22 8:22:22" time:v1 bash
 ```
 
-3. 处理文件：
+## 4. 处理文件
+
+在容器内执行
 
 ```bash
 cp /data/*.VDI ~/
@@ -53,7 +61,7 @@ mkdir -p /data/vdi-bak && mv /data/*.VDI /data/vdi-bak
 mv ~/*.VDI /data/
 ```
 
-4. 验证：
+## 5. 验证
 
 ```bash
 [idea@MiniPC /data/Camera]# stat SUNP0117.AVI
