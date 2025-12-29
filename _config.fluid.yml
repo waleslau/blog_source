@@ -1096,6 +1096,5 @@ static_prefix:
   internal_css: /css
   internal_img: /img
   #twikoo: https://cdn.staticfile.net/twikoo/1.6.30/
-  #twikoo: https://cdn.oopsky.top/twikoo/
-  twikoo: https://oopsky.top/assets/twikoo/
+  twikoo: https://cdn.oopsky.top/twikoo/
   #twikoo: https://cdn.jsdelivr.net/npm/twikoo/dist/
