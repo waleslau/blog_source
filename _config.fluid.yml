@@ -351,6 +351,8 @@ navbar:
       submenu: [
       { key: 'HOME', link: 'https://oopsky.top/' },
       { key: 'Forgejo', link: 'https://git.oopsky.top/' },
+      #{ key: 'OpenList', link: 'https://files.oopsky.top/' },
+      #{ key: 'Bitwarden', link: 'https://vw.oopsky.top/' },
       { key: "Memos", link: "https://memos.oopsky.top/explore"},
       { key: "FreshRSS", link: "https://rss.oopsky.top/"},
       { key: "Beszel", link: "https://status.oopsky.top/"},
