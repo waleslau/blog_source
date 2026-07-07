@@ -1,7 +1,7 @@
 import os
 
 directory_A = "./source/_posts"  # 目录A的路径
-directory_B = "../notes-obsidian/BLOG"  # 目录B的路径
+directory_B = "../notes/BLOG"  # 目录B的路径
 
 for root, dirs, files in os.walk(directory_A):
     for file_name in files:
