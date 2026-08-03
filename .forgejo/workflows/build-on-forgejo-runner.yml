@@ -17,7 +17,8 @@ jobs:
       - name: 'set timezone'
         run: |
           apk add tzdata
-          cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+          cp -vf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+          date
           
       - name: 'setup git and openssh'
         run: |
