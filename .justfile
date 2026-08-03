@@ -9,7 +9,6 @@ pnpm:
 cg: pnpm
     pnpm hexo clean
     pnpm hexo generate
-    chmod -R a+rwx public
 
 cgs: cg
     pnpm hexo server -l
