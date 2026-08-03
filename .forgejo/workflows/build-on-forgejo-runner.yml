@@ -1,4 +1,8 @@
 # 2025/11/12 为方便和笔记库交互，不再自动执行此工作流，并将自动更新博客的工作流合并到笔记里的工作流
+
+# 2026/08/03 取消上传 webdav，源站改为 wei-blog.pages.dev
+# 现在的流量指向为 blog.oopsky.top --[腾讯云EdgeOne]--> VM001上的 Caddy --> wei-blog.pages.dev
+
 on:
   workflow_dispatch: {}
 jobs:
