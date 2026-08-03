@@ -1,8 +1,5 @@
 # 2025/11/12 为方便和笔记库交互，不再自动执行此工作流，并将自动更新博客的工作流合并到笔记里的工作流
 
-# 2026/08/03 取消上传 webdav，源站改为 wei-blog.pages.dev
-# 现在的流量指向为 blog.oopsky.top --[腾讯云EdgeOne]--> VM001上的 Caddy --> wei-blog.pages.dev
-
 on:
   workflow_dispatch: {}
 jobs:
@@ -47,6 +44,13 @@ jobs:
 
       - name: 'upload'
         run: |
-          apk add rclone
-          rclone config create blog-public webdav url http://172.19.173.174:3060 vendor other user 'blog_public' pass 'sAmYbV3f'
-          rclone sync public blog-public:
+          apk add openssh
+          mkdir -p ~/.ssh
+          echo 'LS0tLS1CRUdJTiBPUEVOU1NIIFBSSVZBVEUgS0VZLS0tLS0KYjNCbGJuTnphQzFyWlhrdGRqRUFBQUFBQkc1dmJtVUFBQUFFYm05dVpRQUFBQUFBQUFBQkFBQUFNd0FBQUF0emMyZ3RaVwpReU5UVXhPUUFBQUNCckZ3eVNHdEQybjdlKys4c01NRWpSdDZIaGlWVUNNaHZSUEZrLzh4cGVUUUFBQUpqdXdhaVU3c0dvCmxBQUFBQXR6YzJndFpXUXlOVFV4T1FBQUFDQnJGd3lTR3REMm43ZSsrOHNNTUVqUnQ2SGhpVlVDTWh2UlBGay84eHBlVFEKQUFBRUE4bmliOEtmbkQ4c2ZVVnV4UGFYRmdxTlJsNHdyaXg2Z2ROc0VVWFEvcndHc1hESklhMFBhZnQ3Nzd5d3d3U05HMwpvZUdKVlFJeUc5RThXVC96R2w1TkFBQUFFWEp2YjNSQVkyUTVOV0V3TURBeVlXUmhBUUlEQkE9PQotLS0tLUVORCBPUEVOU1NIIFBSSVZBVEUgS0VZLS0tLS0K' | base64 -d > ~/.ssh/id_ed25519
+          echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGsXDJIa0Paft777ywwwSNG3oeGJVQIyG9E8WT/zGl5N root@cd95a0002ada' > ~/.ssh/id_ed25519.pub
+          echo 'StrictHostKeyChecking no' > ~/.ssh/config
+          echo 'UserKnownHostsFile /dev/null' > ~/.ssh/config
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/* 
+          ssh -p 10022 root@172.19.173.174 rm -rf /data/*
+          scp -P 10022 -r public/* root@172.19.173.174:/data/
