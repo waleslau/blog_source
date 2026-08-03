@@ -12,6 +12,8 @@ cg: pnpm
 
 cgs: cg
     pnpm hexo server -l
+s:
+    pnpm hexo server -p 3333 -l
 
 push:
     git remote | xargs -I _ git push _
