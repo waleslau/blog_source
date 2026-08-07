@@ -1,10 +1,10 @@
 ---
 title: 记一次 linux 环境排障：kernel does not support xxxx
-tags:
-  - linux
 abbrlink: 1451bb48
 date: 2026-08-07 12:01:26
-updated: 2026-08-07 12:08:04
+updated: 2026-08-07 12:12:19
+tags:
+  - linux
 ---
 突然发现 podman 起不来了
 
@@ -22,4 +22,4 @@ Linux amd-yes 7.1.5-arch1-2 #1 SMP PREEMPT_DYNAMIC Tue, 28 Jul 2026 13:49:51 +00
 linux 7.1.6.arch1-1
 ```
 
-这情况是更新内核后忘记重启了，重启一下就行了，虚惊一场哈哈。
+这情况是更新内核后忘记重启了，重启一下就行了。
