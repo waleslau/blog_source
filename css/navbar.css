@@ -1,0 +1,18 @@
+@font-face {
+  font-family: LXGWMarkerGothic;
+  src: url("./woff2/LXGWMarkerGothic.OnlyRequire.woff2");
+}
+
+@font-face {
+  font-family: JingNanJunJunTi;
+  src: url("./woff2/JingNanJunJunTi.OnlyRequire.woff2");
+}
+
+.navbar-brand {
+  /* font-family: LXGWMarkerGothic, sans-serif; */
+  font-family: JingNanJunJunTi, sans-serif;
+}
+.navbar {
+  font-family: LXGWMarkerGothic, sans-serif;
+  /* font-family: JingNanJunJunTi, sans-serif; */
+}
