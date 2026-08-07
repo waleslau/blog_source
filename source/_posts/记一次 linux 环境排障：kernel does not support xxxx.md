@@ -2,11 +2,11 @@
 title: 记一次 linux 环境排障：kernel does not support xxxx
 abbrlink: 1451bb48
 date: 2026-08-07 12:01:26
-updated: 2026-08-07 12:43:38
+updated: 2026-08-07 12:49:31
 tags:
   - linux
 ---
-突然发现 podman 起不来了：
+突然发现 podman 起不来了
 
 ```bash
 [idea@amd-yes ~]$ podman images
